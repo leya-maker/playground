@@ -1,0 +1,11 @@
+{
+  "last_updated": "2026-04-10T15:12:52",
+  "data_sources": {
+    "pipeline": "ok",
+    "clients": "ok",
+    "tasks": "ok",
+    "finances": "ok",
+    "content": "ok",
+    "timekeeper": "ok"
+  }
+}
