@@ -1,5 +1,554 @@
 [
   {
+    "name": "[NABU] Facilitate outreach implementation training",
+    "assignee": "Leya",
+    "dueDate": "2026-07-17",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Draft outreach recommendations training deck",
+    "assignee": "Leya",
+    "dueDate": "2026-07-10",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Create recommendations for outreach by tier",
+    "assignee": "Kathleen",
+    "dueDate": "2026-07-10",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Present major gifts strategy and plan",
+    "assignee": "Leya",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Schedule outreach implementation training",
+    "assignee": "Leya",
+    "dueDate": "2026-06-26",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Finalize outreach toolkit",
+    "assignee": "Kathleen",
+    "dueDate": "2026-06-26",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Finalize major gifts strategy and plan",
+    "assignee": "Leya",
+    "dueDate": "2026-06-26",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Collect feedback on outreach toolkit",
+    "assignee": "Leya",
+    "dueDate": "2026-06-18",
+    "status": "To Do",
+    "clientTag": "Strategy",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Collect feedback on major gifts strategy and plan",
+    "assignee": "Leya",
+    "dueDate": "2026-06-18",
+    "status": "To Do",
+    "clientTag": "Strategy",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Draft outreach toolkit",
+    "assignee": "Kathleen",
+    "dueDate": "2026-06-12",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Draft major gifts strategy and plan",
+    "assignee": "Kathleen",
+    "dueDate": "2026-06-12",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Assess current program and assets",
+    "assignee": "Kathleen",
+    "dueDate": "2026-05-29",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Finalize gift chart",
+    "assignee": "Kathleen",
+    "dueDate": "2026-05-29",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Collect feedback on gift chart",
+    "assignee": "Leya",
+    "dueDate": "2026-05-22",
+    "status": "To Do",
+    "clientTag": "Strategy",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Draft gift chart",
+    "assignee": "Kathleen",
+    "dueDate": "2026-05-15",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Finalize top 50 list",
+    "assignee": "Kathleen",
+    "dueDate": "2026-05-08",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Review and confirm top 50 list",
+    "assignee": "Leya",
+    "dueDate": "2026-05-08",
+    "status": "To Do",
+    "clientTag": "Strategy",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Identify top 50 high potential donors",
+    "assignee": "Kathleen",
+    "dueDate": "2026-04-29",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Finalize portfolios",
+    "assignee": "Kathleen",
+    "dueDate": "2026-04-29",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Collect feedback on portfolios",
+    "assignee": "Leya",
+    "dueDate": "2026-04-24",
+    "status": "To Do",
+    "clientTag": "Strategy",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "[NABU] Create portfolios",
+    "assignee": "Kathleen",
+    "dueDate": "2026-04-17",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "this-week"
+  },
+  {
+    "name": "[NABU] Tier donor list based on capacity",
+    "assignee": "Kathleen",
+    "dueDate": "2026-04-17",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "this-week"
+  },
+  {
+    "name": "[NABU] Screen and segment donor data",
+    "assignee": "Kathleen",
+    "dueDate": "2026-04-10",
+    "status": "To Do",
+    "clientTag": "Delivery",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Set up texting with Claude through Signal",
+    "assignee": "Leya",
+    "dueDate": "2026-03-27",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Check in: Confirmed Mexico trip with Kelly? Booked flights?",
+    "assignee": "Leya",
+    "dueDate": "2026-03-27",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Send Logan S-corp research overview",
+    "assignee": "Leya",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Draft ALDF extension contract",
+    "assignee": "Leya",
+    "dueDate": "2026-03-27",
+    "status": "Waiting",
+    "clientTag": "Delivery",
+    "priority": "High",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Send Logan full scope of work for Abri going forward",
+    "assignee": "Leya",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Schedule transvaginal ultrasound and mammogram",
+    "assignee": "Leya",
+    "dueDate": "2026-03-27",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Check in with Tina about CreativeMornings extension",
+    "assignee": "Leya",
+    "dueDate": "2026-04-17",
+    "status": "Waiting",
+    "clientTag": "BD/Pipeline",
+    "priority": "Medium",
+    "urgency": "this-week"
+  },
+  {
+    "name": "Ask Logan about cost seg company \u2014 they never reached out",
+    "assignee": "Leya",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Apex for Youth - Decide process for producing training (see description)",
+    "assignee": "Leya",
+    "dueDate": "2026-04-03",
+    "status": "To Do",
+    "clientTag": "Deliverable",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Receive Section 6 risk assessment and gap analysis",
+    "assignee": "Leya",
+    "dueDate": "2026-02-27",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Complete contract template and execution audit",
+    "assignee": "Leya",
+    "dueDate": "2026-08-08",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Complete insurance coverage audit",
+    "assignee": "Leya",
+    "dueDate": "2026-08-08",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Receive Section 5 risk assessment and gap analysis",
+    "assignee": "Leya",
+    "dueDate": "2026-07-30",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Complete 1099 filing and reporting audit",
+    "assignee": "Leya",
+    "dueDate": "2026-07-25",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Complete international contractor compliance audit",
+    "assignee": "Leya",
+    "dueDate": "2026-07-25",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Complete contractor classification audit",
+    "assignee": "Leya",
+    "dueDate": "2026-07-25",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Execute Section 4 remediation actions",
+    "assignee": "Leya",
+    "dueDate": "2026-07-18",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Receive Section 4 risk assessment and gap analysis",
+    "assignee": "Leya",
+    "dueDate": "2026-06-27",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Complete tax documentation and substantiation audit",
+    "assignee": "Leya",
+    "dueDate": "2026-06-20",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Execute Section 3 remediation actions",
+    "assignee": "Leya",
+    "dueDate": "2026-06-06",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Receive Section 3 risk assessment and gap analysis",
+    "assignee": "Leya",
+    "dueDate": "2026-05-16",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Execute Section 2 remediation actions",
+    "assignee": "Leya",
+    "dueDate": "2026-04-25",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Receive Section 2 risk assessment and gap analysis",
+    "assignee": "Leya",
+    "dueDate": "2026-04-04",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Complete LPM Consulting entity formation questionnaire",
+    "assignee": "Leya",
+    "dueDate": "2026-02-20",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Upload all contractor agreements and 1099 records",
+    "assignee": "Leya",
+    "dueDate": "2026-02-12",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Upload current financial records to project",
+    "assignee": "Leya",
+    "dueDate": "2026-02-12",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Upload all entity formation documents to project",
+    "assignee": "Leya",
+    "dueDate": "2026-02-12",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Creativemornings - Draft org chart for project plan",
+    "assignee": "Leya",
+    "dueDate": "2026-03-19",
+    "status": "To Do",
+    "clientTag": "Deliverable",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Creativemornings - Follow-up on approval for testimonial (if needed)",
+    "assignee": "Leya",
+    "dueDate": "2026-03-24",
+    "status": "To Do",
+    "clientTag": "Meeting/Comms",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "HFNY - Review/finalize one pager from Kaysee",
+    "assignee": "Leya",
+    "dueDate": "2026-03-24",
+    "status": "To Do",
+    "clientTag": "Deliverable",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Yolanda F. Johnson",
+    "assignee": "",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "BD/Pipeline",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Frankie Frederick",
+    "assignee": "",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "BD/Pipeline",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Jessica from the gym",
+    "assignee": "",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "BD/Pipeline",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Ben Greene",
+    "assignee": "",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "BD/Pipeline",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Sanaya Kauffman",
+    "assignee": "",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "BD/Pipeline",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Toby Himmel",
+    "assignee": "",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "BD/Pipeline",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "HCZ - Liam",
+    "assignee": "Leya",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "BD/Pipeline",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Sesame Workshop - Hillary",
+    "assignee": "Leya",
+    "dueDate": "2024-11-14",
+    "status": "To Do",
+    "clientTag": "Deliverable",
+    "priority": "Medium",
+    "urgency": "overdue"
+  },
+  {
     "name": "Complete tax filing history audit",
     "assignee": "Leya",
     "dueDate": "2026-06-20",
@@ -258,555 +807,6 @@
     "status": "To Do",
     "clientTag": "Delivery",
     "priority": "",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Apex for Youth - Decide process for producing training (see description)",
-    "assignee": "Leya",
-    "dueDate": "2026-04-03",
-    "status": "To Do",
-    "clientTag": "Deliverable",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "Execute Section 4 remediation actions",
-    "assignee": "Leya",
-    "dueDate": "2026-07-18",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Yolanda F. Johnson",
-    "assignee": "",
-    "dueDate": null,
-    "status": "To Do",
-    "clientTag": "BD/Pipeline",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Execute Section 3 remediation actions",
-    "assignee": "Leya",
-    "dueDate": "2026-06-06",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Creativemornings - Draft org chart for project plan",
-    "assignee": "Leya",
-    "dueDate": "2026-03-19",
-    "status": "To Do",
-    "clientTag": "Deliverable",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "Upload all entity formation documents to project",
-    "assignee": "Leya",
-    "dueDate": "2026-02-12",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "Upload current financial records to project",
-    "assignee": "Leya",
-    "dueDate": "2026-02-12",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "Execute Section 2 remediation actions",
-    "assignee": "Leya",
-    "dueDate": "2026-04-25",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Complete contract template and execution audit",
-    "assignee": "Leya",
-    "dueDate": "2026-08-08",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Frankie Frederick",
-    "assignee": "",
-    "dueDate": null,
-    "status": "To Do",
-    "clientTag": "BD/Pipeline",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Sanaya Kauffman",
-    "assignee": "",
-    "dueDate": null,
-    "status": "To Do",
-    "clientTag": "BD/Pipeline",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Receive Section 5 risk assessment and gap analysis",
-    "assignee": "Leya",
-    "dueDate": "2026-07-30",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Complete tax documentation and substantiation audit",
-    "assignee": "Leya",
-    "dueDate": "2026-06-20",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Ben Greene",
-    "assignee": "",
-    "dueDate": null,
-    "status": "To Do",
-    "clientTag": "BD/Pipeline",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Complete insurance coverage audit",
-    "assignee": "Leya",
-    "dueDate": "2026-08-08",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Toby Himmel",
-    "assignee": "",
-    "dueDate": null,
-    "status": "To Do",
-    "clientTag": "BD/Pipeline",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Complete international contractor compliance audit",
-    "assignee": "Leya",
-    "dueDate": "2026-07-25",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Complete 1099 filing and reporting audit",
-    "assignee": "Leya",
-    "dueDate": "2026-07-25",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Sesame Workshop - Hillary",
-    "assignee": "Leya",
-    "dueDate": "2024-11-14",
-    "status": "To Do",
-    "clientTag": "Deliverable",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "Receive Section 2 risk assessment and gap analysis",
-    "assignee": "Leya",
-    "dueDate": "2026-04-04",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "Receive Section 4 risk assessment and gap analysis",
-    "assignee": "Leya",
-    "dueDate": "2026-06-27",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Upload all contractor agreements and 1099 records",
-    "assignee": "Leya",
-    "dueDate": "2026-02-12",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "Jessica from the gym",
-    "assignee": "",
-    "dueDate": null,
-    "status": "To Do",
-    "clientTag": "BD/Pipeline",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Receive Section 3 risk assessment and gap analysis",
-    "assignee": "Leya",
-    "dueDate": "2026-05-16",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Complete contractor classification audit",
-    "assignee": "Leya",
-    "dueDate": "2026-07-25",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Complete LPM Consulting entity formation questionnaire",
-    "assignee": "Leya",
-    "dueDate": "2026-02-20",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "Creativemornings - Follow-up on approval for testimonial (if needed)",
-    "assignee": "Leya",
-    "dueDate": "2026-03-24",
-    "status": "To Do",
-    "clientTag": "Meeting/Comms",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "HFNY - Review/finalize one pager from Kaysee",
-    "assignee": "Leya",
-    "dueDate": "2026-03-24",
-    "status": "To Do",
-    "clientTag": "Deliverable",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "Receive Section 6 risk assessment and gap analysis",
-    "assignee": "Leya",
-    "dueDate": "2026-02-27",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "HCZ - Liam",
-    "assignee": "Leya",
-    "dueDate": null,
-    "status": "To Do",
-    "clientTag": "BD/Pipeline",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Send Logan S-corp research overview",
-    "assignee": "Leya",
-    "dueDate": null,
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Check in: Confirmed Mexico trip with Kelly? Booked flights?",
-    "assignee": "Leya",
-    "dueDate": "2026-03-27",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "Draft ALDF extension contract",
-    "assignee": "Leya",
-    "dueDate": "2026-03-27",
-    "status": "Waiting",
-    "clientTag": "Delivery",
-    "priority": "High",
-    "urgency": "overdue"
-  },
-  {
-    "name": "Set up texting with Claude through Signal",
-    "assignee": "Leya",
-    "dueDate": "2026-03-27",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "Send Logan full scope of work for Abri going forward",
-    "assignee": "Leya",
-    "dueDate": null,
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "Schedule transvaginal ultrasound and mammogram",
-    "assignee": "Leya",
-    "dueDate": "2026-03-27",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "Check in with Tina about CreativeMornings extension",
-    "assignee": "Leya",
-    "dueDate": "2026-04-17",
-    "status": "Waiting",
-    "clientTag": "BD/Pipeline",
-    "priority": "Medium",
-    "urgency": "this-week"
-  },
-  {
-    "name": "Ask Logan about cost seg company \u2014 they never reached out",
-    "assignee": "Leya",
-    "dueDate": null,
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Draft outreach recommendations training deck",
-    "assignee": "Leya",
-    "dueDate": "2026-07-10",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Finalize major gifts strategy and plan",
-    "assignee": "Leya",
-    "dueDate": "2026-06-26",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Finalize top 50 list",
-    "assignee": "Kathleen",
-    "dueDate": "2026-05-08",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Create recommendations for outreach by tier",
-    "assignee": "Kathleen",
-    "dueDate": "2026-07-10",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Draft outreach toolkit",
-    "assignee": "Kathleen",
-    "dueDate": "2026-06-12",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Finalize portfolios",
-    "assignee": "Kathleen",
-    "dueDate": "2026-04-29",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Draft major gifts strategy and plan",
-    "assignee": "Kathleen",
-    "dueDate": "2026-06-12",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Identify top 50 high potential donors",
-    "assignee": "Kathleen",
-    "dueDate": "2026-04-29",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Present major gifts strategy and plan",
-    "assignee": "Leya",
-    "dueDate": null,
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Draft gift chart",
-    "assignee": "Kathleen",
-    "dueDate": "2026-05-15",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Tier donor list based on capacity",
-    "assignee": "Kathleen",
-    "dueDate": "2026-04-17",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "this-week"
-  },
-  {
-    "name": "[NABU] Screen and segment donor data",
-    "assignee": "Kathleen",
-    "dueDate": "2026-04-10",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "overdue"
-  },
-  {
-    "name": "[NABU] Schedule outreach implementation training",
-    "assignee": "Leya",
-    "dueDate": "2026-06-26",
-    "status": "To Do",
-    "clientTag": "Ops/Admin",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Collect feedback on gift chart",
-    "assignee": "Leya",
-    "dueDate": "2026-05-22",
-    "status": "To Do",
-    "clientTag": "Strategy",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Assess current program and assets",
-    "assignee": "Kathleen",
-    "dueDate": "2026-05-29",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Finalize outreach toolkit",
-    "assignee": "Kathleen",
-    "dueDate": "2026-06-26",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Collect feedback on major gifts strategy and plan",
-    "assignee": "Leya",
-    "dueDate": "2026-06-18",
-    "status": "To Do",
-    "clientTag": "Strategy",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Create portfolios",
-    "assignee": "Kathleen",
-    "dueDate": "2026-04-17",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "this-week"
-  },
-  {
-    "name": "[NABU] Review and confirm top 50 list",
-    "assignee": "Leya",
-    "dueDate": "2026-05-08",
-    "status": "To Do",
-    "clientTag": "Strategy",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Collect feedback on outreach toolkit",
-    "assignee": "Leya",
-    "dueDate": "2026-06-18",
-    "status": "To Do",
-    "clientTag": "Strategy",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Finalize gift chart",
-    "assignee": "Kathleen",
-    "dueDate": "2026-05-29",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Facilitate outreach implementation training",
-    "assignee": "Leya",
-    "dueDate": "2026-07-17",
-    "status": "To Do",
-    "clientTag": "Delivery",
-    "priority": "Medium",
-    "urgency": "upcoming"
-  },
-  {
-    "name": "[NABU] Collect feedback on portfolios",
-    "assignee": "Leya",
-    "dueDate": "2026-04-24",
-    "status": "To Do",
-    "clientTag": "Strategy",
-    "priority": "Medium",
     "urgency": "upcoming"
   }
 ]

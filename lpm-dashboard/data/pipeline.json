@@ -1,5 +1,29 @@
 [
   {
+    "name": "ALDF",
+    "stage": "Negotiation",
+    "followUpDate": "2026-04-15",
+    "nextStep": "draft interim Head of Major Gifts SOW",
+    "estimatedValue": 30000,
+    "lastUpdated": "2026-04-11",
+    "contact": "Susan Halteman",
+    "probability": null,
+    "engagementType": "Retainer",
+    "lastContactDate": null
+  },
+  {
+    "name": "CCC",
+    "stage": "Proposal Sent",
+    "followUpDate": "2026-04-15",
+    "nextStep": "Follow-up to get feedback on the proposal",
+    "estimatedValue": 9241,
+    "lastUpdated": "2026-04-11",
+    "contact": "Mayra Macedo-Nolan",
+    "probability": null,
+    "engagementType": "Project",
+    "lastContactDate": null
+  },
+  {
     "name": "Cave Canem",
     "stage": "Signed",
     "followUpDate": "2026-04-15",
@@ -153,30 +177,6 @@
     "contact": "Dr. Angelique Grant",
     "probability": null,
     "engagementType": "",
-    "lastContactDate": null
-  },
-  {
-    "name": "ALDF",
-    "stage": "Negotiation",
-    "followUpDate": "2026-04-15",
-    "nextStep": "draft interim Head of Major Gifts SOW",
-    "estimatedValue": 30000,
-    "lastUpdated": "2026-04-11",
-    "contact": "Susan Halteman",
-    "probability": null,
-    "engagementType": "Retainer",
-    "lastContactDate": null
-  },
-  {
-    "name": "CCC",
-    "stage": "Proposal Sent",
-    "followUpDate": "2026-04-15",
-    "nextStep": "Follow-up to get feedback on the proposal",
-    "estimatedValue": 9241,
-    "lastUpdated": "2026-04-11",
-    "contact": "Mayra Macedo-Nolan",
-    "probability": null,
-    "engagementType": "Project",
     "lastContactDate": null
   }
 ]
