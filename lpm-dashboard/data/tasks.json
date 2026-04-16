@@ -808,5 +808,59 @@
     "clientTag": "Strategy",
     "priority": "Medium",
     "urgency": "upcoming"
+  },
+  {
+    "name": "Add Jessica's YPO prospect list to wealth screening submission",
+    "assignee": "Kathleen",
+    "dueDate": "2026-04-22",
+    "status": "Waiting",
+    "clientTag": "Delivery",
+    "priority": "High",
+    "urgency": "this-week"
+  },
+  {
+    "name": "Follow up with Camille on Pierre WhatsApp intro via sister",
+    "assignee": "Leya",
+    "dueDate": "2026-04-22",
+    "status": "Waiting",
+    "clientTag": "Strategy",
+    "priority": "Medium",
+    "urgency": "this-week"
+  },
+  {
+    "name": "Redraft Pierre Falcone document: problem statement + NABU overview only, remove soft ask",
+    "assignee": "Leya",
+    "dueDate": "2026-04-18",
+    "status": "To Do",
+    "clientTag": "Deliverable",
+    "priority": "High",
+    "urgency": "this-week"
+  },
+  {
+    "name": "Submit wealth screening data append to vendor",
+    "assignee": "Kathleen",
+    "dueDate": "2026-04-22",
+    "status": "In Progress",
+    "clientTag": "Delivery",
+    "priority": "High",
+    "urgency": "this-week"
+  },
+  {
+    "name": "Establish bi-weekly meeting cadence and communication norms with NABU",
+    "assignee": "Leya",
+    "dueDate": "2026-04-18",
+    "status": "To Do",
+    "clientTag": "Meeting/Comms",
+    "priority": "Medium",
+    "urgency": "this-week"
+  },
+  {
+    "name": "Rotate Xero app client secret",
+    "assignee": "Leya",
+    "dueDate": "2026-04-22",
+    "status": "To Do",
+    "clientTag": "Ops/Admin",
+    "priority": "Medium",
+    "urgency": "this-week"
   }
 ]
