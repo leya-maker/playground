@@ -213,7 +213,7 @@
     "status": "To Do",
     "clientTag": "Ops/Admin",
     "priority": "",
-    "urgency": "upcoming"
+    "urgency": "this-week"
   },
   {
     "name": "Upload contractor agreements and 1099 records",
@@ -330,7 +330,7 @@
     "status": "To Do",
     "clientTag": "Ops/Admin",
     "priority": "Medium",
-    "urgency": "upcoming"
+    "urgency": "this-week"
   },
   {
     "name": "Complete contract template and execution audit",
@@ -591,7 +591,7 @@
     "status": "Waiting",
     "clientTag": "BD/Pipeline",
     "priority": "Medium",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "Ask Logan about cost seg company \u2014 they never reached out",
@@ -699,7 +699,7 @@
     "status": "To Do",
     "clientTag": "Delivery",
     "priority": "Medium",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "[NABU] Screen and segment donor data",
@@ -762,7 +762,7 @@
     "status": "To Do",
     "clientTag": "Delivery",
     "priority": "Medium",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "[NABU] Review and confirm top 50 list",
