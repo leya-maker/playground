@@ -834,7 +834,7 @@
     "status": "To Do",
     "clientTag": "Deliverable",
     "priority": "High",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "Submit wealth screening data append to vendor",
@@ -852,7 +852,7 @@
     "status": "To Do",
     "clientTag": "Meeting/Comms",
     "priority": "Medium",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "Rotate Xero app client secret",
