@@ -862,5 +862,50 @@
     "clientTag": "Ops/Admin",
     "priority": "Medium",
     "urgency": "this-week"
+  },
+  {
+    "name": "Collect box donations for Alma's class",
+    "assignee": "Leya",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "",
+    "priority": "Low",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Alma's Dream Box project \u2014 decorated shoebox",
+    "assignee": "Leya",
+    "dueDate": "2026-05-04",
+    "status": "To Do",
+    "clientTag": "",
+    "priority": "Medium",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Return library books",
+    "assignee": "Leya",
+    "dueDate": "2026-04-24",
+    "status": "To Do",
+    "clientTag": "",
+    "priority": "Medium",
+    "urgency": "this-week"
+  },
+  {
+    "name": "Ezra's Book Fair",
+    "assignee": "Leya",
+    "dueDate": "2026-04-23",
+    "status": "To Do",
+    "clientTag": "",
+    "priority": "Medium",
+    "urgency": "this-week"
+  },
+  {
+    "name": "Alma's Book Fair \u2014 let teacher know if attending",
+    "assignee": "Leya",
+    "dueDate": "2026-04-21",
+    "status": "To Do",
+    "clientTag": "",
+    "priority": "High",
+    "urgency": "this-week"
   }
 ]
