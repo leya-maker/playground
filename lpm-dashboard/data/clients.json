@@ -30,7 +30,7 @@
     "name": "Cave Canem",
     "contractStart": "2026-07-09",
     "contractEnd": "2026-07-09",
-    "monthlyValue": null,
+    "monthlyValue": 4000,
     "engagementType": "Training",
     "team": [
       "Leya"

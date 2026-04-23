@@ -654,7 +654,7 @@
     "status": "To Do",
     "clientTag": "Delivery",
     "priority": "Medium",
-    "urgency": "upcoming"
+    "urgency": "this-week"
   },
   {
     "name": "[NABU] Draft major gifts strategy and plan",
@@ -672,7 +672,7 @@
     "status": "To Do",
     "clientTag": "Delivery",
     "priority": "Medium",
-    "urgency": "upcoming"
+    "urgency": "this-week"
   },
   {
     "name": "[NABU] Present major gifts strategy and plan",
@@ -906,7 +906,7 @@
     "status": "To Do",
     "clientTag": "",
     "priority": "High",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "Rose v2 smoke test \u2014 safe to delete",
