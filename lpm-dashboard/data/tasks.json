@@ -816,7 +816,7 @@
     "status": "Waiting",
     "clientTag": "Delivery",
     "priority": "High",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "Follow up with Camille on Pierre WhatsApp intro via sister",
@@ -825,7 +825,7 @@
     "status": "Waiting",
     "clientTag": "Strategy",
     "priority": "Medium",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "Redraft Pierre Falcone document: problem statement + NABU overview only, remove soft ask",
@@ -843,7 +843,7 @@
     "status": "In Progress",
     "clientTag": "Delivery",
     "priority": "High",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "Establish bi-weekly meeting cadence and communication norms with NABU",
@@ -861,7 +861,7 @@
     "status": "To Do",
     "clientTag": "Ops/Admin",
     "priority": "Medium",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "Collect box donations for Alma's class",
@@ -915,7 +915,7 @@
     "status": "To Do",
     "clientTag": "",
     "priority": "Low",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "Send home manual + restaurant/neighborhood guide to Eric & Amrita before their NYC arrival (Nyon home exchange)",
