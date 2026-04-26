@@ -807,7 +807,7 @@
     "status": "To Do",
     "clientTag": "Strategy",
     "priority": "Medium",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "Add Jessica's YPO prospect list to wealth screening submission",
@@ -888,7 +888,7 @@
     "status": "To Do",
     "clientTag": "",
     "priority": "Medium",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "Ezra's Book Fair",
