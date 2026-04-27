@@ -213,7 +213,7 @@
     "status": "To Do",
     "clientTag": "Ops/Admin",
     "priority": "",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "Upload contractor agreements and 1099 records",
@@ -330,7 +330,7 @@
     "status": "To Do",
     "clientTag": "Ops/Admin",
     "priority": "Medium",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "Complete contract template and execution audit",
