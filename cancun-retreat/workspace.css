@@ -629,8 +629,20 @@ input, textarea { font: inherit; color: inherit; }
   letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--ink-muted);
 }
-.file-icon[data-kind="image"] { background: var(--sky-soft); color: var(--sky); }
-.file-icon[data-kind="pdf"]   { background: var(--accent-soft); color: var(--accent-deep); }
+.file-icon[data-kind="image"]  { background: var(--sky-soft); color: var(--sky); }
+.file-icon[data-kind="pdf"]    { background: var(--accent-soft); color: var(--accent-deep); }
+.file-icon[data-kind="folder"] { background: var(--accent-soft); color: var(--accent-deep); }
+
+.file-row-link {
+  text-decoration: none;
+  color: inherit;
+  transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+.file-row-link:hover {
+  background: var(--bg-warmer);
+  border-color: var(--rule-strong);
+}
+.file-row-link:hover .file-name { color: var(--accent-deep); }
 .file-name {
   font-size: 14px; color: var(--ink);
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;

@@ -275,8 +275,31 @@ function UploadZone({ state, actions }) {
   };
   // pre-seeded library + user uploads, merged
   const all = [...state.uploads, ...window.TRIP.library];
+  const folder = window.TRIP.libraryFolder;
+
+  const rowInner = (f) => (
+    <>
+      <div className="file-icon" data-kind={f.kind}>{f.kind === "pdf" ? "PDF" : f.kind === "image" ? "IMG" : "DOC"}</div>
+      <div>
+        <div className="file-name">{f.name}</div>
+        <div className="file-meta">{f.author && `Added by ${f.author === "leya" ? "Leya" : "Kelly"} · `}{f.added || f.ts || ""}{f.size ? ` · ${f.size}` : ""}</div>
+      </div>
+      <span className="tag" data-tint="ink">{f.kind}</span>
+    </>
+  );
+
   return (
     <div className="notebook-list">
+      {folder && (
+        <a className="file-row file-row-link" href={folder.url} target="_blank" rel="noopener noreferrer">
+          <div className="file-icon" data-kind="folder">DRIVE</div>
+          <div>
+            <div className="file-name">{folder.name}</div>
+            <div className="file-meta">Open the shared folder in Google Drive ↗</div>
+          </div>
+          <span className="tag" data-tint="accent">folder</span>
+        </a>
+      )}
       <div className="dropzone" data-active={active}
         onDragOver={(e) => { e.preventDefault(); setActive(true); }}
         onDragLeave={() => setActive(false)}
@@ -288,19 +311,25 @@ function UploadZone({ state, actions }) {
         <div className="label">Drop notes, briefs, photos here</div>
         <div className="hint">Or click to choose. Mock storage — files don't actually upload.</div>
       </div>
-      {all.map(f => (
-        <div key={f.id} className="file-row">
-          <div className="file-icon" data-kind={f.kind}>{f.kind === "pdf" ? "PDF" : f.kind === "image" ? "IMG" : "DOC"}</div>
-          <div>
-            <div className="file-name">{f.name}</div>
-            <div className="file-meta">{f.author && `Added by ${f.author === "leya" ? "Leya" : "Kelly"} · `}{f.added || f.ts || ""}{f.size ? ` · ${f.size}` : ""}</div>
+      {all.map(f => {
+        const isUpload = !!state.uploads.find(u => u.id === f.id);
+        if (f.url) {
+          return (
+            <a key={f.id} className="file-row file-row-link" href={f.url} target="_blank" rel="noopener noreferrer">
+              {rowInner(f)}
+              <span className="btn btn-ghost" style={{ opacity: 0.7, fontSize: 11 }}>open ↗</span>
+            </a>
+          );
+        }
+        return (
+          <div key={f.id} className="file-row">
+            {rowInner(f)}
+            {isUpload
+              ? <button className="btn btn-ghost btn-danger" onClick={() => actions.removeUpload(f.id)}><Icon name="trash" size={12} /></button>
+              : <span className="btn btn-ghost" style={{ opacity: 0.5, fontSize: 11 }}>seed</span>}
           </div>
-          <span className="tag" data-tint="ink">{f.kind}</span>
-          {state.uploads.find(u => u.id === f.id)
-            ? <button className="btn btn-ghost btn-danger" onClick={() => actions.removeUpload(f.id)}><Icon name="trash" size={12} /></button>
-            : <span className="btn btn-ghost" style={{ opacity: 0.5, fontSize: 11 }}>seed</span>}
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

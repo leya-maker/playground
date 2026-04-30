@@ -127,14 +127,32 @@ const TRIP = {
     { id: "closing",     label: "Closing ritual", tint: "accent"}
   ],
 
-  // Library — context docs that already exist, mocked
+  // Library — real docs in the Drive folder "Retreat - Cancun May 2026"
+  libraryFolder: {
+    name: "Retreat - Cancun May 2026",
+    url:  "https://drive.google.com/drive/folders/168U7e9ey6BcutFKzBBHwYmZ4Mi8r3WtS"
+  },
   library: [
-    { id: "doc-synth",  name: "CRM migration — synthesis brief", kind: "doc",   author: "leya",  size: "12 pp", added: "Apr 22" },
-    { id: "doc-aldf",   name: "ALDF — Moves Mgmt notes",         kind: "doc",   author: "kelly", size: "5 pp",  added: "Apr 25" },
-    { id: "doc-fee",    name: "Fee structure thinking (rough)",   kind: "doc",   author: "leya",  size: "3 pp",  added: "Apr 18" },
-    { id: "doc-josh",   name: "Josh + Leya — what we said in March", kind: "doc",author: "leya",  size: "2 pp",  added: "Apr 02" },
-    { id: "doc-trip",   name: "Le Blanc — property map",          kind: "pdf",   author: "leya",  size: "4 MB",  added: "Apr 28" },
-    { id: "img-arch",   name: "Sunset, La Jolla (last retreat)",  kind: "image", author: "kelly", size: "2.1 MB",added: "Apr 27" }
+    { id: "doc-00", name: "00 — READ FIRST — Product V1 Synthesis Brief", kind: "doc", author: "leya", added: "Apr 21",
+      url: "https://drive.google.com/file/d/1hJLvxOV-4Uyt6JM0mCbGJFg4I92O3BtW/view" },
+    { id: "doc-01", name: "01 — Retreat Agenda", kind: "doc", author: "leya", added: "Apr 21",
+      url: "https://drive.google.com/file/d/12aTpoEqBEbCx74scDHOIm_RuPdPLgJsF/view" },
+    { id: "doc-02", name: "02 — Product V1 Canvas (Tuesday session)", kind: "doc", author: "leya", added: "Apr 21",
+      url: "https://drive.google.com/file/d/1VvImYkAqg6r_tYMy1ElKKM7KVXVeZlet/view" },
+    { id: "doc-03", name: "03 — Partnership Structure Decision Tree (Wednesday)", kind: "doc", author: "leya", added: "Apr 21",
+      url: "https://drive.google.com/file/d/1lESB-4dU4hISX1A8PS4LMG7H6xkQpxOx/view" },
+    { id: "doc-10", name: "10 — Research Brief", kind: "doc", author: "leya", added: "Apr 21",
+      url: "https://drive.google.com/file/d/1OzTo3SuXcApP681tkbno8NBeKorSrN5-/view" },
+    { id: "doc-11", name: "11 — Research v1 — Vendor Scan", kind: "doc", author: "leya", added: "Apr 21",
+      url: "https://drive.google.com/file/d/1w2MTOMPos2cJnhmG0dT5OX_dIDzVkxRM/view" },
+    { id: "doc-12", name: "12 — Research v2 — Why Now (The Collision)", kind: "doc", author: "leya", added: "Apr 21",
+      url: "https://drive.google.com/file/d/1GturjfHS1jiQvzxbUJBoU2aChAZKv7NR/view" },
+    { id: "doc-13", name: "13 — Research v2 — Buyer & GTM", kind: "doc", author: "leya", added: "Apr 21",
+      url: "https://drive.google.com/file/d/154-fz2gp2iSI32fwgiqGjJBjtjg_7UWc/view" },
+    { id: "doc-14", name: "14 — Research v2 — Fundraising Data (the Moat)", kind: "doc", author: "leya", added: "Apr 21",
+      url: "https://drive.google.com/file/d/1ZlICs_uA7AxtMlcd6EaDR7FFNqdd80ZC/view" },
+    { id: "doc-15", name: "15 — Research v2 — Risks, Pricing, Competition", kind: "doc", author: "leya", added: "Apr 21",
+      url: "https://drive.google.com/file/d/1QSU0Jb1avEIzRiiP0Zz-qVUXt9BuIwnM/view" }
   ],
 
   // Pre-seeded examples — make the workspace feel populated, not empty.
