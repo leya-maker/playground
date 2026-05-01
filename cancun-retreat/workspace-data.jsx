@@ -152,7 +152,9 @@ const TRIP = {
     { id: "doc-14", name: "14 — Research v2 — Fundraising Data (the Moat)", kind: "doc", author: "leya", added: "Apr 21",
       url: "https://drive.google.com/file/d/1ZlICs_uA7AxtMlcd6EaDR7FFNqdd80ZC/view" },
     { id: "doc-15", name: "15 — Research v2 — Risks, Pricing, Competition", kind: "doc", author: "leya", added: "Apr 21",
-      url: "https://drive.google.com/file/d/1QSU0Jb1avEIzRiiP0Zz-qVUXt9BuIwnM/view" }
+      url: "https://drive.google.com/file/d/1QSU0Jb1avEIzRiiP0Zz-qVUXt9BuIwnM/view" },
+    { id: "doc-20", name: "20 — AI thinking for Kelly (Josh + Leya voice note)", kind: "doc", author: "leya", added: "Apr 30",
+      url: "https://drive.google.com/file/d/1oBzjFB1Vmf_FV73wyva868pZ7bxNcnMM/view" }
   ],
 
   // Pre-seeded examples — make the workspace feel populated, not empty.
