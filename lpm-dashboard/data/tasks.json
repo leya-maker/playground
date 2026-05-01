@@ -654,7 +654,7 @@
     "status": "To Do",
     "clientTag": "Delivery",
     "priority": "Medium",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "[NABU] Draft major gifts strategy and plan",
@@ -672,7 +672,7 @@
     "status": "To Do",
     "clientTag": "Delivery",
     "priority": "Medium",
-    "urgency": "this-week"
+    "urgency": "overdue"
   },
   {
     "name": "[NABU] Present major gifts strategy and plan",
