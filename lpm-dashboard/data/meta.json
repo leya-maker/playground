@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-04-30T23:00:09",
+  "last_updated": "2026-05-02T02:28:49",
   "data_sources": {
     "pipeline": "ok",
     "clients": "ok",
-    "tasks": "ok",
+    "tasks": "error: The read operation timed out",
     "finances": "pending_data",
     "content": "ok",
     "timekeeper": "ok"
