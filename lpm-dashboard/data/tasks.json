@@ -898,5 +898,41 @@
     "clientTag": "",
     "priority": "Medium",
     "urgency": "overdue"
+  },
+  {
+    "name": "Alma's Book Fair \u2014 let teacher know if attending",
+    "assignee": "Leya",
+    "dueDate": "2026-04-21",
+    "status": "To Do",
+    "clientTag": "",
+    "priority": "High",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Rose v2 smoke test \u2014 safe to delete",
+    "assignee": "Leya",
+    "dueDate": "2026-04-22",
+    "status": "To Do",
+    "clientTag": "",
+    "priority": "Low",
+    "urgency": "overdue"
+  },
+  {
+    "name": "Send home manual + restaurant/neighborhood guide to Eric & Amrita before their NYC arrival (Nyon home exchange)",
+    "assignee": "Leya",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "",
+    "priority": "Normal",
+    "urgency": "upcoming"
+  },
+  {
+    "name": "Send driver's license copy + travel insurance docs to Eric (Nyon home exchange) ahead of summer trip",
+    "assignee": "Leya",
+    "dueDate": null,
+    "status": "To Do",
+    "clientTag": "",
+    "priority": "Normal",
+    "urgency": "upcoming"
   }
 ]
