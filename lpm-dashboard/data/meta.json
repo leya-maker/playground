@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-05-03T23:58:26",
+  "last_updated": "2026-05-04T23:07:48",
   "data_sources": {
     "pipeline": "ok",
-    "clients": "error: The read operation timed out",
-    "tasks": "ok",
+    "clients": "ok",
+    "tasks": "empty",
     "finances": "pending_data",
-    "content": "ok",
+    "content": "empty",
     "timekeeper": "ok"
   }
 }
