@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-05-04T23:07:48",
+  "last_updated": "2026-05-05T22:00:11",
   "data_sources": {
     "pipeline": "ok",
     "clients": "ok",
-    "tasks": "empty",
+    "tasks": "ok",
     "finances": "pending_data",
-    "content": "empty",
+    "content": "ok",
     "timekeeper": "ok"
   }
 }
