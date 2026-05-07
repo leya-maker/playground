@@ -1,70 +1,83 @@
 [
   {
-    "name": "Apex for Youth",
-    "contractStart": null,
-    "contractEnd": "2026-06-30",
-    "monthlyValue": 1667,
-    "engagementType": "Project",
+    "name": "Animal Legal Defense Fund \u2014 Phase 1",
+    "contractStart": "2025-11-17",
+    "contractEnd": "2026-05-15",
+    "monthlyValue": 42367,
+    "engagementType": "",
     "team": [
-      "Leya",
-      "Kaysee"
+      "Leya"
+    ],
+    "renewalRisk": "red",
+    "status": "Phase 1 Complete (Bridge Signed)",
+    "contact": "Susan Halteman"
+  },
+  {
+    "name": "Animal Legal Defense Fund \u2014 Amendment No. 1 (Bridge)",
+    "contractStart": "2026-05-15",
+    "contractEnd": "2026-06-30",
+    "monthlyValue": 33950,
+    "engagementType": "",
+    "team": [
+      "Leya"
     ],
     "renewalRisk": "yellow",
-    "status": "Active",
-    "contact": ""
-  },
-  {
-    "name": "NABU",
-    "contractStart": "2026-03-23",
-    "contractEnd": "2026-09-23",
-    "monthlyValue": 5456,
-    "engagementType": "Retainer",
-    "team": [
-      "Leya"
-    ],
-    "renewalRisk": "green",
-    "status": "Active",
-    "contact": ""
-  },
-  {
-    "name": "Cave Canem",
-    "contractStart": "2026-07-09",
-    "contractEnd": "2026-07-09",
-    "monthlyValue": 4000,
-    "engagementType": "Training",
-    "team": [
-      "Leya"
-    ],
-    "renewalRisk": "green",
-    "status": "Pipeline",
-    "contact": "Hallie Hobson"
+    "status": "Bridge Active (thru Jun 30)",
+    "contact": "Susan Halteman"
   },
   {
     "name": "CreativeMornings",
-    "contractStart": null,
-    "contractEnd": "2026-05-30",
+    "contractStart": "2025-06-01",
+    "contractEnd": "2026-05-31",
     "monthlyValue": 10650,
-    "engagementType": "Retainer",
+    "engagementType": "",
     "team": [
       "Leya",
       "Kathleen"
     ],
     "renewalRisk": "red",
-    "status": "Active",
+    "status": "No Conversation",
     "contact": "Tina Roth Eisenberg"
   },
   {
-    "name": "ALDF",
-    "contractStart": null,
-    "contractEnd": "2026-05-08",
-    "monthlyValue": null,
-    "engagementType": "Retainer",
+    "name": "Apex for Youth",
+    "contractStart": "2026-01-01",
+    "contractEnd": "2026-06-30",
+    "monthlyValue": 1667,
+    "engagementType": "",
     "team": [
       "Leya",
-      "Kelly"
+      "Kathleen"
     ],
-    "renewalRisk": "red",
-    "status": "Active",
-    "contact": "Susan Halteman"
+    "renewalRisk": "yellow",
+    "status": "No Conversation",
+    "contact": "Wendy"
+  },
+  {
+    "name": "Nabu Global Inc.",
+    "contractStart": "2026-03-01",
+    "contractEnd": "2026-11-30",
+    "monthlyValue": 5456,
+    "engagementType": "",
+    "team": [
+      "Leya",
+      "Kathleen"
+    ],
+    "renewalRisk": "green",
+    "status": "New Client",
+    "contact": "Camille Park"
+  },
+  {
+    "name": "Cave Canem",
+    "contractStart": "2026-07-01",
+    "contractEnd": "2026-07-31",
+    "monthlyValue": 4000,
+    "engagementType": "",
+    "team": [
+      "Leya"
+    ],
+    "renewalRisk": "green",
+    "status": "New Client",
+    "contact": "Hallie Hobson"
   }
 ]
