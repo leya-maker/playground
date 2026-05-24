@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Leya — Time</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark"></span>
+    <span class="brand-name">Leya · Time</span>
+  </div>
+  <div class="meta">
+    <span id="as-of"></span>
+    <span class="dot"></span>
+    <span id="generated-at"></span>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button class="tab is-active" data-view="today" role="tab">Today</button>
+  <button class="tab" data-view="last_7" role="tab">Last 7 days</button>
+  <button class="tab" data-view="last_30" role="tab">Last 30 days</button>
+</nav>
+
+<main id="root" class="root">
+  <p class="loading">Loading…</p>
+</main>
+
+<footer class="footnote">
+  <p>
+    Captured from Google Calendar, Granola, Gmail, Google Drive, and Claude Code session
+    transcripts. No self-reported time. Gmail and Drive figures are estimated from
+    sent-message count and file-touch count.
+    <a href="#" id="show-methodology">Methodology &amp; caveats →</a>
+  </p>
+</footer>
+
+<dialog id="methodology">
+  <article>
+    <header><h2>Methodology &amp; caveats</h2><button data-close>Close</button></header>
+    <section>
+      <h3>How the numbers are built</h3>
+      <ul>
+        <li><strong>Calendar</strong>: <code>leya@leyapm.com</code> events. Meetings (&gt;1 attendee) vs heads-down (solo blocks) are split. Per-client tag comes from event title and attendee email keyword matches.</li>
+        <li><strong>Granola</strong>: Meetings recorded in Granola but not on Calendar are added back via the <em>granola_extra</em> bucket. Calendar wins on overlap.</li>
+        <li><strong>Claude Code</strong>: Active minutes per session from transcript timestamps, capped at 15-min idle gaps. Rose's automated runtimes are excluded.</li>
+        <li><strong>Gmail (estimated)</strong>: 4 minutes per message Leya sent across her three sending accounts.</li>
+        <li><strong>Drive (estimated)</strong>: 8 minutes per Drive file last-modified by Leya, excluding Granola auto-uploads and folders.</li>
+      </ul>
+      <h3>Sub-attendee meetings split across clients</h3>
+      <p>
+        A meeting with Kathleen, Kelly, Aryana, or Lauren is billed equally across that
+        sub's current clients (per <code>registries/sub_clients.json</code>). Subs without active
+        client assignments (onboarding) route to People Ops instead.
+      </p>
+      <h3>Known v1 limits</h3>
+      <ul>
+        <li>Drive 8-min-per-file constant runs hot on build-heavy days; calibration is a future tweak. The <em>estimated_share</em> warning fires when Gmail + Drive cross 50% of a day.</li>
+        <li>Gmail estimated minutes cannot be attributed per-client without thread reading; they land in Other internal.</li>
+        <li>Client tagging is keyword-based; if a meeting title and attendee list miss the rules, it falls through to "untagged" and shows up under Other internal.</li>
+      </ul>
+    </section>
+  </article>
+</dialog>
+
+<script src="app.js" type="module"></script>
+</body>
+</html>

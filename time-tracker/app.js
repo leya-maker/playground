@@ -1,0 +1,442 @@
+// Time-tracker dashboard. Single page, three tabs (Today / Last 7 / Last 30).
+// Reads data/dashboard.json (output of automations/time-tracker/rollup.py).
+
+const CLIENT_PALETTE = [
+  '#2a4d3e', '#4a6b5b', '#6c8a7c', '#93b09f', '#c8d8cf',
+  '#5e3b8c', '#8466b3', '#c97a3f', '#d2a35a', '#b04a3a',
+  '#4a6478', '#7d92a4', '#a8b8c6',
+];
+const INTERNAL_COLORS = {
+  'Infrastructure': '#5e3b8c',
+  'Business Development': '#c97a3f',
+  'People Ops': '#d2a35a',
+  'Finance Ops': '#4a6478',
+  'Other internal': '#b8b6af',
+};
+const TASK_COLORS = {
+  calendar_meeting: '#2a4d3e',
+  calendar_heads_down: '#6c8a7c',
+  claude_code: '#5e3b8c',
+  gmail_estimated: '#c97a3f',
+  drive_estimated: '#d2a35a',
+  granola_extra: '#4a6478',
+};
+const TASK_LABELS = {
+  calendar_meeting: 'Meetings',
+  calendar_heads_down: 'Heads-down blocks',
+  claude_code: 'Claude Code',
+  gmail_estimated: 'Gmail (est.)',
+  drive_estimated: 'Drive (est.)',
+  granola_extra: 'Granola extra',
+};
+
+const root = document.getElementById('root');
+const asOfEl = document.getElementById('as-of');
+const generatedEl = document.getElementById('generated-at');
+const tabs = document.querySelectorAll('.tab');
+
+let DATA = null;
+let charts = []; // Chart instances to destroy on view switch
+
+function destroyCharts() {
+  charts.forEach(c => c.destroy());
+  charts = [];
+}
+
+function fmtMinutes(min) {
+  if (!min || min < 1) return '0m';
+  const h = Math.floor(min / 60);
+  const m = Math.round(min % 60);
+  if (h === 0) return `${m}m`;
+  if (m === 0) return `${h}h`;
+  return `${h}h ${m}m`;
+}
+
+function fmtDate(iso) {
+  const d = new Date(iso + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+}
+
+function pickClientColor(name, index) {
+  return CLIENT_PALETTE[index % CLIENT_PALETTE.length];
+}
+
+function el(tag, props = {}, ...children) {
+  const n = document.createElement(tag);
+  Object.entries(props).forEach(([k, v]) => {
+    if (k === 'className') n.className = v;
+    else if (k === 'style') Object.assign(n.style, v);
+    else if (k.startsWith('on')) n.addEventListener(k.slice(2).toLowerCase(), v);
+    else n.setAttribute(k, v);
+  });
+  children.flat().forEach(c => {
+    if (c == null) return;
+    n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+  });
+  return n;
+}
+
+function kpiCard(label, value, sub) {
+  return el('div', { className: 'kpi' },
+    el('div', { className: 'kpi-label' }, label),
+    el('div', { className: 'kpi-value' }, value),
+    sub ? el('div', { className: 'kpi-sub' }, sub) : null,
+  );
+}
+
+function renderRankedList(items, totalForBar) {
+  const ul = el('ul', { className: 'ranked' });
+  items.forEach(([name, minutes]) => {
+    const pct = totalForBar ? (minutes / totalForBar) * 100 : 0;
+    const li = el('li',
+      {},
+      el('span', { className: 'name' }, name),
+      el('span', { className: 'value' }, fmtMinutes(minutes)),
+      el('div', { className: 'bar' },
+        el('div', { className: 'bar-fill', style: { width: `${pct.toFixed(1)}%` } }),
+      ),
+    );
+    ul.appendChild(li);
+  });
+  return ul;
+}
+
+function chartContainer(id, tall) {
+  return el('div', { className: tall ? 'chart-host-tall' : 'chart-host' },
+    el('canvas', { id }),
+  );
+}
+
+// ---------- Today view ----------
+
+function renderToday(today) {
+  destroyCharts();
+  root.innerHTML = '';
+
+  const total = today.total_minutes || 0;
+  const clientPct = total ? Math.round((today.client_minutes / total) * 100) : 0;
+  const delRate = today.delegation_rate;
+  const delPct = delRate == null ? '—' : `${Math.round(delRate * 100)}%`;
+
+  // KPIs
+  const summary = el('div', { className: 'summary' },
+    kpiCard('Total time', fmtMinutes(total), `${today.date}`),
+    kpiCard('On client work', fmtMinutes(today.client_minutes), `${clientPct}% of day`),
+    kpiCard('Internal', fmtMinutes(today.internal_minutes), null),
+    kpiCard('Delegation rate', delPct,
+      today.tier_total_invocations != null
+        ? `${today.tier_total_invocations} agent actions`
+        : null),
+  );
+  root.appendChild(summary);
+
+  if (total === 0) {
+    root.appendChild(el('p', { className: 'loading' },
+      `No data captured for ${fmtDate(today.date)} yet. Nightly job runs at 00:30 ET.`));
+    return;
+  }
+
+  // Timeline (events from today)
+  const events = (today.events || []).filter(e => e.start && e.end);
+  if (events.length) {
+    const timelineCard = el('div', { className: 'card' },
+      el('h3', {}, 'Timeline'),
+      buildTimeline(events),
+    );
+    root.appendChild(timelineCard);
+  }
+
+  // Three donuts side by side
+  const grid = el('div', { className: 'grid' },
+    el('div', { className: 'card' },
+      el('h3', {}, 'By task'),
+      chartContainer('today-task'),
+    ),
+    el('div', { className: 'card' },
+      el('h3', {}, 'By client'),
+      chartContainer('today-client'),
+    ),
+    el('div', { className: 'card' },
+      el('h3', {}, 'Internal'),
+      chartContainer('today-internal'),
+    ),
+  );
+  root.appendChild(grid);
+
+  // Events list
+  if (events.length) {
+    const list = el('ul', { className: 'events-list' });
+    events.forEach(ev => {
+      const start = new Date(ev.start).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+      const tag = ev.client_assignments
+        ? el('span', { className: 'tag client' },
+            ev.client_assignments.map(([c, _]) => c).join(' + '))
+        : el('span', { className: 'tag internal' }, ev.internal_category || 'Internal');
+      list.appendChild(el('li', {},
+        el('span', { className: 'when' }, start),
+        el('span', { className: 'what' }, ev.summary || '(untitled)', tag),
+        el('span', { className: 'value' }, fmtMinutes(ev.minutes)),
+      ));
+    });
+    root.appendChild(el('div', { className: 'card' },
+      el('h3', {}, 'Today’s events'),
+      list,
+    ));
+  }
+
+  drawDonut('today-task', today.per_task, TASK_COLORS, TASK_LABELS);
+  drawDonut('today-client', today.per_client, null, null);
+  drawDonut('today-internal', today.per_internal, INTERNAL_COLORS, null);
+}
+
+function buildTimeline(events) {
+  const dayStartH = 7;
+  const dayEndH = 22;
+  const wrap = el('div', { className: 'timeline' });
+
+  const axis = el('div', { className: 'timeline-axis' });
+  const range = dayEndH - dayStartH;
+  for (let h = dayStartH; h <= dayEndH; h += 2) {
+    const left = ((h - dayStartH) / range) * 100;
+    const label = h <= 12 ? `${h}a` : `${h - 12}p`;
+    axis.appendChild(el('div', {
+      className: 'timeline-hour',
+      style: { left: `${left}%` },
+    }, h === 12 ? 'noon' : label));
+  }
+
+  events.forEach(ev => {
+    const s = new Date(ev.start);
+    const e = new Date(ev.end);
+    const sH = s.getHours() + s.getMinutes() / 60;
+    const eH = e.getHours() + e.getMinutes() / 60;
+    if (eH < dayStartH || sH > dayEndH) return;
+    const left = Math.max(0, ((sH - dayStartH) / range) * 100);
+    const right = Math.min(100, ((eH - dayStartH) / range) * 100);
+    const width = Math.max(0.6, right - left);
+    const kind = ev.client_assignments ? 'meeting' : (ev.kind === 'heads-down' ? 'headsdown' : 'internal');
+    const bar = el('div', {
+      className: `timeline-bar kind-${kind}`,
+      style: { left: `${left}%`, width: `${width}%` },
+      title: `${ev.summary} — ${fmtMinutes(ev.minutes)}`,
+    });
+    axis.appendChild(bar);
+  });
+
+  wrap.appendChild(axis);
+  return wrap;
+}
+
+// ---------- Last 7 / Last 30 view ----------
+
+function renderWindow(view, label) {
+  destroyCharts();
+  root.innerHTML = '';
+
+  const totals = view.totals || {};
+  const days = view.days || [];
+  const total = totals.minutes || 0;
+  const clientPct = total ? Math.round((totals.client_minutes / total) * 100) : 0;
+  const delRate = totals.delegation_rate;
+  const delPct = delRate == null ? '—' : `${Math.round(delRate * 100)}%`;
+  const avgPerDay = days.length ? total / days.length : 0;
+
+  // Warnings if data is sparse / inflated
+  const missingCount = days.filter(d => d.missing || d.total_minutes === 0).length;
+  if (missingCount > 0) {
+    root.appendChild(el('div', { className: 'warn-banner' },
+      `${missingCount} of ${days.length} day${days.length === 1 ? '' : 's'} have no captured data yet (nightly backfill will fill them in).`));
+  }
+
+  // KPIs
+  root.appendChild(el('div', { className: 'summary' },
+    kpiCard('Total', fmtMinutes(total), `${label}`),
+    kpiCard('Daily average', fmtMinutes(Math.round(avgPerDay)), null),
+    kpiCard('On client work', fmtMinutes(totals.client_minutes), `${clientPct}%`),
+    kpiCard('Delegation rate', delPct, `${totals.tier_invocations || 0} agent actions`),
+  ));
+
+  // Stacked bar chart per day
+  root.appendChild(el('div', { className: 'card' },
+    el('h3', {}, 'Per day, by task'),
+    chartContainer('window-bar', true),
+  ));
+
+  // Three donuts
+  root.appendChild(el('div', { className: 'grid' },
+    el('div', { className: 'card' },
+      el('h3', {}, 'Time by client'),
+      chartContainer('window-client'),
+    ),
+    el('div', { className: 'card' },
+      el('h3', {}, 'Internal time'),
+      chartContainer('window-internal'),
+    ),
+    el('div', { className: 'card' },
+      el('h3', {}, 'Tasks share'),
+      chartContainer('window-task'),
+    ),
+  ));
+
+  // Ranked tables under each donut
+  root.appendChild(el('div', { className: 'grid' },
+    el('div', { className: 'card card-tight' },
+      el('h3', {}, 'Clients ranked'),
+      renderRankedList(Object.entries(totals.per_client || {}), totals.client_minutes),
+    ),
+    el('div', { className: 'card card-tight' },
+      el('h3', {}, 'Internal categories'),
+      renderRankedList(Object.entries(totals.per_internal || {}), totals.internal_minutes),
+    ),
+    el('div', { className: 'card card-tight' },
+      el('h3', {}, 'Tasks'),
+      renderRankedList(Object.entries(totals.per_task || {}).map(([k, v]) => [TASK_LABELS[k] || k, v]), total),
+    ),
+  ));
+
+  drawStackedBars('window-bar', days);
+  drawDonut('window-client', totals.per_client, null, null);
+  drawDonut('window-internal', totals.per_internal, INTERNAL_COLORS, null);
+  drawDonut('window-task', totals.per_task, TASK_COLORS, TASK_LABELS);
+}
+
+function drawDonut(canvasId, data, fixedColors, labelMap) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const entries = Object.entries(data || {}).filter(([_, v]) => v > 0);
+  if (!entries.length) {
+    canvas.parentElement.innerHTML = '<p class="loading" style="padding:48px 0">No data.</p>';
+    return;
+  }
+  const labels = entries.map(([k, _], i) => labelMap ? (labelMap[k] || k) : k);
+  const values = entries.map(([_, v]) => v);
+  const colors = entries.map(([k, _], i) =>
+    fixedColors ? (fixedColors[k] || CLIENT_PALETTE[i % CLIENT_PALETTE.length]) : pickClientColor(k, i)
+  );
+
+  const chart = new Chart(canvas, {
+    type: 'doughnut',
+    data: {
+      labels,
+      datasets: [{
+        data: values,
+        backgroundColor: colors,
+        borderColor: '#ffffff',
+        borderWidth: 2,
+        hoverOffset: 6,
+      }],
+    },
+    options: {
+      maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { boxWidth: 10, boxHeight: 10, font: { size: 11 }, padding: 12 },
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => `${ctx.label}: ${fmtMinutes(ctx.parsed)}`,
+          },
+        },
+      },
+    },
+  });
+  charts.push(chart);
+}
+
+function drawStackedBars(canvasId, days) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+
+  const taskKeys = ['calendar_meeting', 'calendar_heads_down', 'claude_code', 'gmail_estimated', 'drive_estimated', 'granola_extra'];
+  const labels = days.map(d => fmtDate(d.date));
+  const datasets = taskKeys.map(key => ({
+    label: TASK_LABELS[key],
+    data: days.map(d => (d.per_task || {})[key] || 0),
+    backgroundColor: TASK_COLORS[key],
+    borderWidth: 0,
+    stack: 'task',
+    barThickness: 'flex',
+    maxBarThickness: 38,
+  }));
+
+  const chart = new Chart(canvas, {
+    type: 'bar',
+    data: { labels, datasets },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { boxWidth: 10, boxHeight: 10, font: { size: 11 }, padding: 12 },
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => `${ctx.dataset.label}: ${fmtMinutes(ctx.parsed.y)}`,
+          },
+        },
+      },
+      scales: {
+        x: {
+          stacked: true,
+          grid: { display: false },
+          ticks: { font: { size: 10 }, color: '#7d7c77' },
+        },
+        y: {
+          stacked: true,
+          grid: { color: '#eeece6' },
+          ticks: {
+            font: { size: 10 },
+            color: '#7d7c77',
+            callback: (v) => v >= 60 ? `${Math.round(v / 60)}h` : `${v}m`,
+          },
+        },
+      },
+    },
+  });
+  charts.push(chart);
+}
+
+// ---------- Boot ----------
+
+async function boot() {
+  try {
+    const resp = await fetch('data/dashboard.json', { cache: 'no-store' });
+    DATA = await resp.json();
+  } catch (e) {
+    root.innerHTML = `<p class="loading">Could not load dashboard.json (run <code>python automations/time-tracker/rollup.py</code>).</p>`;
+    return;
+  }
+
+  asOfEl.textContent = `Through ${fmtDate(DATA.as_of)}`;
+  if (DATA.generated_at) {
+    const g = new Date(DATA.generated_at);
+    generatedEl.textContent = `Updated ${g.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}`;
+  }
+
+  switchTab('today');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      switchTab(tab.dataset.view);
+    });
+  });
+
+  // Methodology dialog
+  const dialog = document.getElementById('methodology');
+  document.getElementById('show-methodology').addEventListener('click', (e) => {
+    e.preventDefault(); dialog.showModal();
+  });
+  dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
+}
+
+function switchTab(view) {
+  if (view === 'today') renderToday(DATA.today);
+  else if (view === 'last_7') renderWindow(DATA.last_7, 'Last 7 days');
+  else if (view === 'last_30') renderWindow(DATA.last_30, 'Last 30 days');
+}
+
+boot();
