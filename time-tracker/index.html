@@ -48,9 +48,9 @@
       <ul>
         <li><strong>Calendar</strong>: <code>leya@leyapm.com</code> events. Meetings (&gt;1 attendee) vs heads-down (solo blocks) are split. Per-client tag comes from event title and attendee email keyword matches.</li>
         <li><strong>Granola</strong>: Meetings recorded in Granola but not on Calendar are added back via the <em>granola_extra</em> bucket. Calendar wins on overlap.</li>
-        <li><strong>Claude Code</strong>: Active minutes per session from transcript timestamps, capped at 15-min idle gaps. Rose's automated runtimes are excluded.</li>
+        <li><strong>Claude Code</strong>: Active minutes per session from transcript timestamps, capped at 10-min idle gaps. Rose's automated runtimes are excluded.</li>
         <li><strong>Gmail (estimated)</strong>: 4 minutes per message Leya sent across her three sending accounts.</li>
-        <li><strong>Drive (estimated)</strong>: 8 minutes per Drive file last-modified by Leya, excluding Granola auto-uploads and folders.</li>
+        <li><strong>Drive (estimated)</strong>: 3 minutes per Drive file last-modified by Leya, excluding (a) Granola auto-uploads, (b) folders, and (c) files modified during an active Claude Code session window (those minutes are already counted in the Claude bucket).</li>
       </ul>
       <h3>Sub-attendee meetings split across clients</h3>
       <p>
@@ -60,9 +60,9 @@
       </p>
       <h3>Known v1 limits</h3>
       <ul>
-        <li>Drive 8-min-per-file constant runs hot on build-heavy days; calibration is a future tweak. The <em>estimated_share</em> warning fires when Gmail + Drive cross 50% of a day.</li>
         <li>Gmail estimated minutes cannot be attributed per-client without thread reading; they land in Other internal.</li>
         <li>Client tagging is keyword-based; if a meeting title and attendee list miss the rules, it falls through to "untagged" and shows up under Other internal.</li>
+        <li>The Drive estimate cannot capture editing inside files Leya opened but never re-saved during the day.</li>
       </ul>
     </section>
   </article>
