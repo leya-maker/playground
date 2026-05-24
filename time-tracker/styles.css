@@ -297,6 +297,15 @@ body {
   background: var(--task-headsdown);
   opacity: 0.85;
 }
+.cal-block.is-reminder {
+  background: #fafaf7;
+  color: var(--ink-3);
+  border: 1px dashed #c4c2bc;
+  box-shadow: none;
+}
+.cal-block.is-reminder .cal-block-time { opacity: 0.7; }
+.cal-block.is-reminder .cal-block-title { color: var(--ink-2); }
+.cal-block.is-reminder .cal-block-meta { color: var(--ink-3); font-style: italic; }
 .cal-block.is-claude {
   background: var(--task-claude);
 }

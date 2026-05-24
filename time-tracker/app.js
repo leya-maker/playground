@@ -137,8 +137,10 @@ function renderToday() {
       ...claudeBlocks.map(b => [b.start, b.end]),
     ]
   );
-  const meetingMin = calendarEvents.filter(e => e.kind === 'meeting').reduce((s, e) => s + (e.minutes || 0), 0);
-  const headsDownMin = calendarEvents.filter(e => e.kind !== 'meeting').reduce((s, e) => s + (e.minutes || 0), 0);
+  const meetings = calendarEvents.filter(e => e.kind === 'meeting');
+  const reminders = calendarEvents.filter(e => e.kind === 'reminder');
+  const meetingMin = meetings.reduce((s, e) => s + (e.minutes || 0), 0);
+  const reminderMin = reminders.reduce((s, e) => s + (e.minutes || 0), 0);
   const claudeActiveMin = claudeBlocks.reduce((s, b) => s + (b.minutes || 0), 0);
 
   // KPIs row
@@ -146,10 +148,14 @@ function renderToday() {
     kpiCard('Active time', fmtMinutes(total), `tracked, deduped`),
     kpiCard('Wall-clock range', fmtMinutes(wallMin), `first signal → last signal`),
     kpiCard('Meetings', fmtMinutes(meetingMin),
-      calendarEvents.length ? `${calendarEvents.filter(e => e.kind === 'meeting').length} on calendar` : null),
+      meetings.length ? `${meetings.length} with other people` : 'none'),
     kpiCard('Claude active', fmtMinutes(claudeActiveMin),
       `${claudeBlocks.length} block${claudeBlocks.length === 1 ? '' : 's'}`),
   ));
+  if (reminders.length) {
+    root.appendChild(el('div', { className: 'warn-banner' },
+      `${reminders.length} solo calendar block${reminders.length === 1 ? '' : 's'} totaling ${fmtMinutes(reminderMin)} shown below as reminders. Work that actually happened during these blocks is captured by Claude / Gmail / Drive instead.`));
+  }
 
   if (total === 0 && claudeBlocks.length === 0 && calendarEvents.length === 0) {
     root.appendChild(el('p', { className: 'loading' },
@@ -269,19 +275,26 @@ function buildCalendarGrid(dayStr, events, claudeBlocks) {
     if (!ev.start || !ev.end) return;
     const { top, height } = posPctFor(ev.start, ev.end);
     if (height <= 0) return;
+    let cls = 'cal-block ';
+    if (ev.kind === 'meeting') cls += 'is-meeting';
+    else if (ev.kind === 'reminder') cls += 'is-reminder';
+    else cls += 'is-headsdown';
+    if (ev.client && ev.client !== 'untagged') cls += ' has-client';
     const block = el('div', {
-      className: 'cal-block ' + (ev.kind === 'meeting' ? 'is-meeting' : 'is-headsdown') + (ev.client && ev.client !== 'untagged' ? ' has-client' : ''),
+      className: cls,
       style: { top: `${top}%`, height: `${height}%` },
-      title: `${ev.summary} — ${fmtMinutes(ev.minutes)}`,
+      title: `${ev.summary} — ${fmtMinutes(ev.minutes)}` + (ev.kind === 'reminder' ? ' (reminder, not counted)' : ''),
     },
       el('div', { className: 'cal-block-time' },
         new Date(ev.start).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) +
         ' – ' +
         new Date(ev.end).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })),
       el('div', { className: 'cal-block-title' }, ev.summary || '(untitled)'),
-      ev.client && ev.client !== 'untagged'
-        ? el('div', { className: 'cal-block-meta' }, ev.client)
-        : null,
+      ev.kind === 'reminder'
+        ? el('div', { className: 'cal-block-meta' }, 'reminder (not counted)')
+        : (ev.client && ev.client !== 'untagged'
+            ? el('div', { className: 'cal-block-meta' }, ev.client)
+            : null),
     );
     calTrack.appendChild(block);
   });
@@ -315,11 +328,11 @@ function buildCalendarGrid(dayStr, events, claudeBlocks) {
 function buildCalendarLegend() {
   return el('div', { className: 'legend' },
     el('span', { className: 'legend-item' },
-      el('span', { className: 'legend-swatch', style: { background: '#2a4d3e' } }), 'Meeting'),
+      el('span', { className: 'legend-swatch', style: { background: '#2a4d3e' } }), 'Meeting (counted)'),
     el('span', { className: 'legend-item' },
-      el('span', { className: 'legend-swatch', style: { background: '#6c8a7c' } }), 'Heads-down block'),
+      el('span', { className: 'legend-swatch', style: { background: '#5e3b8c' } }), 'Claude active (counted)'),
     el('span', { className: 'legend-item' },
-      el('span', { className: 'legend-swatch', style: { background: '#5e3b8c' } }), 'Claude active'),
+      el('span', { className: 'legend-swatch', style: { background: '#d6d4cd', border: '1px dashed #a8a6a0' } }), 'Solo calendar block (reminder, not counted)'),
   );
 }
 
