@@ -109,45 +109,63 @@ function chartContainer(id, tall) {
 
 // ---------- Today view ----------
 
-function renderToday(today) {
+let currentDayIndex = null; // index into DATA.last_7.days; null = today (last)
+
+function renderToday() {
   destroyCharts();
   root.innerHTML = '';
 
-  const total = today.total_minutes || 0;
-  const clientPct = total ? Math.round((today.client_minutes / total) * 100) : 0;
-  const delRate = today.delegation_rate;
-  const delPct = delRate == null ? '—' : `${Math.round(delRate * 100)}%`;
+  // Determine the day to show: default to most recent in last_7
+  const days = DATA.last_7.days;
+  if (currentDayIndex === null || currentDayIndex >= days.length) {
+    currentDayIndex = days.length - 1;
+  }
+  const day = days[currentDayIndex];
+  const dayStr = day.date;
 
-  // KPIs
-  const summary = el('div', { className: 'summary' },
-    kpiCard('Total time', fmtMinutes(total), `${today.date}`),
-    kpiCard('On client work', fmtMinutes(today.client_minutes), `${clientPct}% of day`),
-    kpiCard('Internal', fmtMinutes(today.internal_minutes), null),
-    kpiCard('Delegation rate', delPct,
-      today.tier_total_invocations != null
-        ? `${today.tier_total_invocations} agent actions`
-        : null),
+  // Date picker bar
+  root.appendChild(buildDayPicker(days));
+
+  const total = day.total_minutes || 0;
+  const calendarEvents = day.calendar_events || [];
+  const claudeBlocks = day.claude_blocks || [];
+
+  // Compute wall-clock union of all activity (calendar + claude active)
+  const wallMin = unionMinutes(
+    [
+      ...calendarEvents.map(e => [e.start, e.end]),
+      ...claudeBlocks.map(b => [b.start, b.end]),
+    ]
   );
-  root.appendChild(summary);
+  const meetingMin = calendarEvents.filter(e => e.kind === 'meeting').reduce((s, e) => s + (e.minutes || 0), 0);
+  const headsDownMin = calendarEvents.filter(e => e.kind !== 'meeting').reduce((s, e) => s + (e.minutes || 0), 0);
+  const claudeActiveMin = claudeBlocks.reduce((s, b) => s + (b.minutes || 0), 0);
 
-  if (total === 0) {
+  // KPIs row
+  root.appendChild(el('div', { className: 'summary' },
+    kpiCard('Active time', fmtMinutes(total), `tracked, deduped`),
+    kpiCard('Wall-clock range', fmtMinutes(wallMin), `first signal → last signal`),
+    kpiCard('Meetings', fmtMinutes(meetingMin),
+      calendarEvents.length ? `${calendarEvents.filter(e => e.kind === 'meeting').length} on calendar` : null),
+    kpiCard('Claude active', fmtMinutes(claudeActiveMin),
+      `${claudeBlocks.length} block${claudeBlocks.length === 1 ? '' : 's'}`),
+  ));
+
+  if (total === 0 && claudeBlocks.length === 0 && calendarEvents.length === 0) {
     root.appendChild(el('p', { className: 'loading' },
-      `No data captured for ${fmtDate(today.date)} yet. Nightly job runs at 00:30 ET.`));
+      `No data captured for ${fmtDate(dayStr)} yet.`));
     return;
   }
 
-  // Timeline (events from today)
-  const events = (today.events || []).filter(e => e.start && e.end);
-  if (events.length) {
-    const timelineCard = el('div', { className: 'card' },
-      el('h3', {}, 'Timeline'),
-      buildTimeline(events),
-    );
-    root.appendChild(timelineCard);
-  }
+  // Calendar-style vertical grid: hours down the left, blocks across the right
+  root.appendChild(el('div', { className: 'card' },
+    el('h3', {}, `Calendar view — ${fmtDate(dayStr)}`),
+    buildCalendarGrid(dayStr, calendarEvents, claudeBlocks),
+    buildCalendarLegend(),
+  ));
 
-  // Three donuts side by side
-  const grid = el('div', { className: 'grid' },
+  // Donuts
+  root.appendChild(el('div', { className: 'grid' },
     el('div', { className: 'card' },
       el('h3', {}, 'By task'),
       chartContainer('today-task'),
@@ -160,71 +178,149 @@ function renderToday(today) {
       el('h3', {}, 'Internal'),
       chartContainer('today-internal'),
     ),
-  );
-  root.appendChild(grid);
+  ));
 
-  // Events list
-  if (events.length) {
-    const list = el('ul', { className: 'events-list' });
-    events.forEach(ev => {
-      const start = new Date(ev.start).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-      const tag = ev.client_assignments
-        ? el('span', { className: 'tag client' },
-            ev.client_assignments.map(([c, _]) => c).join(' + '))
-        : el('span', { className: 'tag internal' }, ev.internal_category || 'Internal');
-      list.appendChild(el('li', {},
-        el('span', { className: 'when' }, start),
-        el('span', { className: 'what' }, ev.summary || '(untitled)', tag),
-        el('span', { className: 'value' }, fmtMinutes(ev.minutes)),
-      ));
-    });
-    root.appendChild(el('div', { className: 'card' },
-      el('h3', {}, 'Today’s events'),
-      list,
-    ));
-  }
-
-  drawDonut('today-task', today.per_task, TASK_COLORS, TASK_LABELS);
-  drawDonut('today-client', today.per_client, null, null);
-  drawDonut('today-internal', today.per_internal, INTERNAL_COLORS, null);
+  drawDonut('today-task', day.per_task, TASK_COLORS, TASK_LABELS);
+  drawDonut('today-client', day.per_client, null, null);
+  drawDonut('today-internal', day.per_internal, INTERNAL_COLORS, null);
 }
 
-function buildTimeline(events) {
-  const dayStartH = 7;
-  const dayEndH = 22;
-  const wrap = el('div', { className: 'timeline' });
+function buildDayPicker(days) {
+  const wrap = el('div', { className: 'day-picker' });
+  days.forEach((d, i) => {
+    const btn = el('button', {
+      className: 'day-btn' + (i === currentDayIndex ? ' is-active' : '') + (d.missing || d.total_minutes === 0 ? ' is-empty' : ''),
+      onclick: () => {
+        currentDayIndex = i;
+        renderToday();
+      },
+    },
+      el('div', { className: 'day-btn-label' }, fmtDate(d.date).split(',')[0]),
+      el('div', { className: 'day-btn-date' }, fmtDate(d.date).split(',')[1] || ''),
+      el('div', { className: 'day-btn-hours' }, fmtMinutes(d.total_minutes)),
+    );
+    wrap.appendChild(btn);
+  });
+  return wrap;
+}
 
-  const axis = el('div', { className: 'timeline-axis' });
-  const range = dayEndH - dayStartH;
-  for (let h = dayStartH; h <= dayEndH; h += 2) {
-    const left = ((h - dayStartH) / range) * 100;
-    const label = h <= 12 ? `${h}a` : `${h - 12}p`;
-    axis.appendChild(el('div', {
-      className: 'timeline-hour',
-      style: { left: `${left}%` },
-    }, h === 12 ? 'noon' : label));
+// Minute-resolution union of intervals; returns total minutes covered
+function unionMinutes(pairs) {
+  const ranges = pairs
+    .map(([a, b]) => [new Date(a).getTime(), new Date(b).getTime()])
+    .filter(([a, b]) => !isNaN(a) && !isNaN(b) && b > a)
+    .sort((p, q) => p[0] - q[0]);
+  if (!ranges.length) return 0;
+  const merged = [ranges[0]];
+  for (let i = 1; i < ranges.length; i++) {
+    const last = merged[merged.length - 1];
+    if (ranges[i][0] <= last[1]) {
+      last[1] = Math.max(last[1], ranges[i][1]);
+    } else {
+      merged.push([...ranges[i]]);
+    }
+  }
+  return Math.round(merged.reduce((s, [a, b]) => s + (b - a) / 60000, 0));
+}
+
+function buildCalendarGrid(dayStr, events, claudeBlocks) {
+  // Determine vertical extents: 6am to midnight by default; expand if signal beyond.
+  let startH = 6, endH = 24;
+  const probes = [
+    ...events.map(e => [new Date(e.start), new Date(e.end)]),
+    ...claudeBlocks.map(b => [new Date(b.start), new Date(b.end)]),
+  ];
+  probes.forEach(([s, e]) => {
+    const sh = s.getHours() + s.getMinutes() / 60;
+    const eh = e.getHours() + e.getMinutes() / 60;
+    if (sh < startH) startH = Math.floor(sh);
+    if (eh > endH) endH = Math.ceil(eh);
+  });
+  startH = Math.max(0, startH);
+  endH = Math.min(24, Math.max(endH, startH + 6));
+  const totalHours = endH - startH;
+
+  const wrap = el('div', { className: 'calgrid' });
+  const hoursCol = el('div', { className: 'calgrid-hours' });
+  const tracksCol = el('div', { className: 'calgrid-tracks' });
+
+  for (let h = startH; h <= endH; h++) {
+    const top = ((h - startH) / totalHours) * 100;
+    const label = h === 0 ? '12a' : h === 12 ? 'noon' : h < 12 ? `${h}a` : h === 24 ? '12a' : `${h - 12}p`;
+    hoursCol.appendChild(el('div', { className: 'calgrid-hour', style: { top: `${top}%` } }, label));
+    tracksCol.appendChild(el('div', { className: 'calgrid-line', style: { top: `${top}%` } }));
+  }
+
+  // Two tracks: left = Calendar, right = Claude
+  const calTrack = el('div', { className: 'calgrid-track calgrid-track-cal' });
+  const cTrack = el('div', { className: 'calgrid-track calgrid-track-claude' });
+
+  function posPctFor(start, end) {
+    const s = new Date(start);
+    const e = new Date(end);
+    const sh = s.getHours() + s.getMinutes() / 60;
+    const eh = e.getHours() + e.getMinutes() / 60;
+    const top = ((sh - startH) / totalHours) * 100;
+    const height = ((eh - sh) / totalHours) * 100;
+    return { top, height };
   }
 
   events.forEach(ev => {
-    const s = new Date(ev.start);
-    const e = new Date(ev.end);
-    const sH = s.getHours() + s.getMinutes() / 60;
-    const eH = e.getHours() + e.getMinutes() / 60;
-    if (eH < dayStartH || sH > dayEndH) return;
-    const left = Math.max(0, ((sH - dayStartH) / range) * 100);
-    const right = Math.min(100, ((eH - dayStartH) / range) * 100);
-    const width = Math.max(0.6, right - left);
-    const kind = ev.client_assignments ? 'meeting' : (ev.kind === 'heads-down' ? 'headsdown' : 'internal');
-    const bar = el('div', {
-      className: `timeline-bar kind-${kind}`,
-      style: { left: `${left}%`, width: `${width}%` },
+    if (!ev.start || !ev.end) return;
+    const { top, height } = posPctFor(ev.start, ev.end);
+    if (height <= 0) return;
+    const block = el('div', {
+      className: 'cal-block ' + (ev.kind === 'meeting' ? 'is-meeting' : 'is-headsdown') + (ev.client && ev.client !== 'untagged' ? ' has-client' : ''),
+      style: { top: `${top}%`, height: `${height}%` },
       title: `${ev.summary} — ${fmtMinutes(ev.minutes)}`,
-    });
-    axis.appendChild(bar);
+    },
+      el('div', { className: 'cal-block-time' },
+        new Date(ev.start).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) +
+        ' – ' +
+        new Date(ev.end).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })),
+      el('div', { className: 'cal-block-title' }, ev.summary || '(untitled)'),
+      ev.client && ev.client !== 'untagged'
+        ? el('div', { className: 'cal-block-meta' }, ev.client)
+        : null,
+    );
+    calTrack.appendChild(block);
   });
 
-  wrap.appendChild(axis);
+  claudeBlocks.forEach(b => {
+    if (!b.start || !b.end || b.minutes <= 0) return;
+    const { top, height } = posPctFor(b.start, b.end);
+    if (height <= 0) return;
+    const startLabel = new Date(b.start).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    const endLabel = new Date(b.end).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    const block = el('div', {
+      className: 'cal-block is-claude',
+      style: { top: `${top}%`, height: `${height}%` },
+      title: `Claude active ${startLabel} – ${endLabel} (${fmtMinutes(b.minutes)})`,
+    },
+      el('div', { className: 'cal-block-time' }, `${startLabel} – ${endLabel}`),
+      el('div', { className: 'cal-block-title' }, 'Claude Code'),
+      el('div', { className: 'cal-block-meta' }, fmtMinutes(b.minutes)),
+    );
+    cTrack.appendChild(block);
+  });
+
+  tracksCol.appendChild(calTrack);
+  tracksCol.appendChild(cTrack);
+  wrap.appendChild(hoursCol);
+  wrap.appendChild(tracksCol);
+  wrap.style.height = `${totalHours * 30}px`;
   return wrap;
+}
+
+function buildCalendarLegend() {
+  return el('div', { className: 'legend' },
+    el('span', { className: 'legend-item' },
+      el('span', { className: 'legend-swatch', style: { background: '#2a4d3e' } }), 'Meeting'),
+    el('span', { className: 'legend-item' },
+      el('span', { className: 'legend-swatch', style: { background: '#6c8a7c' } }), 'Heads-down block'),
+    el('span', { className: 'legend-item' },
+      el('span', { className: 'legend-swatch', style: { background: '#5e3b8c' } }), 'Claude active'),
+  );
 }
 
 // ---------- Last 7 / Last 30 view ----------
@@ -434,7 +530,7 @@ async function boot() {
 }
 
 function switchTab(view) {
-  if (view === 'today') renderToday(DATA.today);
+  if (view === 'today') renderToday();
   else if (view === 'last_7') renderWindow(DATA.last_7, 'Last 7 days');
   else if (view === 'last_30') renderWindow(DATA.last_30, 'Last 30 days');
 }
