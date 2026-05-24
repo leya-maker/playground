@@ -16,7 +16,7 @@ const INTERNAL_COLORS = {
 const TASK_COLORS = {
   calendar_meeting: '#2a4d3e',
   calendar_heads_down: '#6c8a7c',
-  claude_code: '#5e3b8c',
+  agent_work: '#5e3b8c',
   gmail_estimated: '#c97a3f',
   drive_estimated: '#d2a35a',
   granola_extra: '#4a6478',
@@ -24,11 +24,12 @@ const TASK_COLORS = {
 const TASK_LABELS = {
   calendar_meeting: 'Meetings',
   calendar_heads_down: 'Heads-down blocks',
-  claude_code: 'Claude Code',
+  agent_work: 'Agent work',
   gmail_estimated: 'Gmail (est.)',
   drive_estimated: 'Drive (est.)',
   granola_extra: 'Granola extra',
 };
+const WEEKEND_DAYS = new Set([0, 6]); // 0 = Sun, 6 = Sat
 
 const root = document.getElementById('root');
 const asOfEl = document.getElementById('as-of');
@@ -382,11 +383,31 @@ function renderMonthReview() {
     const monthMin = monthDays.reduce((s, d) => s + (d.total_minutes || 0), 0);
     const trackedDays = monthDays.filter(d => (d.total_minutes || 0) > 0).length;
     const avgPerDay = trackedDays ? monthMin / trackedDays : 0;
+    const weeksInMonth = monthDays.length / 7;
+    const weeklyAvg = weeksInMonth ? monthMin / weeksInMonth : 0;
+    const weekendMin = monthDays
+      .filter(d => WEEKEND_DAYS.has(new Date(d.date + 'T00:00:00').getDay()))
+      .reduce((s, d) => s + (d.total_minutes || 0), 0);
+    const weekendWorked = monthDays
+      .filter(d => WEEKEND_DAYS.has(new Date(d.date + 'T00:00:00').getDay()) && (d.total_minutes || 0) > 60)
+      .length;
     const label = new Date(ym + '-01T00:00:00').toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
     summary.appendChild(kpiCard(label, fmtMinutes(monthMin),
-      `${trackedDays} active days · avg ${fmtMinutes(Math.round(avgPerDay))}/day`));
+      `${trackedDays} days · ${fmtMinutes(Math.round(weeklyAvg))}/wk · ${fmtMinutes(Math.round(avgPerDay))}/active day`));
   });
   root.appendChild(summary);
+
+  // Weekend-work callout for the whole window
+  const allWeekendMin = days
+    .filter(d => WEEKEND_DAYS.has(new Date(d.date + 'T00:00:00').getDay()))
+    .reduce((s, d) => s + (d.total_minutes || 0), 0);
+  const allWeekendWorked = days
+    .filter(d => WEEKEND_DAYS.has(new Date(d.date + 'T00:00:00').getDay()) && (d.total_minutes || 0) > 60)
+    .length;
+  if (allWeekendWorked > 0) {
+    root.appendChild(el('div', { className: 'warn-banner' },
+      `Worked ${allWeekendWorked} weekend day${allWeekendWorked === 1 ? '' : 's'} totaling ${fmtMinutes(allWeekendMin)} this window (aim: zero). Hatched cells in the calendars and red rows in the tables mark them.`));
+  }
 
   // For each month, render a scannable table
   ymKeys.forEach(ym => {
@@ -431,8 +452,10 @@ function buildMonthGrid(monthDays) {
     const minutes = rec ? (rec.total_minutes || 0) : 0;
     const pct = maxMin > 0 ? (minutes / maxMin) * 100 : 0;
     const intensity = pct >= 80 ? 'heavy' : pct >= 50 ? 'medium' : pct >= 25 ? 'light' : pct > 0 ? 'faint' : 'none';
+    const cellDay = new Date(year, monthIdx, day);
+    const isWeekend = WEEKEND_DAYS.has(cellDay.getDay());
     const cell = el('div', {
-      className: `month-grid-cell intensity-${intensity}`,
+      className: `month-grid-cell intensity-${intensity}${isWeekend ? ' is-weekend' : ''}${isWeekend && minutes > 60 ? ' is-weekend-worked' : ''}`,
       onclick: rec ? () => {
         // Switch to Day view at this date
         const tabs = document.querySelectorAll('.tab');
@@ -457,7 +480,7 @@ function buildMonthTable(monthDays) {
       el('th', {}, 'Day'),
       el('th', { className: 'num' }, 'Total'),
       el('th', { className: 'num' }, 'Meetings'),
-      el('th', { className: 'num' }, 'Claude'),
+      el('th', { className: 'num' }, 'Agent'),
       el('th', { className: 'num' }, 'Gmail'),
       el('th', { className: 'num' }, 'Drive'),
       el('th', {}, 'Bar'),
@@ -468,30 +491,35 @@ function buildMonthTable(monthDays) {
   monthDays.forEach(d => {
     const pt = d.per_task || {};
     const meetingMin = pt.calendar_meeting || 0;
-    const claudeMin = pt.claude_code || 0;
+    const agentMin = pt.agent_work || 0;
     const gmailMin = pt.gmail_estimated || 0;
     const driveMin = pt.drive_estimated || 0;
     const total = d.total_minutes || 0;
     const dt = new Date(d.date + 'T00:00:00');
     const weekday = dt.toLocaleDateString('en-US', { weekday: 'short' });
+    const isWeekend = WEEKEND_DAYS.has(dt.getDay());
     const topClient = Object.entries(d.per_client || {})[0];
     const topInternal = Object.entries(d.per_internal || {})[0];
     let topLabel = '—';
     if (topClient) topLabel = `${topClient[0]} (${fmtMinutes(topClient[1])})`;
     else if (topInternal) topLabel = `${topInternal[0]} (${fmtMinutes(topInternal[1])})`;
 
+    let cls = '';
+    if (total === 0) cls = 'is-empty';
+    else if (isWeekend) cls = 'is-weekend';
+
     const row = el('tr', {
-      className: total === 0 ? 'is-empty' : '',
+      className: cls,
       onclick: () => {
         document.querySelectorAll('.tab').forEach(t => t.classList.toggle('is-active', t.dataset.view === 'today'));
         renderToday(d.date);
       },
     },
       el('td', {}, d.date.slice(5)),
-      el('td', {}, weekday),
+      el('td', {}, isWeekend && total > 0 ? `${weekday} ⚠` : weekday),
       el('td', { className: 'num' }, total > 0 ? fmtMinutes(total) : '—'),
       el('td', { className: 'num' }, meetingMin > 0 ? fmtMinutes(meetingMin) : '—'),
-      el('td', { className: 'num' }, claudeMin > 0 ? fmtMinutes(claudeMin) : '—'),
+      el('td', { className: 'num' }, agentMin > 0 ? fmtMinutes(agentMin) : '—'),
       el('td', { className: 'num' }, gmailMin > 0 ? fmtMinutes(gmailMin) : '—'),
       el('td', { className: 'num' }, driveMin > 0 ? fmtMinutes(driveMin) : '—'),
       el('td', { className: 'bar-cell' }, buildHorizontalBar(d, maxMin)),
@@ -551,6 +579,14 @@ function renderWindow(view, label) {
   const delRate = totals.delegation_rate;
   const delPct = delRate == null ? '—' : `${Math.round(delRate * 100)}%`;
   const avgPerDay = days.length ? total / days.length : 0;
+  const weekendMin = days
+    .filter(d => WEEKEND_DAYS.has(new Date(d.date + 'T00:00:00').getDay()))
+    .reduce((s, d) => s + (d.total_minutes || 0), 0);
+  const weekendDaysWorked = days
+    .filter(d => WEEKEND_DAYS.has(new Date(d.date + 'T00:00:00').getDay()) && (d.total_minutes || 0) > 60)
+    .length;
+  const weeksInWindow = days.length / 7;
+  const weeklyAvg = weeksInWindow ? Math.round(total / weeksInWindow) : 0;
 
   // Warnings if data is sparse / inflated
   const missingCount = days.filter(d => d.missing || d.total_minutes === 0).length;
@@ -562,9 +598,12 @@ function renderWindow(view, label) {
   // KPIs
   root.appendChild(el('div', { className: 'summary' },
     kpiCard('Total', fmtMinutes(total), `${label}`),
+    kpiCard('Weekly average', fmtMinutes(weeklyAvg), `${weeksInWindow.toFixed(1)} weeks`),
     kpiCard('Daily average', fmtMinutes(Math.round(avgPerDay)), null),
-    kpiCard('On client work', fmtMinutes(totals.client_minutes), `${clientPct}%`),
-    kpiCard('Delegation rate', delPct, `${totals.tier_invocations || 0} agent actions`),
+    kpiCard('Weekend work', fmtMinutes(weekendMin),
+      weekendDaysWorked > 0
+        ? `${weekendDaysWorked} weekend day${weekendDaysWorked === 1 ? '' : 's'} (aim: 0)`
+        : 'no weekend work — goal met'),
   ));
 
   // Stacked bar chart per day

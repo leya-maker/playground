@@ -462,6 +462,22 @@ dialog li { margin: 6px 0; }
 .month-grid-cell.intensity-heavy { background: #93b09f; }
 .month-grid-cell.intensity-heavy .month-grid-hours,
 .month-grid-cell.intensity-heavy .month-grid-day { color: #0f2e22; }
+.month-grid-cell.is-weekend {
+  background: rgba(176, 74, 58, 0.04);
+}
+.month-grid-cell.is-weekend-worked {
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(176, 74, 58, 0.18),
+    rgba(176, 74, 58, 0.18) 5px,
+    rgba(176, 74, 58, 0.08) 5px,
+    rgba(176, 74, 58, 0.08) 10px
+  );
+  border-color: var(--warn);
+}
+.month-grid-cell.is-weekend-worked .month-grid-day,
+.month-grid-cell.is-weekend-worked .month-grid-hours { color: var(--warn); font-weight: 600; }
+.month-grid-cell.is-weekend.intensity-none { background: rgba(176, 74, 58, 0.04); }
 .month-grid-day {
   font-size: 13px;
   font-weight: 500;
@@ -505,6 +521,9 @@ dialog li { margin: 6px 0; }
 .month-table tr:hover { background: var(--surface-2); }
 .month-table tr.is-empty { color: var(--ink-3); }
 .month-table tr.is-empty td { color: var(--ink-3); }
+.month-table tr.is-weekend { background: rgba(176, 74, 58, 0.06); }
+.month-table tr.is-weekend td { color: var(--warn); }
+.month-table tr.is-weekend:hover { background: rgba(176, 74, 58, 0.12); }
 .bar-cell { width: 180px; }
 .mini-bar {
   position: relative;
