@@ -109,14 +109,25 @@ function chartContainer(id, tall) {
 
 // ---------- Today view ----------
 
-let currentDayIndex = null; // index into DATA.last_7.days; null = today (last)
+let currentDayIndex = null; // index into the extended window; null = today (last)
 
-function renderToday() {
+function dayPickerSource() {
+  // Prefer the extended window if available so Day view can navigate
+  // every backfilled day. Falls back to last_7.
+  return (DATA.extended && DATA.extended.days && DATA.extended.days.length)
+    ? DATA.extended.days
+    : DATA.last_7.days;
+}
+
+function renderToday(jumpToDate) {
   destroyCharts();
   root.innerHTML = '';
 
-  // Determine the day to show: default to most recent in last_7
-  const days = DATA.last_7.days;
+  const days = dayPickerSource();
+  if (jumpToDate) {
+    const idx = days.findIndex(d => d.date === jumpToDate);
+    if (idx >= 0) currentDayIndex = idx;
+  }
   if (currentDayIndex === null || currentDayIndex >= days.length) {
     currentDayIndex = days.length - 1;
   }
@@ -192,21 +203,44 @@ function renderToday() {
 }
 
 function buildDayPicker(days) {
-  const wrap = el('div', { className: 'day-picker' });
-  days.forEach((d, i) => {
-    const btn = el('button', {
-      className: 'day-btn' + (i === currentDayIndex ? ' is-active' : '') + (d.missing || d.total_minutes === 0 ? ' is-empty' : ''),
-      onclick: () => {
-        currentDayIndex = i;
-        renderToday();
+  // If we have a long backfill, show only the last 14 days inline plus a
+  // dropdown to jump anywhere; otherwise show all days inline.
+  const recent = days.length > 14 ? days.slice(-14) : days;
+  const recentStartIdx = days.length - recent.length;
+
+  const wrap = el('div', { className: 'day-picker-wrap' });
+
+  if (days.length > 14) {
+    const sel = el('select', {
+      className: 'day-picker-jump',
+      onchange: (e) => {
+        const target = e.target.value;
+        const idx = days.findIndex(d => d.date === target);
+        if (idx >= 0) { currentDayIndex = idx; renderToday(); }
       },
+    });
+    days.slice().reverse().forEach(d => {
+      const opt = el('option', { value: d.date }, `${fmtDate(d.date)} — ${fmtMinutes(d.total_minutes)}`);
+      if (d.date === days[currentDayIndex].date) opt.setAttribute('selected', 'selected');
+      sel.appendChild(opt);
+    });
+    wrap.appendChild(sel);
+  }
+
+  const picker = el('div', { className: 'day-picker' });
+  recent.forEach((d, i) => {
+    const abs = recentStartIdx + i;
+    const btn = el('button', {
+      className: 'day-btn' + (abs === currentDayIndex ? ' is-active' : '') + (d.missing || d.total_minutes === 0 ? ' is-empty' : ''),
+      onclick: () => { currentDayIndex = abs; renderToday(); },
     },
       el('div', { className: 'day-btn-label' }, fmtDate(d.date).split(',')[0]),
       el('div', { className: 'day-btn-date' }, fmtDate(d.date).split(',')[1] || ''),
       el('div', { className: 'day-btn-hours' }, fmtMinutes(d.total_minutes)),
     );
-    wrap.appendChild(btn);
+    picker.appendChild(btn);
   });
+  wrap.appendChild(picker);
   return wrap;
 }
 
@@ -322,6 +356,174 @@ function buildCalendarGrid(dayStr, events, claudeBlocks) {
   wrap.appendChild(hoursCol);
   wrap.appendChild(tracksCol);
   wrap.style.height = `${totalHours * 30}px`;
+  return wrap;
+}
+
+// ---------- Month review ----------
+
+function renderMonthReview() {
+  destroyCharts();
+  root.innerHTML = '';
+  const days = (DATA.extended && DATA.extended.days) ? DATA.extended.days : DATA.last_30.days;
+
+  // Group by year-month
+  const groups = {};
+  days.forEach(d => {
+    const ym = d.date.slice(0, 7);
+    if (!groups[ym]) groups[ym] = [];
+    groups[ym].push(d);
+  });
+  const ymKeys = Object.keys(groups).sort();
+
+  // Top-level KPIs by month
+  const summary = el('div', { className: 'summary' });
+  ymKeys.forEach(ym => {
+    const monthDays = groups[ym];
+    const monthMin = monthDays.reduce((s, d) => s + (d.total_minutes || 0), 0);
+    const trackedDays = monthDays.filter(d => (d.total_minutes || 0) > 0).length;
+    const avgPerDay = trackedDays ? monthMin / trackedDays : 0;
+    const label = new Date(ym + '-01T00:00:00').toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    summary.appendChild(kpiCard(label, fmtMinutes(monthMin),
+      `${trackedDays} active days · avg ${fmtMinutes(Math.round(avgPerDay))}/day`));
+  });
+  root.appendChild(summary);
+
+  // For each month, render a scannable table
+  ymKeys.forEach(ym => {
+    const monthDays = groups[ym];
+    const label = new Date(ym + '-01T00:00:00').toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+    const card = el('div', { className: 'card' });
+    card.appendChild(el('h3', {}, label));
+    card.appendChild(buildMonthGrid(monthDays));
+    card.appendChild(buildMonthTable(monthDays));
+    root.appendChild(card);
+  });
+}
+
+function buildMonthGrid(monthDays) {
+  // Render a calendar-style grid (Sun-Sat) for the month with each cell showing the hour total
+  if (!monthDays.length) return el('div');
+  const first = new Date(monthDays[0].date + 'T00:00:00');
+  const monthIdx = first.getMonth();
+  const year = first.getFullYear();
+  const firstOfMonth = new Date(year, monthIdx, 1);
+  const startWeekday = firstOfMonth.getDay(); // 0 = Sun
+
+  const dayMap = {};
+  monthDays.forEach(d => { dayMap[d.date] = d; });
+
+  // Determine number of days in the month
+  const daysInMonth = new Date(year, monthIdx + 1, 0).getDate();
+  const maxMin = Math.max(60, ...monthDays.map(d => d.total_minutes || 0));
+
+  const grid = el('div', { className: 'month-grid' });
+  ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(d =>
+    grid.appendChild(el('div', { className: 'month-grid-head' }, d))
+  );
+
+  for (let i = 0; i < startWeekday; i++) {
+    grid.appendChild(el('div', { className: 'month-grid-cell is-empty' }));
+  }
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dStr = `${year}-${String(monthIdx + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const rec = dayMap[dStr];
+    const minutes = rec ? (rec.total_minutes || 0) : 0;
+    const pct = maxMin > 0 ? (minutes / maxMin) * 100 : 0;
+    const intensity = pct >= 80 ? 'heavy' : pct >= 50 ? 'medium' : pct >= 25 ? 'light' : pct > 0 ? 'faint' : 'none';
+    const cell = el('div', {
+      className: `month-grid-cell intensity-${intensity}`,
+      onclick: rec ? () => {
+        // Switch to Day view at this date
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(t => t.classList.toggle('is-active', t.dataset.view === 'today'));
+        renderToday(dStr);
+      } : null,
+    },
+      el('div', { className: 'month-grid-day' }, String(day)),
+      el('div', { className: 'month-grid-hours' }, minutes > 0 ? fmtMinutes(minutes) : '—'),
+    );
+    grid.appendChild(cell);
+  }
+  return grid;
+}
+
+function buildMonthTable(monthDays) {
+  const maxMin = Math.max(60, ...monthDays.map(d => d.total_minutes || 0));
+  const table = el('table', { className: 'month-table' });
+  const thead = el('thead', {},
+    el('tr', {},
+      el('th', {}, 'Date'),
+      el('th', {}, 'Day'),
+      el('th', { className: 'num' }, 'Total'),
+      el('th', { className: 'num' }, 'Meetings'),
+      el('th', { className: 'num' }, 'Claude'),
+      el('th', { className: 'num' }, 'Gmail'),
+      el('th', { className: 'num' }, 'Drive'),
+      el('th', {}, 'Bar'),
+      el('th', {}, 'Top client / category'),
+    ),
+  );
+  const tbody = el('tbody');
+  monthDays.forEach(d => {
+    const pt = d.per_task || {};
+    const meetingMin = pt.calendar_meeting || 0;
+    const claudeMin = pt.claude_code || 0;
+    const gmailMin = pt.gmail_estimated || 0;
+    const driveMin = pt.drive_estimated || 0;
+    const total = d.total_minutes || 0;
+    const dt = new Date(d.date + 'T00:00:00');
+    const weekday = dt.toLocaleDateString('en-US', { weekday: 'short' });
+    const topClient = Object.entries(d.per_client || {})[0];
+    const topInternal = Object.entries(d.per_internal || {})[0];
+    let topLabel = '—';
+    if (topClient) topLabel = `${topClient[0]} (${fmtMinutes(topClient[1])})`;
+    else if (topInternal) topLabel = `${topInternal[0]} (${fmtMinutes(topInternal[1])})`;
+
+    const row = el('tr', {
+      className: total === 0 ? 'is-empty' : '',
+      onclick: () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.toggle('is-active', t.dataset.view === 'today'));
+        renderToday(d.date);
+      },
+    },
+      el('td', {}, d.date.slice(5)),
+      el('td', {}, weekday),
+      el('td', { className: 'num' }, total > 0 ? fmtMinutes(total) : '—'),
+      el('td', { className: 'num' }, meetingMin > 0 ? fmtMinutes(meetingMin) : '—'),
+      el('td', { className: 'num' }, claudeMin > 0 ? fmtMinutes(claudeMin) : '—'),
+      el('td', { className: 'num' }, gmailMin > 0 ? fmtMinutes(gmailMin) : '—'),
+      el('td', { className: 'num' }, driveMin > 0 ? fmtMinutes(driveMin) : '—'),
+      el('td', { className: 'bar-cell' }, buildHorizontalBar(d, maxMin)),
+      el('td', {}, topLabel),
+    );
+    tbody.appendChild(row);
+  });
+  table.appendChild(thead);
+  table.appendChild(tbody);
+  return table;
+}
+
+function buildHorizontalBar(day, maxMin) {
+  const wrap = el('div', { className: 'mini-bar' });
+  const pt = day.per_task || {};
+  const order = ['calendar_meeting', 'claude_code', 'calendar_heads_down', 'gmail_estimated', 'drive_estimated', 'granola_extra'];
+  let leftPct = 0;
+  order.forEach(k => {
+    const v = pt[k] || 0;
+    if (v <= 0) return;
+    const w = (v / maxMin) * 100;
+    wrap.appendChild(el('div', {
+      className: 'mini-bar-seg',
+      style: {
+        left: `${leftPct}%`,
+        width: `${w}%`,
+        background: TASK_COLORS[k],
+      },
+      title: `${TASK_LABELS[k]}: ${fmtMinutes(v)}`,
+    }));
+    leftPct += w;
+  });
   return wrap;
 }
 
@@ -546,6 +748,7 @@ function switchTab(view) {
   if (view === 'today') renderToday();
   else if (view === 'last_7') renderWindow(DATA.last_7, 'Last 7 days');
   else if (view === 'last_30') renderWindow(DATA.last_30, 'Last 30 days');
+  else if (view === 'month_review') renderMonthReview();
 }
 
 boot();
