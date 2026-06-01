@@ -1,0 +1,139 @@
+@import url("handbook.css");
+
+/* =========================================================
+   LPM Moves Management Framework — companion-doc extras
+   Inherits the full handbook shell; adds the few components
+   unique to this document.
+   ========================================================= */
+
+/* ---------- Move-type cards (the four types) ---------- */
+.move-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 24px 0 8px;
+}
+.move-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  border-top: 3px solid var(--mc, var(--color-blueberry));
+  padding: 20px 22px 22px;
+  transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.move-card:hover { border-color: var(--color-blueberry-300); box-shadow: var(--shadow-card); }
+.move-card .mc-top {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+}
+.move-card .mc-step {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  color: var(--color-blueberry); background: var(--color-periwinkle-50);
+  border: 1px solid var(--color-periwinkle); border-radius: var(--radius-sm);
+  width: 22px; height: 22px; display: grid; place-items: center; flex: none;
+}
+.move-card .mc-name {
+  font-family: var(--font-display); font-weight: 600; font-size: 21px;
+  color: var(--color-blueberry); letter-spacing: -0.01em; line-height: 1.1;
+}
+.move-card p { font-size: 14.5px; line-height: 1.55; color: var(--fg-muted); margin: 0; max-width: none; }
+
+/* ---------- Triad (the three required elements) ---------- */
+.triad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 22px 0; }
+.triad .ti {
+  border: 1px solid var(--border-hairline); border-radius: var(--radius-md);
+  border-top: 3px solid var(--color-blueberry); background: var(--bg-surface);
+  padding: 18px 18px 20px;
+}
+.triad .ti .lab { font-size: 10.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-subtle); }
+.triad .ti .big { font-family: var(--font-display); font-size: 27px; color: var(--color-blueberry); letter-spacing: -0.01em; margin: 8px 0 5px; line-height: 1.05; }
+.triad .ti .sub { font-size: 13px; line-height: 1.5; color: var(--fg-muted); }
+
+/* ---------- Entry-structure spec list ---------- */
+.spec { margin: 22px 0; border: 1px solid var(--border-hairline); border-radius: var(--radius-md); overflow: hidden; }
+.spec .row {
+  display: grid; grid-template-columns: 168px 1fr; gap: 0;
+  border-bottom: 1px solid var(--border-hairline);
+}
+.spec .row:last-child { border-bottom: 0; }
+.spec .field {
+  background: var(--color-periwinkle-50); border-right: 1px solid var(--border-hairline);
+  padding: 15px 18px; font-family: var(--font-body); font-weight: 600; font-size: 14px;
+  color: var(--color-blueberry);
+}
+.spec .detail { padding: 15px 20px; font-size: 14.5px; line-height: 1.55; color: var(--fg-primary); }
+.spec .detail .o { color: var(--fg-muted); }
+
+/* ---------- Tier table (3-col) ---------- */
+table.std td .tier-tag {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--color-blueberry);
+  letter-spacing: 0.02em;
+}
+table.std td.freq { font-family: var(--font-body); font-weight: 600; color: var(--color-blueberry); white-space: nowrap; }
+
+/* ---------- Width consistency: framed blocks match table width ---------- */
+/* Callouts default to a 66ch text measure in the shared shell; widen them
+   so every bordered block lines up with the tables and tool cards. */
+.reader .callout { max-width: none; }
+
+/* ---------- Copyable agenda template ---------- */
+.tool-head .copy-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-body); font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.03em; color: var(--color-blueberry);
+  background: #fff; border: 1px solid var(--color-periwinkle);
+  border-radius: var(--radius-sm); padding: 6px 11px; cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.tool-head .copy-btn:hover { border-color: var(--color-blueberry-300); background: var(--color-periwinkle-50); }
+.tool-head .copy-btn.copied { color: #2B4A1A; background: var(--color-mint); border-color: color-mix(in srgb, var(--color-mint) 55%, var(--color-blueberry-300)); }
+.tool-head .copy-btn svg { width: 14px; height: 14px; }
+.agenda-pre {
+  margin: 0; padding: 18px 20px;
+  font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7;
+  color: var(--fg-primary); white-space: pre-wrap; word-break: break-word; tab-size: 2;
+  background: var(--color-gardenia); border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- Engagement gauge ---------- */
+.gauge { margin-top: 4px; }
+.gauge-readout { display: flex; align-items: baseline; gap: 10px; margin: 4px 0 14px; }
+.gauge-readout .big {
+  font-family: var(--font-display); font-size: 34px; color: var(--color-blueberry);
+  letter-spacing: -0.015em; line-height: 1; font-variant-numeric: tabular-nums;
+}
+.gauge-readout .pl { font-size: 13px; color: var(--fg-muted); }
+.gauge-track {
+  position: relative; height: 44px; border-radius: var(--radius-sm);
+  background: var(--color-periwinkle-50); border: 1px solid var(--border-hairline);
+  overflow: hidden; margin: 6px 0 4px;
+}
+.gauge-track .gfill {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 0;
+  background: var(--color-blueberry); border-radius: 0;
+  transition: width var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+}
+.gauge-track.flag .gfill { background: var(--color-cornflower); }
+.gauge-mark {
+  position: absolute; top: 0; bottom: 0; left: 50%; width: 0;
+  border-left: 2px dashed var(--color-blueberry-700); z-index: 2;
+}
+.gauge-mark .ml {
+  position: absolute; top: 5px; left: 6px; font-family: var(--font-mono);
+  font-size: 10px; font-weight: 600; color: var(--color-blueberry-900);
+  letter-spacing: 0.04em; white-space: nowrap;
+}
+.gauge-scale {
+  display: flex; justify-content: space-between; font-family: var(--font-mono);
+  font-size: 10.5px; color: var(--fg-subtle); margin-top: 2px;
+}
+
+/* ---------- Back-companion card (rail foot, points to MGPM) ---------- */
+/* uses the shared .companion styles; no overrides needed */
+
+@media (max-width: 620px) {
+  .move-grid { grid-template-columns: 1fr; }
+  .triad { grid-template-columns: 1fr; }
+  .spec .row { grid-template-columns: 1fr; }
+  .spec .field { border-right: 0; border-bottom: 1px solid var(--border-hairline); }
+}

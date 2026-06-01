@@ -1,0 +1,332 @@
+/* =========================================================
+   LPM Consulting — Colors & Type
+   Boutique nonprofit fundraising consultancy.
+   Warm authority. Generous whitespace. Confident typography.
+   ========================================================= */
+
+/* ---------- Fonts ---------- */
+@font-face {
+  font-family: "King and Queen";
+  src: url("fonts/KingandQueen-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "King and Queen";
+  src: url("fonts/KingandQueen-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "King and Queen";
+  src: url("fonts/KingandQueen-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "King and Queen";
+  src: url("fonts/KingandQueen-SemiBoldItalic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Work Sans";
+  src: url("fonts/WorkSans-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: url("fonts/WorkSans-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- Brand Colors (canonical — names & values from LPM 2025 Brand Guide) ---------- */
+  --color-blueberry:     #384BCF;   /* CMYK 83/74/0/0  — primary, headlines, primary buttons */
+  --color-cornflower:    #717FEF;   /* CMYK 61/52/0/0  — secondary, subheadings, links */
+  --color-periwinkle:    #C5CBFF;   /* CMYK 20/17/0/0  — surfaces, callouts, "Investment:" line */
+  --color-mint:          #EBFFD6;   /* CMYK  7/ 0/20/0 — soft bg, positive callouts */
+  --color-electric-lime: #DFFF00;   /* CMYK 18/ 0/100/0 — ACCENT ONLY — never a background */
+  --color-gardenia:      #FFFFF6;   /* CMYK  0/ 0/ 3/0 — page background, off-white base */
+  --color-ink:           #333333;   /* CMYK 69/63/62/58 — body text, black */
+
+  /* Alias for backward compat — prefer --color-electric-lime in new code */
+  --color-lime:          var(--color-electric-lime);
+
+  /* Tonal extensions (derived, use sparingly) */
+  --color-blueberry-900: #1E2C8F;
+  --color-blueberry-700: #2C3BB0;
+  --color-blueberry-500: #384BCF;
+  --color-blueberry-300: #8A97E8;
+  --color-periwinkle-50: #F2F3FF;
+  --color-mint-50:       #F6FFEB;
+  --color-ink-70:        #5C5C5C;
+  --color-ink-50:        #888888;
+  --color-ink-30:        #BDBDBD;
+  --color-ink-10:        #E6E6E6;
+  --color-line:          #E8E8E0;   /* hairline rules on gardenia */
+
+  /* ---------- Semantic tokens ---------- */
+  --bg-page:        var(--color-gardenia);
+  --bg-surface:     #FFFFFF;
+  --bg-soft:        var(--color-periwinkle-50);
+  --bg-callout:     var(--color-periwinkle);
+  --bg-positive:    var(--color-mint);
+  --bg-inverse:     var(--color-blueberry);
+
+  --fg-primary:     var(--color-ink);
+  --fg-muted:       var(--color-ink-70);
+  --fg-subtle:      var(--color-ink-50);
+  --fg-on-inverse:  var(--color-gardenia);
+  --fg-brand:       var(--color-blueberry);
+  --fg-brand-soft:  var(--color-cornflower);
+  --fg-link:        var(--color-cornflower);
+
+  --border-hairline: var(--color-line);
+  --border-strong:   var(--color-ink);
+  --border-brand:    var(--color-blueberry);
+
+  --accent:          var(--color-lime);
+
+  /* ---------- Type families ---------- */
+  --font-display: "King and Queen", "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --font-body:    "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+
+  /* ---------- Type scale (clamped to print-friendly sizes) ---------- */
+  --fs-display:  clamp(56px, 7vw, 112px);  /* hero title */
+  --fs-h1:       clamp(40px, 4.8vw, 72px);
+  --fs-h2:       clamp(30px, 3.2vw, 48px);
+  --fs-h3:       clamp(22px, 2.2vw, 32px);
+  --fs-h4:       20px;
+  --fs-eyebrow:  12px;
+  --fs-lead:     21px;
+  --fs-body:     16px;
+  --fs-small:    14px;
+  --fs-fine:     12px;
+
+  /* Line heights */
+  --lh-tight:    1.02;
+  --lh-display:  1.06;
+  --lh-heading:  1.12;
+  --lh-body:     1.55;
+  --lh-loose:    1.7;
+
+  /* Tracking — per brand guide.
+     Body headings (King & Queen): 10pt = ~0.025em (display) / optical leading.
+     Eyebrow / buttons / all-caps chrome: "100 tracking" = 100/1000 = 0.1em. */
+  --tracking-display: 0.025em;        /* KQ 40pt Semi-bold = 10pt tracking */
+  --tracking-heading: 0;
+  --tracking-body:    0;
+  --tracking-eyebrow: 0.1em;          /* 100 tracking, ALL CAPS chrome */
+  --tracking-button:  0.1em;          /* same as eyebrow, WS Bold caps */
+
+  /* ---------- Spacing (8pt base + 4pt half-step) ---------- */
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* ---------- Radii (restrained; arch shapes carry the curve) ---------- */
+  --radius-0:   0;
+  --radius-xs:  2px;
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  16px;
+  --radius-pill: 999px;
+
+  /* Arch radius used on callouts + buttons evoking the brand shape */
+  --radius-arch-top: 9999px 9999px 0 0;
+
+  /* ---------- Shadows (minimal; brand prefers flat + hairline) ---------- */
+  --shadow-none: none;
+  --shadow-hairline: 0 0 0 1px var(--border-hairline);
+  --shadow-card: 0 1px 0 rgba(51, 51, 51, 0.04), 0 8px 24px -12px rgba(56, 75, 207, 0.14);
+  --shadow-lift: 0 2px 0 rgba(51, 51, 51, 0.04), 0 20px 48px -20px rgba(56, 75, 207, 0.28);
+
+  /* ---------- Motion ---------- */
+  --ease-out:  cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.6, 0.05, 0.2, 0.95);
+  --dur-fast:  150ms;
+  --dur-base:  220ms;
+  --dur-slow:  420ms;
+
+  /* ---------- Layout ---------- */
+  --content-narrow: 640px;
+  --content-measure: 72ch;
+  --content-wide:   1100px;
+  --gutter:         clamp(20px, 4vw, 56px);
+}
+
+/* ---------- Base element styles (semantic) ---------- */
+
+html, body {
+  background: var(--bg-page);
+  color: var(--fg-primary);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Display / headings ----
+   Brand guide: King & Queen SEMI-BOLD is the DEFAULT weight.
+   Use Regular (weight 400) only when less contrast is needed — e.g. on
+   darker backgrounds, secondary headlines, or where Semi-bold feels heavy. */
+
+.display,
+h1.display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
+  color: var(--fg-brand);
+  text-wrap: balance;
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 600;                     /* Semi-bold default */
+  font-size: var(--fs-h1);              /* 40pt spec */
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-display);  /* 10pt tracking */
+  color: var(--fg-brand);
+  text-wrap: balance;
+  margin: 0 0 var(--space-5);
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 400;                     /* Regular — 30pt spec */
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--fg-brand);
+  text-wrap: balance;
+  margin: 0 0 var(--space-4);
+}
+
+/* Subheader 1 — 15pt KQ Regular */
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 15pt;
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: var(--fg-brand);
+  margin: 0 0 var(--space-3);
+}
+
+/* Subheader 2 — 12pt Work Sans Bold, ALL CAPS, 100 tracking */
+h4, .h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12pt;
+  line-height: 1.25;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-primary);
+  margin: 0 0 var(--space-2);
+}
+
+/* Less-contrast variant — use on dark bgs, secondary emphasis */
+.h1--regular, h1.regular { font-weight: 400; }
+.h2--semibold, h2.semibold { font-weight: 600; }
+
+/* Italic-with-color — per brand guide, italic is only used in conjunction
+   with color to highlight key words inline. Wrap key word/phrase in .accent. */
+.accent {
+  font-style: italic;
+  color: var(--color-blueberry);         /* or var(--color-lime) on dark bgs */
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-brand);
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  font-weight: 400;
+  color: var(--fg-primary);
+  text-wrap: pretty;
+}
+
+p {
+  margin: 0 0 1em;
+  max-width: var(--content-measure);
+  text-wrap: pretty;
+}
+
+small, .small { font-size: var(--fs-small); color: var(--fg-muted); }
+.fine         { font-size: var(--fs-fine);  color: var(--fg-subtle); }
+
+a {
+  color: var(--fg-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+a:hover { color: var(--color-blueberry); }
+
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border-hairline);
+  margin: var(--space-6) 0;
+}
+
+/* ---------- Brand primitives ---------- */
+
+/* Investment line — proposal convention */
+.investment-line {
+  display: inline-block;
+  background: var(--color-periwinkle);
+  color: var(--color-blueberry-900);
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+}
+
+/* Lime accent — use once per piece */
+.accent-lime {
+  background: var(--color-lime);
+  color: var(--color-ink);
+  padding: 0 0.18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Arch-topped surface */
+.arch-surface {
+  border-radius: 9999px 9999px 0 0;
+}
