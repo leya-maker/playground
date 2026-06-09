@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LPM Time Tracker — Day view</title>
+  <link rel="icon" type="image/svg+xml" href="assets/Fav_Blue.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Shared cross-tracker nav (Pipeline / P&L / Time). Kept self-contained so
+       it renders regardless of the app's own styles loading. */
+    .xtracker-nav {
+      display: flex; justify-content: center; gap: 24px;
+      padding: 16px 24px; background: #fff;
+      border-bottom: 2px solid #C9CEF2;
+    }
+    .xtracker-nav a {
+      font-family: 'Work Sans', system-ui, sans-serif;
+      font-size: 13px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1px; text-decoration: none;
+      padding: 6px 20px; border-radius: 999px; color: #888;
+    }
+    .xtracker-nav a.active { background: #384BCF; color: #fff; }
+  </style>
+</head>
+<body data-bg="gardenia">
+  <nav class="xtracker-nav">
+    <a href="https://leya-maker.github.io/lpm-pipeline-tracker/index.html">Pipeline</a>
+    <a href="https://leya-maker.github.io/lpm-pipeline-tracker/pnl.html">P&amp;L Dashboard</a>
+    <a href="https://leya-maker.github.io/playground/time-tracker/" class="active">Time</a>
+  </nav>
+
+  <div id="root"></div>
+
+  <!-- React + Babel pinned -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"
+          integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L"
+          crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
+          integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm"
+          crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
+          integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y"
+          crossorigin="anonymous"></script>
+
+  <!-- Baked dashboard payload (injected at build time; empty in the plaintext
+       template so local dev falls back to fetch('data/dashboard.json')). -->
+  {{EMBEDDED_DASHBOARD}}
+
+  <!-- Data + globals (vanilla) -->
+  <script src="data.js"></script>
+
+  <!-- Tweaks panel scaffold (must come BEFORE app.jsx) -->
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+
+  <!-- Views (PeriodView, MonthReview, DonutCard) — must load BEFORE app.jsx -->
+  <script type="text/babel" src="views.jsx"></script>
+
+  <!-- App -->
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
