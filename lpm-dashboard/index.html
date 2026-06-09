@@ -4,128 +4,140 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>LPM Consulting Dashboard</title>
+<title>LPM Consulting</title>
 <style>
   @font-face {
     font-family: 'King and Queen'; font-weight: 400; font-style: normal; font-display: swap;
-    src: url('https://deploy-preview-1--lpm-consulting.netlify.app/uploads/King and Queen/KingandQueen-Regular.otf') format('opentype');
+    src: url('../agent-org-chart/assets/fonts/KingandQueen-Regular.otf') format('opentype');
   }
   @font-face {
     font-family: 'King and Queen'; font-weight: 600; font-style: normal; font-display: swap;
-    src: url('https://deploy-preview-1--lpm-consulting.netlify.app/uploads/King and Queen/KingandQueen-SemiBold.otf') format('opentype');
+    src: url('../agent-org-chart/assets/fonts/KingandQueen-SemiBold.otf') format('opentype');
   }
   @font-face {
     font-family: 'Work Sans'; font-weight: 100 900; font-style: normal; font-display: swap;
-    src: url('https://deploy-preview-1--lpm-consulting.netlify.app/uploads/Work Sans/WorkSans-VariableFont_wght.ttf') format('truetype');
+    src: url('../agent-org-chart/assets/fonts/WorkSans-VariableFont_wght.ttf') format('truetype-variations');
   }
   :root {
     --blueberry: #384BCF;
     --cornflower: #717FEF;
     --periwinkle: #C5CBFF;
-    --lime: #DFFF00;
     --mint: #EBFFD6;
     --gardenia: #FFFFF6;
     --ink: #333333;
     --font-display: 'King and Queen', Georgia, serif;
     --font-body: 'Work Sans', system-ui, sans-serif;
-    --radius-pill: 100px;
-    --radius-card: 16px;
+    --radius-card: 20px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: var(--font-body);
     background: var(--gardenia);
     color: var(--ink);
-    font-size: 17px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 64px 24px;
+    justify-content: center;
+    padding: 48px 24px;
   }
-  header { text-align: center; max-width: 720px; margin-bottom: 56px; }
+  header {
+    text-align: center;
+    margin-bottom: 52px;
+  }
   .eyebrow {
-    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
-    color: var(--blueberry); margin-bottom: 16px;
+    font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px;
+    color: var(--blueberry); margin-bottom: 20px;
   }
-  h1 { font-family: var(--font-display); font-weight: 600; font-size: 52px; line-height: 1.05; color: var(--ink); }
-  header p { margin-top: 18px; font-size: 18px; color: #555; line-height: 1.5; }
-  .doors {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 28px; width: 100%; max-width: 880px;
+  h1 {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(36px, 6vw, 58px); line-height: 1.05; color: var(--ink);
+    margin-bottom: 18px;
   }
-  .door {
-    display: flex; flex-direction: column;
-    background: #fff; border: 1px solid var(--periwinkle);
-    border-radius: var(--radius-card); padding: 36px 34px;
-    text-decoration: none; color: inherit;
-    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  header p {
+    font-size: 17px; color: #666; line-height: 1.55; max-width: 400px; margin: 0 auto;
   }
-  .door:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(56,75,207,.14); border-color: var(--blueberry); }
-  .door-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-  .door h2 { font-family: var(--font-display); font-weight: 600; font-size: 27px; }
-  .lock { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #888; white-space: nowrap; }
-  .door > p { color: #555; font-size: 15.5px; line-height: 1.5; margin-bottom: 20px; }
-  .links { list-style: none; display: flex; flex-direction: column; gap: 2px; margin-top: auto; }
-  .links a {
-    display: flex; align-items: baseline; gap: 10px;
-    padding: 11px 14px; border-radius: 10px; text-decoration: none; color: var(--ink);
-    font-weight: 600; transition: background .12s ease;
+  .choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 620px;
   }
-  .links a:hover { background: var(--mint); }
-  .links a.soon { color: #aaa; font-weight: 500; pointer-events: none; }
-  .links .meta { font-weight: 400; font-size: 13px; color: #999; }
-  .door.business { border-top: 4px solid var(--blueberry); }
-  .door.contractors { border-top: 4px solid var(--cornflower); }
-  footer { margin-top: 56px; font-size: 13px; color: #999; text-align: center; }
-  footer .pill {
-    display: inline-block; background: var(--blueberry); color: #fff;
-    border-radius: var(--radius-pill); padding: 4px 16px; font-weight: 600;
-    letter-spacing: 1px; text-transform: uppercase; font-size: 11px;
+  .choice {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #fff;
+    border: 1.5px solid var(--periwinkle);
+    border-radius: var(--radius-card);
+    padding: 36px 32px 32px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .choice:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 48px rgba(56,75,207,.13);
+    border-color: var(--blueberry);
+  }
+  .choice.leya { border-top: 4px solid var(--blueberry); }
+  .choice.contractor { border-top: 4px solid var(--cornflower); }
+  .choice-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .choice.leya .choice-icon { background: #EEF0FD; }
+  .choice.contractor .choice-icon { background: #F0F1FC; }
+  .choice h2 {
+    font-family: var(--font-display); font-weight: 600; font-size: 22px;
+    line-height: 1.15; color: var(--ink); margin-bottom: 10px;
+  }
+  .choice p {
+    font-size: 14.5px; color: #777; line-height: 1.55;
+  }
+  .choice .arrow {
+    margin-top: 28px;
+    font-size: 13px; font-weight: 600;
+    color: var(--blueberry);
+    letter-spacing: .3px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .choice.contractor .arrow { color: var(--cornflower); }
+  footer {
+    margin-top: 52px; font-size: 12.5px; color: #bbb; text-align: center; line-height: 1.6;
   }
 </style>
 </head>
 <body>
   <header>
     <div class="eyebrow">LPM Consulting</div>
-    <h1>Dashboard</h1>
-    <p>One home for the business. Pick a section below; each opens behind its own password.</p>
+    <h1>Who are you here as?</h1>
+    <p>Each section is password-protected. Choose the one that applies to you.</p>
   </header>
 
-  <main class="doors">
-    <a class="door business" href="https://leya-maker.github.io/lpm-pipeline-tracker/">
-      <div class="door-top">
-        <h2>Business Management</h2>
-        <span class="lock">Locked</span>
-      </div>
-      <p>Live pipeline, revenue, profitability, and where your hours go. For Leya.</p>
-      <ul class="links">
-        <li><a href="https://leya-maker.github.io/lpm-pipeline-tracker/">Pipeline &amp; Revenue <span class="meta">active clients, BD, forecast</span></a></li>
-        <li><a href="https://leya-maker.github.io/lpm-pipeline-tracker/pnl.html">P&amp;L Dashboard <span class="meta">actuals + next-year forecast</span></a></li>
-        <li><a href="https://leya-maker.github.io/playground/time-tracker/">Time Tracker <span class="meta">Leya-hours, effective rate</span></a></li>
-        <li><a href="https://leya-maker.github.io/playground/agent-org-chart/">AI Org Chart <span class="meta">agent team structure &amp; roles</span></a></li>
-      </ul>
+  <main class="choices">
+    <a class="choice leya" href="https://leya-maker.github.io/lpm-pipeline-tracker/">
+      <div class="choice-icon">&#128274;</div>
+      <h2>I'm Leya</h2>
+      <p>Your private business portal.</p>
+      <span class="arrow">Enter &rarr;</span>
     </a>
 
-    <a class="door contractors" href="https://leya-maker.github.io/playground/contractor-playbook/">
-      <div class="door-top">
-        <h2>For Contractors</h2>
-        <span class="lock">Locked</span>
-      </div>
-      <p>Everything the bench needs to deliver LPM work: the playbook, methodologies, templates, and how-tos.</p>
-      <ul class="links">
-        <li><a href="https://leya-maker.github.io/playground/contractor-playbook/">Contractor Playbook <span class="meta">handbook &amp; ways of working</span></a></li>
-        <li><a href="https://leya-maker.github.io/playground/contractor-playbook/playbooks/moves-management-framework.html">Moves Management <span class="meta">methodology</span></a></li>
-        <li><a href="https://leya-maker.github.io/playground/contractor-playbook/playbooks/major-gifts-portfolio-management.html">Major Gifts Portfolio Mgmt <span class="meta">methodology</span></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1-zh4RGRi-cwX6UKwKBYhBZ92T54Eglmj" target="_blank" rel="noopener">LPM Templates <span class="meta">methodologies, trainings &amp; templates (Drive)</span></a></li>
-        <li><a class="soon">How-To Guides <span class="meta">coming soon</span></a></li>
-      </ul>
+    <a class="choice contractor" href="https://leya-maker.github.io/playground/contractor-playbook/">
+      <div class="choice-icon">&#128101;</div>
+      <h2>I'm an LPM subcontractor</h2>
+      <p>The playbook, methodologies, and resources for LPM bench work.</p>
+      <span class="arrow">Enter &rarr;</span>
     </a>
   </main>
 
   <footer>
-    <span class="pill">Internal</span>
-    <p style="margin-top:14px">Two passwords, two sections. The business side and the contractor side never share a login.</p>
+    Both sections are locked. If you&rsquo;re not sure which one is yours, you&rsquo;re probably in the wrong place.
   </footer>
 </body>
 </html>
