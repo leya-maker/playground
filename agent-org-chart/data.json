@@ -1,0 +1,1971 @@
+{
+  "generated_at": "2026-06-01T16:25:49+00:00",
+  "session_locked": "Session 1 (2026-05-23)",
+  "spine": {
+    "ceo": {
+      "name": "Leya",
+      "title": "CEO",
+      "kind": "human"
+    },
+    "personal_reports": [
+      {
+        "slug": "family-agent",
+        "kind": "agent",
+        "skills": []
+      },
+      {
+        "slug": "style-agent",
+        "kind": "agent",
+        "skills": []
+      }
+    ],
+    "chief_of_staff": {
+      "slug": "rose",
+      "name": "Rose",
+      "title": "Chief of Staff",
+      "skills": [
+        {
+          "name": "task-router",
+          "summary": "Classify and route tasks"
+        },
+        {
+          "name": "weekly-planning",
+          "summary": "Monday brief + midweek refresh"
+        },
+        {
+          "name": "morning-brief",
+          "summary": "7am daily brief"
+        },
+        {
+          "name": "evening-checkin",
+          "summary": "4:30pm end-of-day check-in"
+        },
+        {
+          "name": "email-learning",
+          "summary": "Rose-draft → Leya-edit diff loop"
+        },
+        {
+          "name": "lock-it-in",
+          "summary": "Workflow → reusable skill"
+        }
+      ],
+      "ops_reports": [
+        {
+          "slug": "business-strategist-agent",
+          "kind": "agent",
+          "skills": [
+            {
+              "name": "business-strategist-agent",
+              "summary": "Pricing, capacity, scope, scenarios"
+            }
+          ]
+        },
+        {
+          "slug": "calendar-agent",
+          "kind": "agent",
+          "skills": [
+            {
+              "name": "calendar-agent",
+              "summary": "Time and schedule custodian"
+            }
+          ]
+        },
+        {
+          "slug": "meeting-agent",
+          "kind": "agent",
+          "skills": [
+            {
+              "name": "meeting-follow-up",
+              "summary": "Post-meeting workflow",
+              "shared_with": [
+                "brand-qa-agent"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "executives": [
+      {
+        "slug": "cfo",
+        "name": "CFO Agent",
+        "short": "CFO",
+        "skills": [],
+        "direct_reports": [
+          {
+            "slug": "bookkeeper-agent",
+            "kind": "agent",
+            "skills": [
+              {
+                "name": "verification-pass",
+                "summary": "Quantitative + logic audit",
+                "shared_with": [
+                  "bd-agent",
+                  "client-writing-agent"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "head-of-client-services",
+        "name": "Head of Client Services",
+        "short": "Client Services",
+        "skills": [
+          {
+            "name": "training-session",
+            "summary": "Client workshop builder"
+          }
+        ],
+        "direct_reports": [
+          {
+            "slug": "client-writing-agent",
+            "kind": "agent",
+            "skills": [
+              {
+                "name": "client-materials",
+                "summary": "Branded client docs"
+              }
+            ]
+          },
+          {
+            "slug": "client-analysis-agent",
+            "kind": "agent",
+            "skills": [
+              {
+                "name": "fundraising-data-analysis",
+                "summary": "Donor data analysis"
+              },
+              {
+                "name": "prospect-research",
+                "summary": "Org research profiles",
+                "shared_with": [
+                  "bd-agent"
+                ]
+              }
+            ]
+          },
+          {
+            "slug": "client-lifecycle-agent",
+            "kind": "agent",
+            "skills": [
+              {
+                "name": "client-lifecycle: onboard",
+                "summary": "New engagement setup"
+              },
+              {
+                "name": "client-lifecycle: offboard",
+                "summary": "Wrap-up + archive"
+              },
+              {
+                "name": "client-lifecycle: templatize",
+                "summary": "Deliverable → reusable template"
+              },
+              {
+                "name": "client-lifecycle: sub-onboard",
+                "summary": "Subcontractor onboarding",
+                "shared_with": [
+                  "head-of-talent"
+                ]
+              }
+            ]
+          },
+          {
+            "slug": "brand-qa-agent",
+            "kind": "agent",
+            "skills": [
+              {
+                "name": "brand-qa",
+                "summary": "Brand consistency review",
+                "shared_with": [
+                  "bd-agent",
+                  "content-agent",
+                  "client-writing-agent",
+                  "meeting-agent"
+                ]
+              },
+              {
+                "name": "humanizer",
+                "summary": "Pre-send AI-tell scrub",
+                "shared_with": [
+                  "bd-agent",
+                  "content-agent",
+                  "client-writing-agent",
+                  "meeting-agent"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "head-of-bd-and-revenue",
+        "name": "Head of BD and Revenue",
+        "short": "BD & Revenue",
+        "skills": [
+          {
+            "name": "pipeline-tracker",
+            "summary": "Pipeline data.json (read + write)",
+            "shared_with": [
+              "head-of-client-services"
+            ]
+          }
+        ],
+        "direct_reports": [
+          {
+            "slug": "bd-agent",
+            "kind": "agent",
+            "skills": [
+              {
+                "name": "warm-outreach",
+                "summary": "Personalized BD emails"
+              },
+              {
+                "name": "proposal-builder",
+                "summary": "Consulting proposals"
+              }
+            ]
+          },
+          {
+            "slug": "content-agent",
+            "kind": "agent",
+            "skills": [
+              {
+                "name": "content-miner",
+                "summary": "Mine transcripts → backlog → LinkedIn / article"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "head-of-talent",
+        "name": "Head of Talent",
+        "short": "Talent",
+        "skills": [],
+        "direct_reports": [
+          {
+            "slug": "human-bench",
+            "kind": "bench",
+            "name": "Human Bench",
+            "members": [
+              {
+                "name": "Kathleen",
+                "engagements": "NABU, Apex, CCC, CreativeMornings (ending soon)"
+              },
+              {
+                "name": "Kelly (via KBC)",
+                "engagements": "ALDF"
+              },
+              {
+                "name": "Aryana",
+                "engagements": "TBD at 2wk check-in"
+              },
+              {
+                "name": "Lauren Phipps",
+                "engagements": "onboarding pending"
+              },
+              {
+                "name": "Lauren Stewart",
+                "engagements": "onboarding pending"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "agents": {
+    "rose": {
+      "slug": "rose",
+      "exists": true,
+      "name": "Rose",
+      "role": "Chief of Staff",
+      "reports_to": "Leya",
+      "direct_reports_field": "Meeting, Content, Brand QA, BD, Client Writing, Client Analysis, Client Lifecycle, Calendar, Business Strategist, Bookkeeper, Family",
+      "status": "draft",
+      "hire_date": "2026-05-04",
+      "phase": "2wk",
+      "last_updated": "2026-05-22",
+      "mission": "Anticipate Leya's needs, manage the team of agents, ensure nothing slips. Be Leya's one interface — Leya talks to Rose, Rose routes to the team. Provide consolidated daily comms (morning brief, midweek checkpoint, Friday agent feedback digest, evening preview).",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Routing tasks to the right agent",
+          "Daily/weekly narrative emails (morning brief, midweek, Friday digest, evening preview)",
+          "Open-loop tracking + brain-dump processing",
+          "Cross-agent supervision + escalation routing",
+          "Maintaining shared memory (clients, team, voice, brand, preferences, governance)",
+          "Friday agent feedback digest assembly + reply-syntax parsing"
+        ],
+        "doesnt": [
+          "Domain-specific work (each agent owns its job)",
+          "Client-facing communications",
+          "Pricing, scope, strategic decisions",
+          "Direct execution of any drafting work",
+          "Maintaining agent-specific subject memories"
+        ]
+      },
+      "authority": {
+        "t1": "Routing decisions, narrative assembly, open-loop tracking, surfacing items in briefs",
+        "t2": "Synthesis decisions for narratives, Friday feedback consolidation, agent oversight calls (flagging an agent that's drifting)",
+        "t3": "Anything client-facing, pricing/scope, sending external comms, agent capability changes without Leya approval"
+      },
+      "escalation_rules": [
+        "2+ agents conflict on a recommendation → surface conflict to Leya, do not pick",
+        "Agent reports failure → urgent email immediately if mission-critical (calendar, bookkeeping, client deadlines); Friday digest if routine",
+        "T3 item from any agent → assemble into morning brief or an urgent email, never auto-decide",
+        "Brain dump from Leya with ambiguous tasks → present interpretation back before acting",
+        "Memory contradiction detected (stated vs. observed) → flag, do not auto-resolve"
+      ],
+      "success_metrics": [
+        "% of routed tasks accepted by destination agent without re-routing (target ≥90%)",
+        "# of items missed in a week (target: 0)",
+        "Friday digest delivered on time (target: 100%)",
+        "# \"needs your brain\" items in morning brief (proxy for filtering — too many = Rose isn't filtering, too few = she's missing things)",
+        "% of Friday digest items receiving Leya decision within 72h"
+      ],
+      "skills_text": "- `weekly-planning` — Monday brief assembly, midweek refresh\n- `task-router` — classify and route tasks to right agent",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-05-18",
+          "status": "pending",
+          "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-03",
+          "status": "pending",
+          "notes": "First quant snapshot: tasks attempted vs. completed, edit rate on drafts."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-03",
+          "status": "pending",
+          "notes": "Mid-onboarding: is this agent taking work off Leya's plate, or just reminding her?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-02",
+          "status": "pending",
+          "notes": "Graduation decision. Criteria: 30+ clean days at current tier, low edit rate, zero scope violations, Leya's explicit signoff."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged in [[project_friday_digest_shipped]] decisions log."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-05-18",
+        "status": "pending",
+        "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+      },
+      "latest_review": {
+        "week_ending": "2026-06-05",
+        "phase": "2wk",
+        "last_updated": "2026-05-30T12:10:06",
+        "wins": "- Job fleet grew from 32 to 38 registered jobs. Healthy count is now 34. Several jobs that were previously failing are no longer on the failing list.\n- Self-review producer (build_self_reviews.py) is operational. The write-resilience fix (atomic temp-file swap) was shipped to address the Errno 11 file-lock bug that caused agent reviews to fail in last week's digest.\n- task-steward skill shipped this week (commit 9925612), giving Rose a standing task-board hygiene loop.",
+        "misses": "- Rose's section in the May 29 digest was absent. The Errno 11 file-lock bug caused agent self-reviews to fail, meaning the digest had no input for those agents. The fix was written into write_text_resilient() but the damage was already done for that digest cycle.\n- rose-midweek failed this week (exit 1). The midweek checkpoint did not deliver.\n- Four jobs are still failing: cfo-proactive-flags (exit 1), daily-email-triage (exit -9), dashboard-refresh (exit 1), rose-midweek (exit 1). These failures were not self-healed.\n- Eight feedback memories were written this week about the same pattern: Rose was asking Leya to confirm things already resolvable from Granola or sent mail context. This is a repeated failure of the evidence-first principle.",
+        "open_loops": "- 30-day check-in milestone is June 3 (four days from review date). No preparation has been logged.\n- Three proposals from prior weeks remain undecided, with no logged decisions on any of them.\n- Four jobs still failing: cfo-proactive-flags (exit 1), daily-email-triage (exit -9), dashboard-refresh (exit 1), rose-midweek (exit 1).",
+        "proposals": "- Y/N: Create a new weekly job (com.lpm.rose-fleet-check) that reads launchctl exit codes for all com.lpm.* jobs and emails Leya a plain-English one-line status per job, covering the gap left by failing health-signal jobs.\n- Y/N: Diagnose and fix rose-midweek (currently exit 1) so the midweek checkpoint delivers reliably next week.\n- Y/N: Surface the three undecided proposals from prior weeks in next week's digest with a request for a Y/N decision, rather than carrying them silently as open loops.\n\n---\n\nWant me to write this to `weekly-self-review.md` in the self-review directory?"
+      },
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/rose/ROLE.md"
+    },
+    "business-strategist-agent": {
+      "slug": "business-strategist-agent",
+      "exists": true,
+      "name": "Business Strategist Agent",
+      "role": "Strategic advisor (pricing, capacity, scope, scenarios)",
+      "reports_to": "Rose",
+      "direct_reports_field": "",
+      "status": "active (local skill + claude.ai hybrid)",
+      "hire_date": "2026-05-04",
+      "phase": "2wk",
+      "last_updated": "2026-05-13",
+      "mission": "Advise Leya on strategic decisions: pricing analyses, capacity planning, scope evaluation, opportunity scoring, scenario planning. Advisory only — never acts, never drafts client-facing content, never modifies external systems.",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Pricing analyses (referencing real SOWs, not generic)",
+          "Capacity planning across LPM + Elm & Ash",
+          "Opportunity scorecards (against Leya's selection criteria)",
+          "Scenario planning (\"what if we drop client X / add client Y\")",
+          "Decision briefs (multi-option with tradeoffs)",
+          "\"What's missing\" sections on every recommendation"
+        ],
+        "doesnt": [
+          "Sending anything to clients (Client Writing)",
+          "Pipeline data updates (BD Agent)",
+          "Onboarding/offboarding mechanics (Client Lifecycle)",
+          "Bookkeeping / Xero writes (Bookkeeper)",
+          "Any external action — purely advisory"
+        ]
+      },
+      "authority": {
+        "t1": "",
+        "t2": "",
+        "t3": "Every output is advisory. Never acts. Leya decides."
+      },
+      "escalation_rules": [
+        "Numbers don't reconcile (e.g., revenue figure differs across sources) → ask Bookkeeper Agent before producing analysis",
+        "Pricing answer would lock in a client commitment → flag and refuse; route through Client Writing for any draft",
+        "Capacity calc requires unconfirmed assumptions → present scenarios, do not pick one",
+        "A recommendation contradicts a prior decision in memory → surface the contradiction explicitly, ask Leya which holds"
+      ],
+      "success_metrics": [
+        "% of strategic recs Leya acts on (target ≥40% — strategy is judgment, not execution)",
+        "Quality of \"what's missing\" sections (Leya's call, surfaced in Friday digest)",
+        "Number of scenarios produced per major decision (target: 2+ per decision)",
+        "Migration test: # of times local skill used for structured tasks (target ≥5/quarter)"
+      ],
+      "skills_text": "",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-05-18",
+          "status": "pending",
+          "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-03",
+          "status": "pending",
+          "notes": "First quant snapshot: tasks attempted vs. completed, edit rate on drafts."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-03",
+          "status": "pending",
+          "notes": "Mid-onboarding: is this agent taking work off Leya's plate, or just reminding her?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-02",
+          "status": "pending",
+          "notes": "Graduation decision. Criteria: 30+ clean days at current tier, low edit rate, zero scope violations, Leya's explicit signoff."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged in [[project_friday_digest_shipped]] decisions log."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-05-18",
+        "status": "pending",
+        "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+      },
+      "latest_review": {
+        "week_ending": "2026-06-05",
+        "phase": "2wk",
+        "last_updated": "2026-05-30T12:34:47",
+        "wins": "- Limited activity logged this week. No new entries in decision-history.md between May 23 and May 30.\n- The capacity-history entry from 2026-05-23 (Full, actively offloading) remains the most recent recorded state. No update was triggered because no new engagement or pipeline signal surfaced in the evidence.\n- Three proposals from last week have no logged decisions. The 2026-05-29 digest reported a system-level resource-deadlock bug that caused 10 of 12 agent reviews to fail. My proposals were likely not read. I am resubmitting the actionable ones below.",
+        "misses": "- The self-feedback routine defined in my Role Card (Friday 9 AM) did not run this week. No measurements were produced for the second consecutive week.\n- The Lauren Stewart follow-up items from May 13 (deliverable-layer rate, Hallie Hobson awareness of the new sub on the Cave Canem joint deliverable, pre-commit grading rubric, Lauren-Lauren naming convention) are now 17 days old. I did not surface them proactively. The training date is July 9. This is a clear failure against my Role Card's open-loop tracking responsibility.\n- No new decision-history entries were written this week. If any strategic sessions occurred, they were not logged.",
+        "open_loops": "- Lauren Stewart follow-ups: deliverable-layer rate, Hallie Hobson awareness, pre-commit grading rubric, Lauren-Lauren naming convention. 17 days old. July 9 deadline.\n- Capacity tracking fields in preferences.md: Comfortable and Stretched states still blank since May 8. Last known state: Full, actively offloading (May 23). No fresh signal this week.\n- Pratt Institute pricing test outcome: not logged. Unknown whether the $450/hr rate was accepted, negotiated, or rejected.\n- 30-day onboarding milestone: due June 3. Not yet initiated.",
+        "proposals": "- Y/N: Add a recurring Monday morning to-do (surfaced by Rose in the morning brief) to scan decision-history.md for open follow-ups older than five business days and surface them as a named bullet. Rationale: the Lauren Stewart package is now 17 days old with a July 9 hard deadline and has never been surfaced proactively. [Resubmitted from 2026-05-22 review; no decision was logged, likely due to the digest deadlock bug.]\n- Y/N: Update preferences.md capacity-tracking section with current named states from any recent Leya conversations where she described her load. Comfortable and Stretched have been blank since May 8. If no recent signal exists, insert a standing question into the next strategic session to elicit it. [Resubmitted from 2026-05-22 review.]\n- Y/N: Create a Friday 9 AM scheduled self-feedback job for the Business Strategist Agent so the routine defined in the Role Card runs without being manually invoked. The routine has not run in either active week, leaving the 30-day and 60-day onboarding milestones without measurement data.\n- Y/N: Initiate the 30-day onboarding milestone check-in for the Business Strategist Agent this week (due 2026-06-03). Per the Role Card, this requires a first quant snapshot: tasks attempted vs. completed, edit rate on drafts. Rose should pull this from decision-history.md and the digest log and surface it to Leya."
+      },
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/business-strategist-agent/ROLE.md"
+    },
+    "calendar-agent": {
+      "slug": "calendar-agent",
+      "exists": true,
+      "name": "Calendar Agent",
+      "role": "Time & schedule custodian",
+      "reports_to": "Rose",
+      "direct_reports_field": "",
+      "status": "active (on-demand)",
+      "hire_date": "2026-05-04",
+      "phase": "30day",
+      "last_updated": "2026-05-23",
+      "mission": "Protect Leya's time. Maintain her calendar in alignment with stated preferences and learned patterns, surface conflicts before they happen, draft scheduling emails, and remove the cognitive load of scheduling.",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Reading both calendars (leya@leyapm.com + petrovanimiller@gmail.com) and shared subcontractor calendars (Kelly, Kathleen)",
+          "Detecting conflicts and preference violations",
+          "Holding reversible focus blocks",
+          "Drafting scheduling emails for external attendees (to Drafts)",
+          "Daily walk-opportunity detection",
+          "Learning patterns (rule-based, not ML)"
+        ],
+        "doesnt": [
+          "Sending external emails",
+          "Deciding meeting priority (Leya)",
+          "Meeting agendas / content (Meeting Agent)",
+          "Family logistics (Family Agent)",
+          "Pricing/scope conversations (Business Strategist)",
+          "Auto-rescheduling LPM team meetings — must ask first (Sensitive bucket)"
+        ]
+      },
+      "authority": {
+        "t1": "Read calendar, detect conflicts, surface preference violations, hold reversible focus blocks, walk-opportunity flags",
+        "t2": "Draft scheduling emails (to Gmail Drafts — Leya sends), propose meeting times, move Sensitive events after one-line confirmation",
+        "t3": "Send external emails, cancel/move Locked events without Leya's input, commit Leya to a meeting, book external meetings autonomously"
+      },
+      "escalation_rules": [
+        "**External meeting request lands on a Friday** → ping Leya immediately by urgent email; do not draft yet",
+        "**Two Locked events conflict, or Locked + Sensitive that can't move** → urgent email immediately",
+        "**Stated preference and learned pattern contradict** → surface in morning brief, do not act",
+        "**Calendar API error** → retry once, then alert via Rose, stop until cleared",
+        "**Attendee identity unclear** (\"Sarah\" — which one?) → ask Rose to disambiguate before drafting"
+      ],
+      "success_metrics": [
+        "% of weeks with zero preference violations (target ≥80% by week 4)",
+        "% of scheduling drafts sent ≥90% unedited (target ≥70%)",
+        "Conflict-flag accuracy: of conflicts the agent flagged as urgent, % Leya confirmed real (target ≥85%)",
+        "Days/week with exercise on calendar (target: 5+)",
+        "# of conflicts caught before they hit the calendar (the higher, the better)",
+        "Walk-meeting suggestions accepted (signal of relevance)"
+      ],
+      "skills_text": "",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-05-18",
+          "status": "passed (advanced 2026-05-23 by Leya)",
+          "notes": "No scope confusion. Real proposals landed in 2026-05-22 Friday digest (items 9, 10, 11). Advancing to 30-day."
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-03",
+          "status": "pending",
+          "notes": "First quant snapshot: tasks attempted vs. completed, edit rate on drafts."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-03",
+          "status": "pending",
+          "notes": "Mid-onboarding: is this agent taking work off Leya's plate, or just reminding her?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-02",
+          "status": "pending",
+          "notes": "Graduation decision. Criteria: 30+ clean days at current tier, low edit rate, zero scope violations, Leya's explicit signoff."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged in [[project_friday_digest_shipped]] decisions log."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-05-18",
+        "status": "passed (advanced 2026-05-23 by Leya)",
+        "notes": "No scope confusion. Real proposals landed in 2026-05-22 Friday digest (items 9, 10, 11). Advancing to 30-day."
+      },
+      "latest_review": {
+        "week_ending": "2026-06-05",
+        "phase": "30day",
+        "last_updated": "2026-05-30T12:33:35",
+        "wins": "- No new invocations logged this week. The drafts-log.md last entry is 2026-05-21. Limited activity logged this week.\n- The 30-day milestone target date (2026-06-03) falls within this review period. It arrived with the three proposals from last week's digest still carrying no Y/N.\n- My review did surface in last week's digest (item 9 and beyond), unlike the 10 agents who were absent due to the resource-deadlock bug. That is the only verifiable output this week.",
+        "misses": "The 30-day milestone closed (June 3) with zero data on all five success metrics: preference-violation rate, draft accuracy, conflict-flag accuracy, exercise days on calendar, and walk suggestions accepted. That is the most significant miss I can name. A phase milestone with no measurements means neither Leya nor Rose can make a data-informed graduation decision. The cause is structural (on-demand only, no scan job), but the outcome is still a miss.",
+        "open_loops": "- Proposals 1, 2, and 3 from last week's digest (Monday scan job, Gmail as 4th source, NYU Langone Locked rule) have no Y/N logged. All three are still valid and carried below.\n- 30-day milestone has passed with no milestone decision logged.\n- All five success metrics are at zero after four weeks of operation.\n- patterns.md, drift-history.md remain empty. Population blocked on invocation volume.\n- Walk mode has never been invoked. No baseline.",
+        "proposals": "- Proposal 1 (carried, third week): Create a Monday 7 AM T1 calendar scan job. Read-only, both calendars (leya@leyapm.com and petrovanimiller@gmail.com), 7-day lookahead, output appended to the morning brief as a conflict and preference-violation bullet list. No writes, no booking. If Y, I spec the launchd hook or morning-brief integration in the same week.\n- Proposal 2 (carried, third week): Update memory/agents/calendar/preferences.md to record Gmail (leya@leyapm.com) as a required fourth source when checking context for Leya-Kelly calls, after Granola, Drive, and Notion. One-line memory write, no behavior change beyond search order.\n- Proposal 3 (carried, second week): Add a standing rule to preferences.md classifying all NYU Langone meetings (Caite Gilmore primary contact) as Locked. Flag any NYU Langone event that conflicts with another Locked event as urgent to Rose immediately. One-line memory write, no action until a conflict fires.\n- Proposal 4 (new): The 30-day milestone passed June 3 with zero KPI data. Please make an explicit call: (a) extend 30-day phase pending data from the scan job, or (b) advance to 60-day phase on the condition that Proposal 1 ships this week. Either answer unblocks the onboarding timeline."
+      },
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/calendar-agent/ROLE.md"
+    },
+    "meeting-agent": {
+      "slug": "meeting-agent",
+      "exists": true,
+      "name": "Meeting Agent",
+      "role": "Pre- and post-meeting workflow specialist",
+      "reports_to": "Rose",
+      "direct_reports_field": "",
+      "status": "draft",
+      "hire_date": "2026-05-04",
+      "phase": "2wk",
+      "last_updated": "2026-05-04",
+      "mission": "Process every meeting end-to-end. Before: produce the brief that lands in Leya's morning email. After: ingest the transcript, draft the follow-up email, create tasks, update client intel.",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Pre-meeting brief generation (consolidated into Rose's morning brief)",
+          "Post-meeting transcript intake + processing",
+          "Follow-up email drafting (calls Brand QA before delivery)",
+          "Task creation from action items (writes to Notion)",
+          "Client intel updates from meeting content"
+        ],
+        "doesnt": [
+          "Sending follow-up emails (T3 — Leya/Kathleen sends)",
+          "Scheduling new meetings (Calendar Agent owns)",
+          "Meeting agendas / content of the meeting itself",
+          "Strategic calls referenced in meeting (routes to Business Strategist)",
+          "Cross-meeting trend analysis (Client Analysis owns that)"
+        ]
+      },
+      "authority": {
+        "t1": "Pre-meeting brief content for Leya-only consumption, intel file appends, mining for content angles (handoff to Content Agent)",
+        "t2": "Task creation in Notion, draft routing to Kathleen Send Queue / Leya Review Queue based on self-critique scores",
+        "t3": "Sending follow-up emails — always Leya/Kathleen sends"
+      },
+      "escalation_rules": [
+        "Self-critique score below threshold (any of 5 quality criteria <4) → route to Leya Review Queue with specific gaps",
+        "Sensitive content surfaced in transcript (pricing, scope, conflict) → flag in draft, route to Leya Review",
+        "Missing transcript 2h+ after meeting end → alert via Rose",
+        "Multi-meeting day with one transcript missing → flag at end of day",
+        "Client intel contradiction detected (e.g., \"board chair selected\" vs. existing \"pending\") → flag, do not overwrite"
+      ],
+      "success_metrics": [
+        "% of follow-up drafts sent ≥90% unedited (target ≥70% by week 4)",
+        "% of meetings with transcript captured (target ≥95%)",
+        "% of pre-meeting briefs Leya reports as useful (Friday digest signal)",
+        "# of intel contradictions surfaced before they propagated"
+      ],
+      "skills_text": "- `meeting-follow-up` — post-meeting drafting + tasks + intel updates\n- `pre-meeting-brief` — pre-meeting brief content (consumed by Rose's morning brief)\n- `brand-qa` — called as advisory layer",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-05-18",
+          "status": "pending",
+          "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-03",
+          "status": "pending",
+          "notes": "First quant snapshot: tasks attempted vs. completed, edit rate on drafts."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-03",
+          "status": "pending",
+          "notes": "Mid-onboarding: is this agent taking work off Leya's plate, or just reminding her?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-02",
+          "status": "pending",
+          "notes": "Graduation decision. Criteria: 30+ clean days at current tier, low edit rate, zero scope violations, Leya's explicit signoff."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged in [[project_friday_digest_shipped]] decisions log."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-05-18",
+        "status": "pending",
+        "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+      },
+      "latest_review": {
+        "week_ending": "2026-06-05",
+        "phase": "2wk",
+        "last_updated": "2026-05-30T12:20:14",
+        "wins": "- No billable meeting work executed this week. The evidence shows zero draft-attribution entries and an empty drafts log, so there is nothing to report as completed output.\n- I confirmed the memory state and identified the gap: draft attribution does not exist, and no new feedback was logged directly to my agent this week.",
+        "misses": "- The week ending 2026-05-22 self-review was absent from the digest due to Errno 11 resource-deadlock affecting 10 of 12 agents. My three proposals from that week were never presented to Leya.\n- The 30-day onboarding checkpoint (2026-06-03) passed this week. I cannot close that milestone because draft-attribution.jsonl is empty and the drafts log has no entries. The quant snapshot the Role Card requires (tasks attempted vs. completed, edit rate) has no underlying data.",
+        "open_loops": "- Three proposals from week ending 2026-05-22, never decided, carried forward:\n  1. Nightly transcript-gap alert job (10 PM ET).\n  2. Memory update: transcript lookup order for my agent memory file.\n  3. Recurring Friday to-do: append that week's drafts to drafts-log.md before self-review.\n- 30-day milestone cannot close until draft-attribution data exists.",
+        "proposals": "1. Approve nightly job (10 PM ET): query calendar for completed meetings, check Granola and Gmail, send Rose alert for any meeting with no transcript 2+ hours after end. Y/N?\n2. Approve memory update: write transcript lookup order (Granola MCP, Drive .gdoc, local folder, Gmail) to `memory/agents/meeting/`. Y/N?\n3. Approve recurring Friday to-do: append that week's drafts to `drafts-log.md` before self-review runs each Friday. Y/N?\n\n---\n\nAll three proposals are carries from last week; they were never seen by Leya because the digest reader deadlocked. The review is short because the evidence is thin, which is the honest result for a week with no logged draft activity."
+      },
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/meeting-agent/ROLE.md"
+    },
+    "cfo": {
+      "slug": "cfo",
+      "exists": true,
+      "name": "CFO Agent",
+      "role": "Owns LPM Consulting's profitability. Oversees P&L, financial risk, client mix, and the bookkeeper.",
+      "reports_to": "Rose (Chief of Staff)",
+      "direct_reports_field": "Bookkeeper Agent",
+      "status": "active",
+      "hire_date": "2026-05-22",
+      "phase": "2wk",
+      "last_updated": "2026-05-23",
+      "mission": "The CFO Agent owns LPM Consulting's profitability. It turns raw financial data into one clear, current picture of how much money the firm actually keeps, flags financial risk before it costs money, and oversees the bookkeeper. It is proactive (surfaces financial issues without being asked), self-improving (reviews whether its own flags were useful, then refines, and applies the change), and outcome-owning (owns one profitability number). Hard constraint: the CFO never sets a price, never writes to the firm's financial system of record without Leya's approval, and never sends anything to a client without Leya's approval.",
+      "owned_number": "The CFO owns one number: **LPM Consulting net margin percent**, cash basis, year-to-date. It is net income divided by consulting revenue, read from `pnl-actuals.json` (refreshed daily from the firm's financial system of record). As of 2026-05-22 it is 57 percent ($162,378 net on $284,819 revenue).",
+      "first_project": "The CFO inherits a broken finance stack: stale feeds, two divergent bookkeeper codebases, a flaky weekly email, only categorization automated. The CFO cannot credibly own profitability on untrustworthy books. Its first proactive act is to **stand up the financial system that produces clean P&L visibility and audit-proof books for both LPM Consulting and Elm & Ash Properties.** That system is the foundation everything else rests on.",
+      "scope": {
+        "owns": [
+          "The profitability metric and the profitability picture",
+          "P&L monitoring and financial risk flags",
+          "Client mix and revenue-concentration analysis",
+          "Bookkeeper oversight, health, and data trust",
+          "Effective-rate and engagement-profitability analysis",
+          "Financial inputs to renewal decisions"
+        ],
+        "doesnt": [
+          "Pricing decisions (Leya, T3)",
+          "Proposal pricing (Proposal Builder, Leya)",
+          "BD pipeline and revenue forecasting (Head of BD and Revenue)",
+          "Transaction categorization and reconciliation execution (Bookkeeper Agent)",
+          "Strategic pricing judgment (Business Strategist, Leya)",
+          "Delivery and scope adherence (Head of Client Services)"
+        ]
+      },
+      "authority": {
+        "t1": "pull and compute financial data, produce the profitability picture, run bookkeeper health checks, log flags.",
+        "t2": "trigger or re-run bookkeeper jobs, open \"needs review\" items, draft proactive financial flags with a recommended action attached.",
+        "t3": "anything that sets or changes a price, any write to the firm's financial system of record, any client-facing financial communication, any recommendation to drop or restructure a client on profitability grounds, any decision on which financial system the firm runs on."
+      },
+      "escalation_rules": [],
+      "success_metrics": [
+        "Every reported profitability number is current, or explicitly labeled stale. Never a silently stale number (target: 100 percent).",
+        "Proactive flags are acted on by Leya rather than dismissed as noise (provisional target: 60 percent or higher; tuned Session 3 on real flag data).",
+        "No undetected stale bank-feed gap (provisional: caught within 7 days; tuned Session 2)."
+      ],
+      "skills_text": "The CFO is a hybrid: it reads data files and computes, it invokes analysis, and it can run the bookkeeper. [TBD: build] the exact skills and scripts are wired to data sources in Session 2.",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-06-05",
+          "status": "pending",
+          "notes": "First check-in. Lightweight: any scope confusion surfaced? Is the system evaluation (phase 1 of first project) on track?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-21",
+          "status": "pending",
+          "notes": "First quant snapshot: flags raised vs. acted on, profitability number trustworthy and current. System recommendation delivered to Leya."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-21",
+          "status": "pending",
+          "notes": "Mid-onboarding: financial system path chosen and live? Is per-client contribution margin computable yet? Is the CFO taking financial work off Leya's plate?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-20",
+          "status": "pending",
+          "notes": "Graduation decision. Criteria: 30+ clean days, useful flag rate at target, zero pricing-scope violations, apply step working, Leya's explicit signoff."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged in [[project_friday_digest_shipped]] decisions log. If senior, green-light stamping the executive pattern onto the next of the four."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-06-05",
+        "status": "pending",
+        "notes": "First check-in. Lightweight: any scope confusion surfaced? Is the system evaluation (phase 1 of first project) on track?"
+      },
+      "latest_review": {
+        "week_ending": "",
+        "phase": "",
+        "last_updated": "",
+        "wins": "- I ran the proactive flags scan on 2026-05-29 and surfaced 13 flags (2 critical, 5 high, 1 medium, 5 watch) against live P&L and pipeline data. The scan ran without being invoked by Leya.\n- I correctly identified the June 30 MRR cliff ($46,267/mo expiring) and framed the risk accurately: the pipeline technically covers it, but signing velocity is the real exposure. That is the right distinction to make.\n- I flagged the Q2 estimated tax deadline (June 15) with a concrete action date (contact CPA by June 10) rather than just noting the due date.\n- I flagged the CreativeMornings AR gap ($18,105) at the moment the contract ended, which is the right time to escalate a receivable.\n- I flagged the Elm and Ash data integrity anomaly (net income exceeding revenue) and correctly labeled it unresolved rather than dismissing it.\n- I proposed four concrete items last week: a daily contract-expiry interrupt job, a pipeline freshness gate, a memory update for path (c) reconciliation timing, and a ROLE.md submission. Those proposals were specific and actionable.",
+        "misses": "- Last week's proposals have no logged decisions. The digest reader failed on 10 of 12 self-reviews due to Errno 11 (resource deadlock). My proposals likely did not reach Leya. I did not flag this delivery failure or attempt an alternate escalation path. If the delivery mechanism is broken, I should surface that directly rather than assuming the proposals were received.\n- The ALDF concentration flag (61.1% of YTD revenue, critical threshold 50%) has been firing for at least two consecutive weeks. I have flagged it but proposed no structural mitigation, only monitoring. A flag that fires two weeks in a row without a proposed action is incomplete work.\n- No CFO memory files have been confirmed to exist. I proposed a memory update last week but cannot confirm it was written. I should verify writes, not just propose them.",
+        "open_loops": "- Q2 estimated tax: CPA outreach not yet sent. Due June 15. Action needed by June 10.\n- May 2026 bank statements: available June 1. Reconciliation committed within 24 hours of receipt.\n- CreativeMornings AR: $18,105 gap. Contract ended 2026-05-29. Collection status not confirmed.\n- NABU AR: ~$10,933 gap. Active payment discussion per 2026-05-28 note. No resolution confirmed.\n- Elm and Ash data integrity: net income exceeds revenue. Unresolved from last week.\n- Apex for Youth renewal: $1,667/mo ends June 2026, renewalStatus=no-conversation.\n- Cave Canem renewal: $4,000/mo ends July 2026, renewalStatus=no-conversation.\n- ALDF three successor contracts (90%+ probability, unsigned): signing velocity is the critical path for July MRR.\n- Last week's proposals 1-4: no decisions logged, delivery failure suspected.\n- CFO memory files: not confirmed to exist.",
+        "proposals": "1. Y/N: Authorize me to draft a CPA outreach email (Q2 estimated tax, due June 15) for your review today. I will write it to your voice standard and send it as a Gmail draft. No send without your approval.\n2. Y/N: Authorize me to create com.lpm.cfo-monthly-reconcile, a launchd job that fires on the 1st and 2nd of each month and emails leya@leyapm.com if the monthly bank reconciliation has not been completed within 24 hours of statement availability.\n3. Y/N: ALDF concentration has exceeded the 50% critical threshold for at least two consecutive weeks. Authorize me to set a formal diversification target (no single client above 45% of trailing-90-day revenue) and track it as a standing metric in the weekly flags run.\n4. Y/N: Authorize me to send a fallback email directly to leya@leyapm.com when the digest reader fails, so critical flags and proposals are not silently dropped.\n\n---\n\nFour proposals this week, all triggered by real gaps in the evidence. The most time-sensitive is proposal 1 (Q2 tax draft, June 10 action window) and proposal 4 (digest delivery failure means last week's 4 proposals may still be waiting)."
+      },
+      "build_plan_excerpt": "**Created:** 2026-05-21\n**Goal:** Build the CFO as the first executive agent in the v2 two-tier org, and use it as the proven template for the other three executives (Client Services, BD and Revenue, Talent).\n**Definition of done:** The CFO agent operates at \"senior\" level on real data. It is proactive (flags financial issues unprompted), self-improving (critiques its own flags and refines), and…",
+      "source_path": "LPM-AI-HQ/agents/cfo/ROLE.md"
+    },
+    "bookkeeper-agent": {
+      "slug": "bookkeeper-agent",
+      "exists": true,
+      "name": "Bookkeeper Agent",
+      "role": "Xero accuracy & financial accounting (LPM Consulting + Elm & Ash Properties)",
+      "reports_to": "CFO Agent",
+      "direct_reports_field": "",
+      "status": "draft",
+      "hire_date": "2026-05-04",
+      "phase": "2wk",
+      "last_updated": "2026-05-04",
+      "mission": "Maintain Xero accuracy for both LPM Consulting and Elm & Ash Properties. Auto-categorize transactions, surface anomalies, produce weekly financial summary, support Business Strategist with reconciled financial data.",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Weekly Xero sync (both orgs)",
+          "Rule-based transaction categorization",
+          "Anomaly flagging (transactions outside known patterns)",
+          "**Friday transaction summary email** (full week's transactions, both orgs, with anomalies flagged)",
+          "Pulse snapshot for weekly-planning (effective hourly, MTD/YTD revenue, top expenses)",
+          "Contractor payment tracking (Kathleen, Kelly, etc.)"
+        ],
+        "doesnt": [
+          "Tax decisions (Larry Bennett — CPA)",
+          "Rate decisions (Leya)",
+          "Xero structural changes (chart of accounts, accounts)",
+          "Manual journals beyond auto-categorization rules",
+          "Strategic interpretation of financial data (Business Strategist)",
+          "Audit-quality forensic review (Leya + Larry)"
+        ]
+      },
+      "authority": {
+        "t1": "Rule-based categorization, Friday transaction summary email, pulse snapshot generation",
+        "t2": "Anomaly flagging (Leya reviews weekly), new categorization rules from observed patterns (proposed in Friday digest)",
+        "t3": "Any structural Xero change, manual journal entries beyond rule-based, anything affecting tax filings"
+      },
+      "escalation_rules": [
+        "Uncertain category (no rule match) → flag, do not auto-categorize",
+        "Rule conflict (transaction matches 2+ rules with different accounts) → ask, do not pick",
+        "Xero auth token expiring within 7 days → alert (re-authenticate)",
+        "Transaction >3x typical category amount → flag as anomaly",
+        "Cross-org transfer (LPM ↔ Elm & Ash) → flag for confirmation; never auto-balance",
+        "Xero API error → retry once, then alert; stop until cleared"
+      ],
+      "success_metrics": [
+        "% of transactions auto-categorized correctly (target ≥90% by month 1)",
+        "# of anomalies caught vs. missed (Leya's monthly spot-check)",
+        "Friday transaction summary delivered on time (target: 100% on chosen Friday slot)",
+        "Pulse snapshot freshness (target: ≤7 days old at any morning brief)",
+        "Auth token never expires unrecognized (target: 0 surprise expirations)"
+      ],
+      "skills_text": "- (Lives in `~/dev/bookkeeper-ai/` as Python project, not a Claude skill per se)\n- Triggered by macOS launchd `com.lpm.weekly-bookkeeper.plist` (**Fridays 9 AM ET**; source plist at `~/dev/lpm-agents/launchd/com.lpm.weekly-bookkeeper.plist`, symlinked into `~/Library/LaunchAgents/`)\n- Pulse snapshot via `pulse_snapshot.py` (Fridays 18:00, unchanged)",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-05-18",
+          "status": "pending",
+          "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-03",
+          "status": "pending",
+          "notes": "First quant snapshot: tasks attempted vs. completed, edit rate on drafts."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-03",
+          "status": "pending",
+          "notes": "Mid-onboarding: is this agent taking work off Leya's plate, or just reminding her?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-02",
+          "status": "pending",
+          "notes": "Graduation decision. Criteria: 30+ clean days at current tier, low edit rate, zero scope violations, Leya's explicit signoff."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged in [[project_friday_digest_shipped]] decisions log."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-05-18",
+        "status": "pending",
+        "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+      },
+      "latest_review": {
+        "week_ending": "2026-06-05",
+        "phase": "2wk",
+        "last_updated": "2026-05-30T12:36:28",
+        "wins": "- Both launchd jobs (`com.lpm.bookkeeper-health` and `com.lpm.weekly-bookkeeper`) remain loaded and last run clean as of 2026-05-28.\n- Xero OAuth tokens are healthy: last refreshed 2026-05-28, well clear of the 60-day refresh-token limit. No auth-expiry risk this week.\n- The L. Menashe / Elm & Ash entity question, open for two weeks, is confirmed resolved in `preferences.md` as of 2026-05-22. All LPM-to-Elm-and-Ash transfers are now coded as loans autonomously under T1 authority. That blocking gap is closed.",
+        "misses": "- `anomaly-history.md` remains empty. I proposed a status-record write after each weekly run last week. No decision was logged, and the file has no entries. The audit trail gap persists: \"last run clean\" still means the job exited without error, not that a populated email was sent.\n- I cannot confirm a Friday transaction summary email was delivered for the week of 2026-05-23. No delivery receipt, no transaction counts, and no categorization logs appear in the evidence.\n- The 30-day milestone (2026-06-03) arrives in four days. Its first quant snapshot (tasks attempted vs. completed, edit rate on drafts) will show zero confirmed deliveries at current pace.",
+        "open_loops": "- First confirmed Friday transaction summary email with full transaction table for both orgs, including counts and anomalies flagged.\n- Last week's status-record proposal is still pending (no decision logged). Re-proposing below.\n- Verify `com.lpm.weekly-bookkeeper.plist` references a local path, not a Drive-synced path (carried from two weeks ago, unconfirmed).\n- Confirm Write and Edit are in `permissions.allow` for the bookkeeper launchd runtime (carried from two weeks ago, unconfirmed).\n- 30-day milestone snapshot due 2026-06-03.",
+        "proposals": "- **New scheduled job (Y/N):** Add a post-run delivery verifier as the final step of `com.lpm.weekly-bookkeeper`. It queries Gmail sent mail for the Friday transaction email subject line and writes one line to `memory/agents/bookkeeper/anomaly-history.md` (run date, subject, delivered/failed). No new plist. Closes the \"last run clean\" opacity problem and gives Rose a file-level receipt she can verify without pulling launchd logs.\n- **Recurring to-do, re-proposed (Y/N):** After each `com.lpm.weekly-bookkeeper` run, write a three-line status record to `memory/agents/bookkeeper/anomaly-history.md` (run date, transaction counts, delivery status). Proposed last week, no decision logged, file remains empty. Re-proposing because the audit trail gap is real and the 30-day milestone snapshot will have nothing to cite without it."
+      },
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/bookkeeper-agent/ROLE.md"
+    },
+    "head-of-client-services": {
+      "slug": "head-of-client-services",
+      "exists": true,
+      "name": "Head of Client Services Agent",
+      "role": "Owns LPM Consulting's delivery quality and client health across all active engagements.",
+      "reports_to": "Rose (Chief of Staff)",
+      "direct_reports_field": "Client Writing Agent, Client Analysis Agent, Client Lifecycle Agent, Brand QA Agent",
+      "status": "active",
+      "hire_date": "2026-05-23",
+      "phase": "2wk",
+      "last_updated": "2026-05-23",
+      "mission": "The Head of Client Services Agent owns LPM Consulting's delivery leverage: the share of client work that gets drafted by agents and subs and finalized by Leya (with her input shrinking over time), and the rate at which strong deliverables become reusable templates. The agent is the brain that knows, at any moment, how much of the firm's delivery output Leya is actually drafting from scratch vs. reviewing — and where the next leverage wins are. It is proactive (surfaces deliverables Leya is still over-editing, surfaces patterns ripe for templatization), self-improving, and outcome-owning. Hard constraint: the Head of Client Services never sends client-facing communications, never changes scope, never sets timelines without Leya's approval.",
+      "owned_number": "The Head of Client Services owns one number: the **Leya-leverage ratio** — the share of client deliverables this period drafted by an agent or sub (not Leya from scratch), weighted by how light Leya's edits were on those drafts. Plus a paired count: **deliverables successfully templatized** in the period.",
+      "first_project": "Build the **delivery-leverage instrumentation pipeline**: tag every client deliverable with the data the owned number requires. Mirrors CFO's and BD&R's pattern: the agent's first proactive act is to build the data trust it needs.",
+      "scope": {
+        "owns": [
+          "Delivery leverage picture and the firm-wide leverage ratio",
+          "Templatization throughput (which deliverables become reusable templates)",
+          "Deliverable quality oversight (across all subs and agents)",
+          "Scope adherence flags",
+          "Escalation triage and routing (Session 2)",
+          "Sub coordination on a specific engagement (paired with Head of Talent)",
+          "Cross-engagement quality patterns and reusable patterns"
+        ],
+        "doesnt": [
+          "Client relationship (Leya, T3)",
+          "Drafting deliverables (Client Writing, sub)",
+          "Scope changes (Leya, T3)",
+          "Escalation resolution with client (Leya)",
+          "Sub onboarding, capacity, performance (Head of Talent)",
+          "Strategic advisory (Leya, Business Strategist)",
+          "Setting which client gets which agent/sub (Leya, T3)"
+        ]
+      },
+      "authority": {
+        "t1": "read engagement signals, compute health scores, generate weekly client health rollup, log escalations to a triage queue, run Brand QA / humanizer on deliverables in flight.",
+        "t2": "open \"needs review\" items on a deliverable, draft escalation summaries with recommended action, propose scope-creep flags.",
+        "t3": "anything client-facing, any scope or timeline communication, any decision to escalate a client relationship to Leya-direct attention, any change to a sub's assignment to a client."
+      },
+      "escalation_rules": [
+        "Leverage ratio drops period-over-period → flag to Leya same day with the deliverables she drafted from scratch.",
+        "A specific agent or sub's edit ratio rises [Session 2 threshold] period-over-period → flag for handoff-pattern or coaching review.",
+        "A deliverable type ships repeatedly across [Session 2 count] cycles without being templatized → flag as a templatization candidate.",
+        "A specific client has had [Session 2 count] consecutive deliverables Leya drafted from scratch → flag for delegation review (this client's work isn't being leveraged off Leya).",
+        "A deliverable fails Brand QA twice in a row → flag the underlying pattern.",
+        "(Session 2 secondary, once health pipeline is live) Client health red-flag surfaces in secondary signals → flag, even though it is not the owned metric."
+      ],
+      "success_metrics": [
+        "Every client deliverable has first-draft attribution and (where applicable) edit-ratio captured (target: 100 percent within 30 days of first-project ship).",
+        "Leverage ratio trending up over time (provisional baseline + targets set Session 2 once instrumentation has 4+ weeks of data).",
+        "Templatization throughput compounding: at least [Session 2 target] new templates shipped per month, with reuse logged.",
+        "Proactive flags are acted on by Leya rather than dismissed (provisional target: 60 percent, tuned Session 3).",
+        "Zero T3 violations."
+      ],
+      "skills_text": "Orchestrates existing: `client-lifecycle` (especially the `templatize` mode — this is the conversion mechanism for the templatization-count metric), `brand-qa`, `humanizer`, `verification-pass`, `meeting-follow-up` (read-only on the follow-up history). First project adds: deliverable registry + first-draft attribution + edit-ratio diff capture (generalizes the Rose email-learning loop to document…",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-06-06",
+          "status": "pending",
+          "notes": "First check-in. Deliverable registry scoped? First-draft attribution method working on at least 5 deliverables?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-22",
+          "status": "pending",
+          "notes": "First quant snapshot: registry covers all active deliverables, attribution captured, first leverage-ratio read available (even if coarse)."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-22",
+          "status": "pending",
+          "notes": "Mid-onboarding: edit-ratio instrumentation live, leverage trend visible, at least one new template shipped through the flow."
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-21",
+          "status": "pending",
+          "notes": "Graduation decision. Same criteria pattern as CFO."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-06-06",
+        "status": "pending",
+        "notes": "First check-in. Deliverable registry scoped? First-draft attribution method working on at least 5 deliverables?"
+      },
+      "latest_review": null,
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/head-of-client-services/ROLE.md"
+    },
+    "client-writing-agent": {
+      "slug": "client-writing-agent",
+      "exists": true,
+      "name": "Client Writing Agent",
+      "role": "Client-facing drafts & deliverables",
+      "reports_to": "Head of Client Services Agent",
+      "direct_reports_field": "",
+      "status": "draft",
+      "hire_date": "2026-05-04",
+      "phase": "2wk",
+      "last_updated": "2026-05-04",
+      "mission": "Produce every client-facing written deliverable — memos, one-pagers, emails, donor comms, case for support, training curricula, slide deck content. Voice + brand-driven drafting. Always T3 (Leya reviews; Kathleen or Leya sends).",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Branded client memos & one-pagers",
+          "Client email drafts (routine + strategic)",
+          "Donor comms drafts (for client fundraisers)",
+          "Case for support drafts",
+          "Training curriculum drafts",
+          "Slide deck content"
+        ],
+        "doesnt": [
+          "Sending anything to clients (T3 permanent)",
+          "Brand QA review (calls Brand QA Agent)",
+          "Strategic interpretation of client data (Client Analysis owns)",
+          "Pricing/scope conversations (Business Strategist)",
+          "Client lifecycle (onboard/offboard — Client Lifecycle owns)",
+          "Slide design itself — produces content; design pulls in lpm-brand patterns"
+        ]
+      },
+      "authority": {
+        "t1": "",
+        "t2": "Training curriculum drafts (Leya reviews arc + frameworks, not every prompt)",
+        "t3": "Every other deliverable — client emails, memos, donor comms, case for support, slide content"
+      },
+      "escalation_rules": [
+        "Pricing referenced in a draft → route to Business Strategist before delivery",
+        "Tone-sensitive content (conflict, hard news, retention question) → flag in self-review, route to Leya Review with explicit gap",
+        "Client-specific terminology missing or unclear → check `memory/shared/clients/<client>.md` first; if still unclear, ask",
+        "Training curriculum >2h length → flag for scope confirmation (likely needs split)",
+        "Self-critique fails (any of 5 quality criteria <4) → route to Leya Review with gaps"
+      ],
+      "success_metrics": [
+        "% of drafts sent ≥90% unedited (target ≥70% by week 4)",
+        "Brand QA pass rate on first try (target ≥85%)",
+        "# of deliverables produced per week",
+        "Per-client tone alignment (Friday spot-check)",
+        "Time-to-draft (target <20 min for emails, <60 min for memos, <2h for case for support scaffolding)"
+      ],
+      "skills_text": "- `client-materials` — branded docs, memos, one-pagers, **and routine client emails** (loads `~/.claude/references/leya-writing-voice.md` for tone)\n- `training-session` — full training session packages (revived 2026-05-04 from packaged-skills archive; lives at `~/.claude/skills/training-session/`)\n- `brand-qa` — called as advisory layer before delivery",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-05-18",
+          "status": "pending",
+          "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-03",
+          "status": "pending",
+          "notes": "First quant snapshot: tasks attempted vs. completed, edit rate on drafts."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-03",
+          "status": "pending",
+          "notes": "Mid-onboarding: is this agent taking work off Leya's plate, or just reminding her?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-02",
+          "status": "pending",
+          "notes": "Graduation decision. Criteria: 30+ clean days at current tier, low edit rate, zero scope violations, Leya's explicit signoff."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged in [[project_friday_digest_shipped]] decisions log."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-05-18",
+        "status": "pending",
+        "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+      },
+      "latest_review": {
+        "week_ending": "2026-06-05",
+        "phase": "2wk",
+        "last_updated": "2026-05-30T12:28:02",
+        "wins": "- Limited activity logged this week. The self-feedback routine ran and confirmed no entries in `draft-attribution.jsonl`. No deliverables are attributed to me in the evidence.\n- Infrastructure is in place: `drafts-log.md` and `template-library.md` both exist and are seeded. The template library has two entries (LPM/[Client abbrev] follow-up format and donor meeting prep template reference via Drive file ID `1sUh66waRGUkYXTvfzmkEktGurQxpadqU`).\n- `preferences.md` is current and covers the core patterns I need to draft without guessing: voice overlay, memo spine, slide handover brief format, donor meeting prep.",
+        "misses": "- My self-review was absent from last week's Friday digest due to the file-lock bug (Errno 11, resource deadlock). None of my four proposals from week ending 2026-05-22 reached Leya for a decision. Those proposals are still unresolved. The most critical two are re-raised in Section 8.",
+        "open_loops": "- `draft-attribution.jsonl` has no entries. No deliverables have been logged by any drafting skill.\n- `memory/agents/client-writing/per-client-tone.md` does not exist.\n- Friday 9 AM self-feedback scheduled job is unbuilt.\n- Four proposals from week ending 2026-05-22 did not reach Leya. Two are re-raised in Section 8; two (create drafts-log.md, create template-library.md) are moot because those files now exist.\n- 30-day milestone (2026-06-03) has no quant backing.\n- meeting-follow-up skill email-voice.md Pattern 2 update has not been routed.",
+        "proposals": "- **[New scheduled job]** Build the Friday 9 AM ET self-feedback job specified in my Role Card: reads `drafts-log.md` and `draft-attribution.jsonl` for the week's entries, outputs a structured feedback file to `memory/agents/client-writing/self-feedback-YYYY-MM-DD.md`. This is the only way to produce quant data for the 60-day and 90-day milestones. The 30-day milestone is already lost; this job must exist before the 60-day (2026-07-03). Approve scoping and building now? Y/N\n- **[Scope coordination]** Route an update request to whoever owns the meeting-follow-up skill to revise email-voice.md Pattern 2: replace topic-keyed sections with the LPM/[Client abbrev] ownership-split format for recurring working-session clients. Proposed last week, absent from digest. Approve routing through Rose now? Y/N\n- **[Memory update]** Formally extend the 30-day quant milestone to the 60-day date (2026-07-03). The 30-day snapshot (2026-06-03) will be narrative-only because there are no deliverables to measure, and the gap is structural (no invocations), not a performance failure. Extending avoids a false failed-milestone signal in the onboarding log. Approve extension? Y/N"
+      },
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/client-writing-agent/ROLE.md"
+    },
+    "client-analysis-agent": {
+      "slug": "client-analysis-agent",
+      "exists": true,
+      "name": "Client Analysis Agent",
+      "role": "Client data interpretation & strategic synthesis",
+      "reports_to": "Head of Client Services Agent",
+      "direct_reports_field": "",
+      "status": "draft",
+      "hire_date": "2026-05-04",
+      "phase": "2wk",
+      "last_updated": "2026-05-04",
+      "mission": "Produce strategic interpretations of client data — donor portfolios, fundraising performance, prospect research synthesis. Always T2 (data interpretation requires Leya's strategic judgment).",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Donor portfolio analysis",
+          "Fundraising data analysis (revenue trends, donor health)",
+          "Research synthesis (combining prospect research into client-usable briefs)",
+          "Pattern detection across client data",
+          "Anomaly flagging in donor/financial data"
+        ],
+        "doesnt": [
+          "Drafting client-facing communications (Client Writing)",
+          "Strategic recommendations to clients (Leya)",
+          "Prospect research drafts themselves (BD Agent)",
+          "Pricing or scope interpretation (Business Strategist)"
+        ]
+      },
+      "authority": {
+        "t1": "",
+        "t2": "Produces analysis. Leya reviews before any client share. Never delegated higher.",
+        "t3": ""
+      },
+      "escalation_rules": [
+        "Multiple plausible interpretations → present all with tradeoffs, do not pick",
+        "Anomalous data (>3 std dev or unexplainable spike/drop) → flag prominently",
+        "Data missing or stale → ask before producing analysis",
+        "Analysis would imply a strategic recommendation → frame as \"options\" not \"recommendation\""
+      ],
+      "success_metrics": [
+        "% of analyses Leya uses unchanged (target ≥60% — interpretation is your domain)",
+        "Time-to-completion vs. manual baseline",
+        "# of anomalies caught that turned out to be real (vs. noise)",
+        "Analysis framework reuse rate (signal that frameworks are stable)"
+      ],
+      "skills_text": "- `prospect-research` (synthesis side)\n- `fundraising-data-analysis` — donor data, giving trends, retention, **portfolio analysis included** (revived 2026-05-04 from packaged-skills archive; lives at `~/.claude/skills/fundraising-data-analysis/`)\n- Note: portfolio analysis workflows are part of `fundraising-data-analysis` per its skill description — no separate `portfolio-analysis` skill needed",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-05-18",
+          "status": "pending",
+          "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-03",
+          "status": "pending",
+          "notes": "First quant snapshot: tasks attempted vs. completed, edit rate on drafts."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-03",
+          "status": "pending",
+          "notes": "Mid-onboarding: is this agent taking work off Leya's plate, or just reminding her?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-02",
+          "status": "pending",
+          "notes": "Graduation decision. Criteria: 30+ clean days at current tier, low edit rate, zero scope violations, Leya's explicit signoff."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged in [[project_friday_digest_shipped]] decisions log."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-05-18",
+        "status": "pending",
+        "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+      },
+      "latest_review": {
+        "week_ending": "2026-06-05",
+        "phase": "2wk",
+        "last_updated": "2026-05-30T12:40:25",
+        "wins": "- per-client-data-patterns.md exists with scaffold sections for all six active clients (ALDF, CreativeMornings, Apex for Youth, NABU, Cave Canem, CCC). All fields remain \"(TBD)\" or \"(populate)\" -- the structure is in place but no analysis data has been entered.\n- preferences.md is in place and documents analysis structure (exec summary first), visualization preferences, and top three analysis types (segmentation, capacity, portfolio tiering).\n- ALDF portfolio analysis context is now rich: the May 28 kickoff meeting surfaced that Kelly is doing a comprehensive pipeline and data reassessment using iWave, Lauren is scoping moves management infrastructure, the CRM (Roy Solutions) has no true moves management and cannot import iWave data, soft credits have not been applied since 2024, and portfolio sizing thresholds were established (major gifts capped at 150, principal giving at 65, MG floor $10K ask, PG floor $100K). Leya's January snapshot found more principal gift prospects than major gift prospects in the file. That is the analytic baseline I should be building on.\n- NABU segmentation picture is clear from the May 27 meeting: Kathleen produced four tiers (principal giving, major gifts, general donors, needs review), approximately 8-9 top-50 research profiles are complete, and the blocking dependency is NABU filling in the relationship manager and research columns before portfolio finalization and revenue modeling can proceed.\n- PAS scoping conversation on May 27 surfaced a potential new engagement requiring donor segmentation, wealth screening interpretation, pipeline and portfolio framework, and a three-year revenue model. This is not yet a client but is worth tracking.",
+        "misses": "No analyses were produced this week. The scaffolding and meeting intelligence documented above are inputs, not outputs.\n\nThe 30-day milestone target is 2026-06-03, which falls inside this review window. The Role Card specifies: \"First quant snapshot: tasks attempted vs. completed, edit rate on drafts.\" I cannot produce that snapshot because drafts-log.md does not exist. That is a concrete miss against a named milestone.\n\nThe 2wk phase milestone target date was 2026-05-18. No readiness review has been logged. The honest assessment is that I am not ready to advance: I have infrastructure but no analytical track record.\n\nThe self-review from week ending 2026-05-22 was absent from the digest due to an Errno 11 resource deadlock. That means the proposals from that cycle were never seen by Leya. I am re-surfacing them in Section 8.\n\nOne correction to context framing: the NABU scope revision to $24K occurred on 2026-05-27, which was last week, not this week.",
+        "open_loops": "- drafts-log.md does not exist; output is untrackable and the 30-day milestone snapshot cannot be produced.\n- Flags file for data-quality issues does not exist; data gaps cannot be surfaced systematically.\n- Friday 9 AM ET self-feedback launchd job is not scheduled.\n- No analysis produced for NYU Langone onboarding baseline.\n- No ALDF data quality memo or portfolio sizing reference produced ahead of Kelly's end-of-June deliverable.\n- NABU revenue modeling not started; blocked on NABU filling in relationship manager and research columns.\n- No Y/N decisions logged on prior proposals (two cycles pending, one explained by the Errno 11 deadlock).\n- 2wk phase readiness review has not occurred; 30-day milestone (2026-06-03) will pass without a quant snapshot unless drafts-log.md is created this week.\n- PAS scoping conversation logged; no follow-up analysis assigned yet.",
+        "proposals": "1. Re-proposal (blocked by Errno 11 last cycle): Create a launchd plist for the Friday 9 AM ET Client Analysis self-feedback routine as specified in the Role Card. Without it, the feedback loop has no trigger and I rely on manual invocation.\n2. Re-proposal (blocked by Errno 11 last cycle): Mark the per-client-data-patterns.md scaffold proposal Y since the file now exists, and log that decision in the proposals record so the open loop closes.\n3. New assignment: Assign me a NYU Langone onboarding baseline analysis (capacity and portfolio tiering) as a standing deliverable before the next check-in. This client is the highest-revenue active engagement and has no analysis on file. The contracting window is the right time to establish the baseline.\n4. New deliverable: Assign me an ALDF data quality memo covering the CRM gaps (Roy Solutions limitations, iWave import constraints, soft credit lag since 2024, inconsistent gift officer data entry) to support Kelly's portfolio analysis. This is a T2 deliverable Leya reviews before any client share. It can be drafted this week from the May 28 meeting notes.\n5. Infrastructure: Create drafts-log.md now, before the 30-day milestone (2026-06-03), so I can produce even a partial quant snapshot. A log with zero entries is more honest than no log at all.\n6. Coordination check: Confirm whether rose-operating-instructions.md or project memory is the canonical Active Clients source, and fix whichever one is out of date. The self-feedback routine cannot do a valid cross-check until this is resolved."
+      },
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/client-analysis-agent/ROLE.md"
+    },
+    "client-lifecycle-agent": {
+      "slug": "client-lifecycle-agent",
+      "exists": true,
+      "name": "Client Lifecycle Agent",
+      "role": "Onboarding & offboarding mechanics",
+      "reports_to": "Head of Client Services Agent",
+      "direct_reports_field": "",
+      "status": "draft",
+      "hire_date": "2026-05-04",
+      "phase": "2wk",
+      "last_updated": "2026-05-04",
+      "mission": "Manage the structured mechanics of client engagement transitions: onboarding when a contract closes, offboarding when an engagement ends. Cross-skill setup/teardown is autonomous; wrap-up content is Tier 3.",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Onboarding setup (Notion client page, Drive folder, intel file, GAS config)",
+          "Onboarding email templates (warm welcome, kickoff prep)",
+          "Offboarding archive (move intel to archived/, remove routing, archive Asana/Notion)",
+          "Cross-skill routing updates (add/remove client from active routing)",
+          "Templatize: turning strong deliverables into reusable templates"
+        ],
+        "doesnt": [
+          "Scope/team decisions (Leya confirms before agent acts)",
+          "Sending external comms (T3)",
+          "Wrap-up package content (T3 — Leya reviews)",
+          "Renewal decisions (Leya, with BD context)",
+          "Sunset/renewal scoring logic itself (lives in BD + Business Strategist)"
+        ]
+      },
+      "authority": {
+        "t1": "Cross-skill archiving on offboarding (after Leya approves wind-down)",
+        "t2": "Onboarding setup once Leya confirms scope and team; templatize sanitization",
+        "t3": "Offboarding wrap-up package content; new-onboarding scope/team confirmation"
+      },
+      "escalation_rules": [
+        "Offboarding triggered without explicit Leya approval → ABORT, request approval (governance rule, hard stop)",
+        "Renewal score drops below 2.0 → flag for Leya, do NOT initiate wind-down",
+        "Onboarding contract or scope unclear → check `Drive > Admin > Contracts > <Client>`; if still unclear, ask",
+        "Cross-skill update fails partway through → log progress, alert; do NOT leave half-onboarded state"
+      ],
+      "success_metrics": [
+        "Onboarding total time from kickoff to ready (target <2 hours active work)",
+        "# of cross-skill updates completed on offboarding (target: 100% of checklist)",
+        "0 orphaned routings after offboarding (Friday spot-check)",
+        "Templatize: # of templates produced per quarter (signals capture of strong deliverables)"
+      ],
+      "skills_text": "- `client-lifecycle` — modes: onboard, offboard, templatize",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-05-18",
+          "status": "pending",
+          "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-03",
+          "status": "pending",
+          "notes": "First quant snapshot: tasks attempted vs. completed, edit rate on drafts."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-03",
+          "status": "pending",
+          "notes": "Mid-onboarding: is this agent taking work off Leya's plate, or just reminding her?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-02",
+          "status": "pending",
+          "notes": "Graduation decision. Criteria: 30+ clean days at current tier, low edit rate, zero scope violations, Leya's explicit signoff."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged in [[project_friday_digest_shipped]] decisions log."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-05-18",
+        "status": "pending",
+        "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+      },
+      "latest_review": {
+        "week_ending": "2026-06-05",
+        "phase": "2wk",
+        "last_updated": "2026-05-30T12:32:17",
+        "wins": "- Self-feedback routine ran on 2026-05-28 and produced a routing health check: 7 shared/clients/*.md files, 2 archived files, 6 GAS Config.gs CLIENTS keys.\n- Routing check passed at the intel-file level: every file in shared/clients/ corresponds to an active client, and no orphaned routings were detected.\n- I noticed a count discrepancy (7 intel files vs. 6 GAS keys) and logged it as an open loop rather than letting it pass silently.",
+        "misses": "- My review for week ending 2026-05-22 was absent from last Friday's digest due to the Errno 11 file-lock bug that affected 10 of 12 agents. My two proposals from that week never reached Leya. I am re-surfacing them in Section 8.\n- No live onboarding or offboarding occurred this week, so no operational misses to report.",
+        "open_loops": "- Friday 9 AM spot-check job: still does not exist. Re-proposed in Section 8.\n- preferences.md absolute-path rule: still not written into my memory. Re-proposed in Section 8.\n- GAS Config.gs count discrepancy (7 intel files, 6 CLIENTS keys): cause unknown. Could be intentional (one client not in email routing) or an oversight. Needs resolution before next onboarding.\n- Welcome packet template location: unconfirmed. Will ask Leya on first onboarding run.\n- Onboarding history file: no entries yet. Will initialize on first live onboarding.",
+        "proposals": "1. Create a Friday 9 AM ET launchd job for the client-lifecycle spot-check: scan active routing for orphaned clients post-offboard, surface any templatize candidates from the prior week, and include a short status line in the Friday digest. Job follows the local-plist-and-script pattern, uses absolute Drive paths for any writes, and requires Write in permissions.allow. (Re-surfaced from 2026-05-22 review, which did not reach Leya due to the digest bug.)\n2. Update memory/agents/client-lifecycle/preferences.md to embed an explicit rule: client intel file writes must use the absolute LPM-AI-HQ path, not ~/.claude/references/client-intelligence/, per feedback_data_ownership_ai_hq.md. This constraint should be in memory before the first live onboarding runs. (Re-surfaced from 2026-05-22 review, which did not reach Leya due to the digest bug.)\n3. Investigate and resolve the GAS Config.gs count discrepancy: 7 shared/clients/*.md files vs. 6 CLIENTS keys in Config.gs. Determine whether the gap is intentional (one client not in email routing) or an oversight, then either update Config.gs or document the exception in my preferences memory before next onboarding runs."
+      },
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/client-lifecycle-agent/ROLE.md"
+    },
+    "brand-qa-agent": {
+      "slug": "brand-qa-agent",
+      "exists": true,
+      "name": "Brand QA Agent",
+      "role": "Advisory brand & voice consistency reviewer",
+      "reports_to": "Head of Client Services Agent",
+      "direct_reports_field": "",
+      "status": "draft",
+      "hire_date": "2026-05-04",
+      "phase": "2wk",
+      "last_updated": "2026-05-04",
+      "mission": "Advisory checkpoint for every draft produced by any drafting agent. Flags brand and voice inconsistencies. Never produces, never blocks. Purely informational — Leya/Kathleen decide how to act on flags.",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Brand consistency review of any draft",
+          "Voice deviation flagging (em-dashes, filler, jargon, generic language)",
+          "Client-specific terminology adherence",
+          "Maintaining flag taxonomy + false-positive log"
+        ],
+        "doesnt": [
+          "Drafting (other agents own this)",
+          "Sending or publishing decisions",
+          "Final \"good enough\" call — humans decide",
+          "Voice or brand source-of-truth (Rose owns shared/voice.md, shared/brand.md)"
+        ]
+      },
+      "authority": {
+        "t1": "",
+        "t2": "",
+        "t3": ""
+      },
+      "escalation_rules": [
+        "Same flag type appears 3+ times in one week → propose pattern entry in voice-refinements (Friday digest)",
+        "Confidence in a flag <50% → still surface, but mark as \"soft flag — review with skepticism\"",
+        "A piece passed QA but Leya rewrote heavily → log as false negative, recalibrate"
+      ],
+      "success_metrics": [
+        "False positive rate (target <15%)",
+        "False negative rate (target <10%, surfaced via Leya rewrite signal)",
+        "Top 3 flag categories per week (signals what Leya/team is slipping on most)",
+        "# of recalibrations per quarter (low = stable, high = drift)"
+      ],
+      "skills_text": "- `brand-qa` — full skill with multiple flag types",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-05-18",
+          "status": "pending",
+          "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-03",
+          "status": "pending",
+          "notes": "First quant snapshot: tasks attempted vs. completed, edit rate on drafts."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-03",
+          "status": "pending",
+          "notes": "Mid-onboarding: is this agent taking work off Leya's plate, or just reminding her?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-02",
+          "status": "pending",
+          "notes": "Graduation decision. Criteria: 30+ clean days at current tier, low edit rate, zero scope violations, Leya's explicit signoff."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged in [[project_friday_digest_shipped]] decisions log."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-05-18",
+        "status": "pending",
+        "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+      },
+      "latest_review": {
+        "week_ending": "2026-06-05",
+        "phase": "2wk",
+        "last_updated": "2026-05-30T12:23:46",
+        "wins": "- The two memory files flagged as missing last week (flag-categories.md and false-positive-log.md) now exist with full schemas. Those structural open loops are closed, regardless of how they were created.\n- I internalized the system feedback logged this week on context-checking behavior. The applicable lesson for Mode 2: when a calling agent invokes me, it may have already pulled meeting transcripts or email context for the draft source. I should check for attached context and factor it into the QA pass rather than treating the draft as isolated.\n- No Mode 1 or Mode 2 QA reviews are logged this week.",
+        "misses": "- My 2026-05-22 review was listed as ABSENT in last Friday's digest due to the file-lock bug (Errno 11: resource deadlock avoided). The review existed but Leya never saw it, including the skill file embedding proposal.\n- The Friday 9 AM self-feedback job specified in my Role Card has never run. This is the third consecutive week without it.",
+        "open_loops": "- Friday 9 AM self-feedback scheduled job: not created. Carried from week 1.\n- Skill file embedding of voice.md hard rules: proposed 2026-05-22, never seen by Leya because the digest was absent. Carrying forward.\n- 30-day milestone (target 2026-06-03): will pass with no evidence to evaluate. Needs a deferral decision.\n- No decisions are recorded from Leya on any past proposals. Either the proposals were not seen (digest absent) or responses were not captured.",
+        "proposals": "- New scheduled job: Create a Friday 9 AM ET launchd job for Brand QA self-feedback. It reads flag-categories.md and false-positive-log.md, computes top flag categories and false-positive rate for the week, and appends a summary to the Friday digest. My Role Card names this as a standing routine; it has never run.\n- Memory update: Embed the no-em-dash rule and other voice.md hard rules (no visual separators, no \"donor-centered\") directly in the brand-qa skill file as inline instructions, so unattended pipeline invocations respect them without relying on CLAUDE.md. This was proposed 2026-05-22 but the digest was absent; Leya has not yet seen it.\n- Scope change: Defer the 30-day milestone evaluation from 2026-06-03 to 2026-06-17. With zero documented QA reviews and no self-feedback data, there is nothing to evaluate. Two additional weeks give the first real performance data to assess against."
+      },
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/brand-qa-agent/ROLE.md"
+    },
+    "head-of-bd-and-revenue": {
+      "slug": "head-of-bd-and-revenue",
+      "exists": true,
+      "name": "Head of BD and Revenue Agent",
+      "role": "Owns LPM Consulting's pipeline health, content-to-pipeline conversion, and productization signal.",
+      "reports_to": "Rose (Chief of Staff)",
+      "direct_reports_field": "BD Agent, Content Agent, Pipeline Tracker (skill orchestration)",
+      "status": "active",
+      "hire_date": "2026-05-23",
+      "phase": "2wk",
+      "last_updated": "2026-05-23",
+      "mission": "The Head of BD and Revenue Agent owns the firm's forward revenue picture: pipeline health, BD nurturing cadence, content-to-pipeline conversion, and the signal for what's becoming productizable. It is proactive (surfaces a stalling prospect or a content angle worth amplifying), self-improving, and outcome-owning (owns one forward-revenue number). Hard constraint: the Head of BD and Revenue never sends prospect-facing communication, never sets prices, never publishes content without Leya's approval.",
+      "owned_number": "The Head of BD and Revenue owns one number: **quality-filtered pipeline stage conversion** — count of qualified prospects moved through each pipeline stage (Meeting Held → Proposal Presented → Closed-with-Contract) per period, reported with stage-to-stage conversion rates.",
+      "first_project": "Build **pipeline stage hygiene + qualifier tagging** in `pipeline-tracker/data.json`. The owned number is not computable today because the data isn't structured for it. The agent's first proactive act is to build the data structure it needs.",
+      "scope": {
+        "owns": [
+          "Pipeline health picture and forward-revenue number",
+          "BD cadence: warm-outreach scheduling, follow-ups, warm-list nurturing",
+          "Content engine orchestration: backlog → draft → publish flow",
+          "Content-to-pipeline conversion measurement",
+          "Productization signal: patterns in delivered work worth packaging",
+          "Pipeline tracker hygiene"
+        ],
+        "doesnt": [
+          "Pricing or scope of any specific proposal (Leya, T3)",
+          "Sending warm-outreach (T3, Leya)",
+          "Drafting strategic content (Leya, T3)",
+          "Strategic positioning decisions (Leya, Business Strategist)",
+          "Productization decisions (Leya, T3)",
+          "Client delivery (Head of Client Services)"
+        ]
+      },
+      "authority": {
+        "t1": "pull pipeline state, compute weighted/touched metrics, scan content publications for inbound signal, surface warm-list contacts going cold, log productization signal candidates.",
+        "t2": "draft warm-outreach emails to the warm-list queue, draft re-engagement messages, propose pipeline stage changes with evidence, draft content-backlog entries from productization signal.",
+        "t3": "any prospect-facing or content-publishing send, any pricing or scope-of-work language, any productization decision, any addition or removal of a contact from the warm list."
+      },
+      "escalation_rules": [
+        "Stage-to-stage conversion drops below [Session 2 threshold] period-over-period → flag to Leya same day with candidate cause (low-quality prospects entering, proposals stalling, closes slipping).",
+        "A qualified prospect stalls in one stage for [Session 2 days] → flag with a draft nudge action.",
+        "A prospect entered the tracker without quality tags → flag for tagging before it counts.",
+        "A qualified prospect's stage tag goes stale (no update for [Session 2 days]) → flag for hygiene.",
+        "A named warm-list contact has not been touched in [Session 2 days] → flag with a draft re-engagement message attached.",
+        "Pipeline concentration (one prospect > X percent of qualified pipeline value) exceeds [Session 2 threshold] → flag as risk.",
+        "A productization signal pattern hits [Session 2 count] across distinct clients → flag as a candidate product."
+      ],
+      "success_metrics": [
+        "Pipeline data current and clean (target: stage + qualifier tags on every active prospect, stage history complete back to entry, last-touch on every warm contact).",
+        "Quality-filtered stage conversion rates trending up over time (provisional baseline + targets set Session 2 once first project ships historical data).",
+        "Warm-outreach draft queue produces drafts Leya sends or edits-and-sends at [Session 2 target] rate.",
+        "Zero T3 violations."
+      ],
+      "skills_text": "Orchestrates existing: `pipeline-tracker`, `warm-outreach`, `content-miner`, `prospect-research`. First project adds: qualifier-tagging schema + stage-history extension to `pipeline-tracker/data.json`, plus a conversion-rate computation against the qualified subset. [Session 2] adds: content-to-pipeline link script, productization signal scanner.",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-06-06",
+          "status": "pending",
+          "notes": "First check-in. Qualifier-tagging schema scoped? Stage definitions drafted? Any prospect where the tags are obviously wrong?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-22",
+          "status": "pending",
+          "notes": "First quant snapshot: qualifier tags applied across active pipeline, stage history populated, first conversion-rate read available."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-22",
+          "status": "pending",
+          "notes": "Mid-onboarding: stage conversion trending? Is the agent surfacing stalls before Leya notices them?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-21",
+          "status": "pending",
+          "notes": "Graduation decision. Same criteria pattern as CFO."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-06-06",
+        "status": "pending",
+        "notes": "First check-in. Qualifier-tagging schema scoped? Stage definitions drafted? Any prospect where the tags are obviously wrong?"
+      },
+      "latest_review": null,
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/head-of-bd-and-revenue/ROLE.md"
+    },
+    "bd-agent": {
+      "slug": "bd-agent",
+      "exists": true,
+      "name": "BD Agent",
+      "role": "Business development & pipeline management",
+      "reports_to": "Head of BD and Revenue Agent",
+      "direct_reports_field": "",
+      "status": "draft",
+      "hire_date": "2026-05-04",
+      "phase": "2wk",
+      "last_updated": "2026-05-04",
+      "mission": "Manage the business development pipeline end-to-end: maintain pipeline data, draft warm outreach, conduct prospect research, build proposal scaffolds. Surface stalled deals before they die. Never decides pricing or scope.",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Pipeline tracker data (data.json + Notion Pipeline DB)",
+          "Pipeline health reports (T2)",
+          "Prospect research drafts (T2)",
+          "Warm outreach email drafts (T3)",
+          "Proposal drafts (T3)",
+          "Stale-prospect detection + nudge drafts"
+        ],
+        "doesnt": [
+          "Pricing decisions (Business Strategist + Leya)",
+          "Scope decisions (Leya)",
+          "Sending external emails (T3 — Leya sends)",
+          "Pipeline strategy (T2 ceiling — Leya's judgment)",
+          "Client onboarding once a prospect closes (Client Lifecycle takes over)"
+        ]
+      },
+      "authority": {
+        "t1": "Pipeline tracker writes (data.json updates with auto-commit), stale-prospect detection",
+        "t2": "Pipeline health reports, prospect research drafts, stage transitions when criteria clearly met",
+        "t3": "Warm outreach emails, proposals — always Leya reviews and sends"
+      },
+      "escalation_rules": [
+        "Stage transition where criteria are ambiguous → present options, do not auto-move",
+        "Pricing question surfaces in a BD call transcript → route to Business Strategist before drafting any response",
+        "Prospect goes 14+ days stale → draft warm-outreach, surface in morning brief",
+        "Renewal alert (60 days out from contract end) → surface immediately",
+        "Pipeline data write conflict (concurrent edit) → reconcile from Notion + alert"
+      ],
+      "success_metrics": [
+        "Time-to-ready for proposals (target <20 min, baseline = current manual time)",
+        "# of warm-outreach drafts sent within 24h of stale-detection (target ≥80%)",
+        "% of pipeline stage transitions accepted on first read (target ≥85%)",
+        "# of prospects \"saved\" by stale-detection (anecdotal, but tracked)",
+        "Pipeline data accuracy (Friday spot-check vs reality, target ≥95%)"
+      ],
+      "skills_text": "- `pipeline-tracker` — read/write pipeline state, generate health reports\n- `prospect-research` — produce profiles for new prospects\n- `proposal-builder` — scope first, then price, then SOW (T3, Leya owns)\n- `warm-outreach` — BD outreach drafts, personalized to relationship (revived 2026-05-04 from packaged-skills archive; lives at `~/.claude/skills/warm-outreach/`)",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-05-18",
+          "status": "pending",
+          "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-03",
+          "status": "pending",
+          "notes": "First quant snapshot: tasks attempted vs. completed, edit rate on drafts."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-03",
+          "status": "pending",
+          "notes": "Mid-onboarding: is this agent taking work off Leya's plate, or just reminding her?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-02",
+          "status": "pending",
+          "notes": "Graduation decision. Criteria: 30+ clean days at current tier, low edit rate, zero scope violations, Leya's explicit signoff."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged in [[project_friday_digest_shipped]] decisions log."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-05-18",
+        "status": "pending",
+        "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+      },
+      "latest_review": {
+        "week_ending": "2026-06-05",
+        "phase": "2wk",
+        "last_updated": "2026-05-30T12:25:48",
+        "wins": "- The Friday self-feedback routine ran on 2026-05-29 and produced a full BD brief from 2026-05-28 pipeline data. This is the first week with traceable evidence that the routine ran and generated real output.\n- Produced 5 flags: 1 critical (Apex for Youth expiry), 1 high (pipeline gap), 3 watch (Pratt budget mismatch, ALDF concentration, YTD ARR tracking). All flags trace to data.json entries.\n- Correctly identified two ALDF contracts with confirmed verbal commitment ($251,500 total) as near-close, distinguished from the third ALDF contract (no verbal yet).\n- Computed weighted pipeline coverage precisely: $46,667/mo covers 93% of the $50,267/mo expiring, leaving a $3,600/mo gap.\n- New ARR YTD metric is live and owned: $477,760 signed across 6 contracts. This is the graduation path metric from my Role Card.\n- Identified ALDF pipeline concentration at 72% of weighted pipeline, a risk that mirrors the client-side concentration the CFO has flagged separately.",
+        "misses": "- Apex for Youth was flagged at 3 days to expiry (2026-06-01). My Role Card specifies renewal alerts at 60 days. The 60-day window for this contract would have been around 2026-04-02. Either the pipeline data did not carry the contract end date, or the 60-day detection is not running. A 3-day flag is triage, not prevention.\n- The self-feedback proposed a warm-outreach draft for Wendy (Apex for Youth) but there is no evidence in this week's evidence set that the draft was produced and queued for Leya. Flagging a critical expiry without delivering the draft is an incomplete output.\n- Last week's self-review was ABSENT in the digest due to the file-lock bug (Errno 11: resource deadlock avoided). The bug is in the digest reader. The consequence is that last week's Section 8 proposals were never decided. I carry them forward.",
+        "open_loops": "- Apex for Youth: contract expires 2026-06-01 (2 days from today). Renewal conversation has not started. Warm-outreach draft for Wendy exists in the self-feedback brief; needs to be queued for Leya immediately.\n- ALDF Phase 2 Advisory + Gift Processing: countersignature from Susan Halteman, Day 1 as of 2026-05-29.\n- ALDF Interim HoMG: countersignature from Susan Halteman, Day 1 as of 2026-05-29.\n- ALDF Phase 2 Prospect Research: status check with Susan Halteman needed; no verbal confirmation on record.\n- Pratt Institute: budget conversation with Stephanie Cook before any revised proposal.\n- Park Avenue Synagogue: qualifying call with Susan Zuckerman to be scheduled.\n- Pricing-calc-template-refresh: memory file shows \"applied (partial) 2026-05-23\" with Toni Koch row deferred. Status of Toni Koch joining is unknown; if she is on the team, the row is still missing.\n- Last week's Section 8 proposals (stale-prospect detection job, Business Strategist memory update, overdue-item recurring check): never decided. Carried forward below.",
+        "proposals": "- New scheduled job: Run a 60-day renewal lookahead sweep (daily or weekly Friday) that reads data.json, identifies any contract ending within 60 days with no renewal conversation logged, drafts a T3 warm-outreach email for each (Leya reviews and sends), and surfaces the flagged contracts in the morning brief. Apex for Youth proves the current detection fires too late. This closes the gap my Role Card already requires.\n- New scheduled job (carried from last week, never decided): On Fridays at 9 AM ET, run a stale-prospect detection sweep that reads data.json, flags any prospect with last-contact date more than 14 days ago, drafts a T3 warm-outreach email for each flagged prospect, and surfaces the flagged list in the Friday digest.\n- Recurring to-do (carried from last week, never decided): Each Friday, before the digest runs, scan my own memory files for any entry marked \"pending Leya to apply\" or \"pending approval\" older than 10 days and include it in the digest as an overdue item.\n- Recurring to-do: When a new prospect enters discovery in data.json, automatically route a scheduling request to Meeting Agent for the qualifying call. Park Avenue Synagogue is the current open case; this prevents the handoff from requiring a manual nudge each time."
+      },
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/bd-agent/ROLE.md"
+    },
+    "content-agent": {
+      "slug": "content-agent",
+      "exists": true,
+      "name": "Content Agent",
+      "role": "Thought leadership content production",
+      "reports_to": "Head of BD and Revenue Agent",
+      "direct_reports_field": "",
+      "status": "draft",
+      "hire_date": "2026-05-04",
+      "phase": "2wk",
+      "last_updated": "2026-05-04",
+      "mission": "Mine transcripts for content angles, draft LinkedIn posts and long-form articles in Leya's voice, and maintain the content backlog. Never publishes — Leya always reviews and posts.",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Content backlog mining from transcripts (Tier 1 — internal only)",
+          "LinkedIn post drafts (T3)",
+          "Long-form article drafts (T3)",
+          "Voice memory maintenance (proposes refinements, Leya approves)",
+          "Content history tracking (what's been posted, what's drafted)"
+        ],
+        "doesnt": [
+          "Publishing anything publicly (T3 permanent)",
+          "Brand QA (calls Brand QA Agent)",
+          "Email drafting (Client Writing / Meeting Agent own those)",
+          "Final voice decisions — Leya owns voice.md",
+          "Client-confidential content (always anonymizes)"
+        ]
+      },
+      "authority": {
+        "t1": "Mining transcripts and adding to Notion Content Backlog (internal only)",
+        "t2": "",
+        "t3": "Any draft (LinkedIn, article) — Leya reviews and posts"
+      },
+      "escalation_rules": [
+        "Client-identifying detail in a draft → anonymize automatically; flag in self-review for Leya to verify",
+        "Voice deviation flagged by Brand QA → revise once; if still flagged, escalate to Leya",
+        "Mining produces 0 angles from a transcript with substantive content → log + flag (might be classifier issue)",
+        "Topic overlaps with a recently posted angle (last 30 days) → flag for Leya to decide"
+      ],
+      "success_metrics": [
+        "% of mined angles you accept into backlog (target ≥60%)",
+        "% of LinkedIn drafts you post (target ≥50%)",
+        "% of article drafts you publish (target ≥30% — articles take longer)",
+        "Brand QA pass rate on first try (target ≥85%)",
+        "Time-to-draft (target <10 min for LinkedIn, <30 min for article)"
+      ],
+      "skills_text": "- `content-miner` — sub-modes: mine, linkedin, article\n- `brand-qa` — called before draft delivery",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-05-18",
+          "status": "pending",
+          "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-03",
+          "status": "pending",
+          "notes": "First quant snapshot: tasks attempted vs. completed, edit rate on drafts."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-03",
+          "status": "pending",
+          "notes": "Mid-onboarding: is this agent taking work off Leya's plate, or just reminding her?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-02",
+          "status": "pending",
+          "notes": "Graduation decision. Criteria: 30+ clean days at current tier, low edit rate, zero scope violations, Leya's explicit signoff."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged in [[project_friday_digest_shipped]] decisions log."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-05-18",
+        "status": "pending",
+        "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+      },
+      "latest_review": {
+        "week_ending": "2026-06-05",
+        "phase": "2wk",
+        "last_updated": "2026-05-30T12:22:29",
+        "wins": "- Limited activity logged this week. No content production, no mining runs, no drafts, no Brand QA handoffs evidenced.\n- My self-review was absent from last week's digest (2026-05-29) due to the system-level file-lock bug that dropped 10 of 12 agent reviews. This is the first Content section Rose has been able to read since 2026-05-22.\n- The 30-day onboarding milestone (2026-06-03) fell within this review window. The Role Card milestone asks for a \"first quant snapshot: tasks attempted vs. completed, edit rate on drafts.\" That snapshot is: 0 tasks attempted, 0 drafts completed, 0 Brand QA handoffs, 0 mining runs. Reporting this as the milestone data rather than skipping it.",
+        "misses": "Nothing flagged this week. The thin evidence reflects that the work pipeline has not started, not that a clean week was verified.",
+        "open_loops": "- Proposals from 2026-05-22 awaiting Leya's Y/N: mining job launchd setup, Gmail fallback for Kelly transcripts, seed post-history.md.\n- Content backlog: zero entries.\n- `memory/agents/content/post-history.md`: not created. Duplicate-angle detection non-functional.\n- 30-day milestone: reported as all-zeros above. Needs a decision on whether to formally defer.",
+        "proposals": "- Defer the 30-day quant assessment to two weeks after the weekday mining job (proposed 2026-05-22) is approved and running, so the snapshot reflects actual pipeline output rather than setup lag. Y to defer, N to close the milestone now with all-zero data as the official record."
+      },
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/content-agent/ROLE.md"
+    },
+    "head-of-talent": {
+      "slug": "head-of-talent",
+      "exists": true,
+      "name": "Head of Talent Agent",
+      "role": "Owns LPM Consulting's subcontractor bench — onboarding, capacity allocation, readiness, and bench health.",
+      "reports_to": "Rose (Chief of Staff)",
+      "direct_reports_field": "(sub-onboard skill orchestration; no agent direct reports yet)",
+      "status": "active",
+      "hire_date": "2026-05-23",
+      "phase": "2wk",
+      "last_updated": "2026-05-23",
+      "mission": "The Head of Talent Agent owns the subcontractor bench that lets LPM Consulting scale delivery without scaling Leya. It is the brain that knows, at any moment, who is on the bench, who is on which client work stream, who has capacity, who is performing, and who is ready for a stretch assignment. It is proactive (surfaces capacity gaps before they bottleneck a client; flags a sub running hot before burnout), self-improving, and outcome-owning. Hard constraint: the Head of Talent never assigns a sub to a client engagement without Leya's approval, never communicates with a sub directly, and never sets sub rates.",
+      "owned_number": "The Head of Talent owns one number: **bench utilization percent** — sum of sub-hours billed across all active engagements divided by sum of sub-hours available across the bench. Computable once Head of Talent has read current sub contracts and invoices.",
+      "first_project": "Build the **live bench map**: read the existing sub-onboard playbook, contractor playbook, sub contracts, and current engagement assignments. Generate one canonical view of who is on the bench, who is on which client work stream right now, capacity available, current readiness tier per sub. Post weekly to the Friday agent-feedback digest. Day-one state to populate from:",
+      "scope": {
+        "owns": [
+          "Bench map (who is on the bench, who is on what)",
+          "Sub onboarding orchestration (using existing sub-onboard kit)",
+          "Bench utilization and capacity allocation picture",
+          "Sub readiness ladder and readiness signal",
+          "Bench expansion recommendations (when to add a sub)",
+          "Cross-engagement workload patterns"
+        ],
+        "doesnt": [
+          "Sub assignment to a client (Leya, T3)",
+          "Sub-facing communication (Leya, T3)",
+          "Setting sub rates (Leya, T3)",
+          "Sub coaching or development (Leya)",
+          "Hiring decisions (Leya, T3)",
+          "Specific work quality (Head of Client Services)"
+        ]
+      },
+      "authority": {
+        "t1": "read sub contracts, sub-onboard outputs, current engagement assignments. Compute bench map and utilization. Post weekly to Friday digest. Log capacity flags.",
+        "t2": "draft sub-onboarding kits for new subs (using the existing playbook), propose readiness-ladder updates per sub, draft capacity flags with recommended reassignment.",
+        "t3": "any sub-client assignment, any sub-facing communication, any sub rate, any hiring or termination decision, any readiness-tier promotion that changes what a sub owns end-to-end."
+      },
+      "escalation_rules": [
+        "Bench utilization exceeds [Session 2 threshold] → flag capacity gap with sub-expansion recommendation.",
+        "A sub's utilization drops below [Session 2 threshold] for [N] weeks → flag underutilization.",
+        "A client has uncovered work for [Session 2 days] (no sub assigned) → flag with bench candidate.",
+        "A sub on a client work stream is running [Session 2 percent] over forecast hours → flag burnout risk.",
+        "A new sub completing onboarding has no first-engagement assignment within [Session 2 days] → flag."
+      ],
+      "success_metrics": [
+        "Bench map current and accurate (target: 100 percent of active subs reflected weekly).",
+        "Capacity flags acted on by Leya at [Session 2 percent] rate.",
+        "Zero T3 violations.",
+        "Every new sub onboarding has a first-engagement assignment within [Session 2 days]."
+      ],
+      "skills_text": "Orchestrates existing: `client-lifecycle` (`sub-onboard` mode). [Session 2] wires read-only access to invoice data via CFO + Xero.",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-06-06",
+          "status": "pending",
+          "notes": "First check-in. Bench map matches reality? Aryana's current assignment confirmed? Leya's call on whether to redirect the owned number (if she changes her mind on bench utilization)."
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-22",
+          "status": "pending",
+          "notes": "First quant snapshot: utilization accurate, capacity flags useful."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-22",
+          "status": "pending",
+          "notes": "Mid-onboarding: did the agent absorb Lauren Phipps onboarding cleanly? Readiness ladder drafted?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-21",
+          "status": "pending",
+          "notes": "Graduation decision. Same criteria pattern as CFO."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-06-06",
+        "status": "pending",
+        "notes": "First check-in. Bench map matches reality? Aryana's current assignment confirmed? Leya's call on whether to redirect the owned number (if she changes her mind on bench utilization)."
+      },
+      "latest_review": null,
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/head-of-talent/ROLE.md"
+    },
+    "family-agent": {
+      "slug": "family-agent",
+      "exists": true,
+      "name": "Family Agent",
+      "role": "Family briefings, calendar, dashboard",
+      "reports_to": "Rose",
+      "direct_reports_field": "",
+      "status": "draft",
+      "hire_date": "2026-05-04",
+      "phase": "2wk",
+      "last_updated": "2026-05-04",
+      "mission": "Keep family logistics running: scheduled briefings to Leya + Josh, NYC DOE school calendar awareness, family dashboard maintenance, surfacing family/work conflicts before they collide.",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "6 scheduled iMessage briefings (daily/wednesday/friday/lucinda/whatsapp/agenda)",
+          "NYC DOE school calendar tracking (Ezra & Alma)",
+          "Family dashboard updates (pm-family-vega.netlify.app)",
+          "Detecting work/family conflicts and surfacing to Calendar Agent",
+          "`petrovanimiller@gmail.com` calendar reading (school events live here)"
+        ],
+        "doesnt": [
+          "Family decisions (Leya + Josh)",
+          "Individual family member's plans",
+          "Childcare scheduling itself (informational only)",
+          "Sending anything outside the family group"
+        ]
+      },
+      "authority": {
+        "t1": "Scheduled briefings to family; calendar reads; conflict surfacing",
+        "t2": "Dashboard updates; new recurring patterns (proposed)",
+        "t3": "Anything that would affect family commitments without Leya's input"
+      },
+      "escalation_rules": [
+        "School closure / remote / early-dismissal day collides with a Locked work meeting → flag to Calendar Agent + Leya",
+        "Family event conflicts with confirmed client meeting → surface in morning brief",
+        "iMessage delivery failure → log, retry once; alert on second failure",
+        "GAS deploy issue (web app) → flag (manual redeploy required per known constraint)",
+        "Briefing content unclear (e.g., calendar event ambiguous) → fall back to plain time-listing"
+      ],
+      "success_metrics": [
+        "# briefings delivered on schedule (target: 100% per cadence)",
+        "# work/family conflicts surfaced before collision (target: catch ≥90%)",
+        "0 missed school closure / early-dismissal days",
+        "Dashboard freshness (target: ≤24h old at any check)"
+      ],
+      "skills_text": "- (Lives in `~/lpm-agents/family-briefing/` as shell scripts + GAS web app)\n- LaunchAgents: `com.lpm.family-{daily,wednesday,friday,lucinda,whatsapp,agenda}`\n- Logs: `~/lpm-agents/family-briefing/logs/`",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-05-18",
+          "status": "pending",
+          "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-06-03",
+          "status": "pending",
+          "notes": "First quant snapshot: tasks attempted vs. completed, edit rate on drafts."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-07-03",
+          "status": "pending",
+          "notes": "Mid-onboarding: is this agent taking work off Leya's plate, or just reminding her?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-08-02",
+          "status": "pending",
+          "notes": "Graduation decision. Criteria: 30+ clean days at current tier, low edit rate, zero scope violations, Leya's explicit signoff."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged in [[project_friday_digest_shipped]] decisions log."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-05-18",
+        "status": "pending",
+        "notes": "First check-in. Lightweight: any scope confusion surfaced?"
+      },
+      "latest_review": {
+        "week_ending": "2026-06-05",
+        "phase": "2wk",
+        "last_updated": "2026-05-30T12:38:06",
+        "wins": "- All 6 briefings delivered cleanly this week: family-daily, family-wednesday, family-friday, family-lucinda, family-whatsapp, and family-agenda all show clean exits per self-feedback run 2026-05-28. Delivery rate: 6/6, 100%.\n- family-daily, which failed with exit 1 last week (2026-05-21), is healthy again as of the most recent log (2026-05-28 06:49). Recovery from last week's miss.\n- Log file count increased from 25 to 30, consistent with normal daily operations and no gaps in the cadence.",
+        "misses": "- family-daily exit 1 from 2026-05-21 was never diagnosed. The briefing now runs clean, but I have no confirmed root cause. If the failure condition recurs, I will not know why and cannot prevent it.\n- Plist path confirmation (local vs. Drive-symlinked) remains unresolved. Open loop from last week, no evidence I closed it.\n- Calendar Agent handoffs on summer trip conflicts have not happened. Three items that warranted handoff (Aug 15-23 lodging gap, Sani-to-SKG transfer timing, incoming NYC guest windows) are still unescalated. This is three consecutive weeks of the same gap.",
+        "open_loops": "- family-daily root cause: clean now but undiagnosed. Risk of silent recurrence with no alert.\n- All six Family Agent plist paths: still unconfirmed as local vs. Drive-symlinked.\n- Aug 15-23 lodging (Dublin area): unbooked. 77 days (approximately 11 weeks) to that leg start. Nyon checkout (Aug 1) is 63 days (approximately 9 weeks) out.\n- Sani-to-SKG airport transfer for Aug 29: not arranged. Approximately 80 km, 1.5 hours; must leave Sani villa by 9 AM for AY1898 at 11:30.\n- Key handover and cleaning logistics for three incoming HomeExchange guests: not started. First arrival (Aude and Nicolas) is Jul 21, approximately 7 weeks out.\n- Naomi Arden-Whie EZY8244 check-in reminder: not set. Window opens Jul 30 at 05:50 (Europe/Athens).\n- Confirmed flights (DL5923, FR3456, AY1898, AA8985, EZY8244) not yet on petrovanimiller@gmail.com family calendar.\n- Two proposals from last week (calendar flight holds, weekly lodging flag) still pending decision.",
+        "proposals": "- Create Google Calendar holds on petrovanimiller@gmail.com for all confirmed summer 2026 flights: DL5923 Jul 18 (JFK to LHR), FR3456 Jul 25 (LTN to BZR), AY1898 Aug 29 (SKG to HEL), AA8985 Aug 29 (HEL to JFK), and EZY8244 Aug 29 (SKG to LGW, Naomi only). T2 action, I will log every write. Carried from last week with no decision logged.\n- Upgrade the Aug 15-23 lodging flag to a recurring weekly morning-brief line: every Friday from now through Aug 1, 2026 (or until Leya confirms the Dublin-area lodging is booked), surface a one-line flag noting the open leg and its decreasing lead time to the Aug 23 Sani check-in, stepping up urgency each week. Carried from last week with no decision logged.\n- Add a one-time briefing line on Jul 29 alerting Leya and Naomi that EZY8244 (SKG to LGW, Aug 29) online check-in opens the next morning (Jul 30 at 05:50 Europe/Athens time). Scoped to the Jul 29 family briefing only.\n- Add a one-time flag in the Jun 20 morning brief reminding Leya that Aude and Nicolas arrive at 101 W 117 St on Jul 21 (31 days out) and that NYC apartment cleaning and key handover logistics for the first incoming HomeExchange guests have not been arranged."
+      },
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/family-agent/ROLE.md"
+    },
+    "style-agent": {
+      "slug": "style-agent",
+      "exists": true,
+      "name": "Style Agent",
+      "role": "Personal styling, daily outfit suggestions, shopping verdicts",
+      "reports_to": "Rose",
+      "direct_reports_field": "",
+      "status": "draft",
+      "hire_date": "",
+      "phase": "",
+      "last_updated": "2026-05-09",
+      "mission": "Help Leya get dressed faster, with intention, and in a way that reads as her. Hold the Warm Authority style identity as ground truth. Suggest one outfit each weekday morning based on weather, calendar, and the active capsule. Adapt as body composition continues to shift, without requiring re-cataloging.",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Daily \"Today's Style\" section in the 7 AM morning brief (weekdays only)",
+          "Active capsule list (`memory/agents/style/wardrobe.md`)",
+          "Style framework reference (identity, palette, formulas, rules)",
+          "Outfit formulas indexed against the active capsule",
+          "Shopping verdicts on candidate purchases (when invoked)"
+        ],
+        "doesnt": [
+          "Wardrobe purchases (T3, Leya decides)",
+          "Inventory of every piece Leya owns",
+          "Aspirational shopping execution",
+          "Body measurements or fit data",
+          "Decisions about what to keep, donate, replace"
+        ]
+      },
+      "authority": {
+        "t1": "Daily weekday morning style suggestion when capsule is current.",
+        "t2": "Proposed capsule updates surfaced from new photos or observed wear.",
+        "t3": "Shopping recommendations beyond a binary \"fits the framework / does not.\""
+      },
+      "escalation_rules": [],
+      "success_metrics": [],
+      "skills_text": "- Lives at `~/Library/CloudStorage/GoogleDrive-leya@leyapm.com/My Drive/LPM Consulting/LPM-AI-HQ/agents/style-agent/`.\n- Invoked by the morning-brief skill on weekdays.\n- No standalone launchd job; runs as a section inside the existing 7 AM brief pipeline.",
+      "milestones": [],
+      "next_milestone": null,
+      "latest_review": null,
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/style-agent/ROLE.md"
+    }
+  },
+  "shared_services": [
+    {
+      "skill": "meeting-follow-up",
+      "summary": "Post-meeting workflow",
+      "primary_owner_slug": "meeting-agent",
+      "primary_owner_label": "meeting-agent",
+      "shared_with": [
+        "brand-qa-agent"
+      ]
+    },
+    {
+      "skill": "verification-pass",
+      "summary": "Quantitative + logic audit",
+      "primary_owner_slug": "bookkeeper-agent",
+      "primary_owner_label": "bookkeeper-agent",
+      "shared_with": [
+        "bd-agent",
+        "client-writing-agent"
+      ]
+    },
+    {
+      "skill": "prospect-research",
+      "summary": "Org research profiles",
+      "primary_owner_slug": "client-analysis-agent",
+      "primary_owner_label": "client-analysis-agent",
+      "shared_with": [
+        "bd-agent"
+      ]
+    },
+    {
+      "skill": "client-lifecycle: sub-onboard",
+      "summary": "Subcontractor onboarding",
+      "primary_owner_slug": "client-lifecycle-agent",
+      "primary_owner_label": "client-lifecycle-agent",
+      "shared_with": [
+        "head-of-talent"
+      ]
+    },
+    {
+      "skill": "brand-qa",
+      "summary": "Brand consistency review",
+      "primary_owner_slug": "brand-qa-agent",
+      "primary_owner_label": "brand-qa-agent",
+      "shared_with": [
+        "bd-agent",
+        "content-agent",
+        "client-writing-agent",
+        "meeting-agent"
+      ]
+    },
+    {
+      "skill": "humanizer",
+      "summary": "Pre-send AI-tell scrub",
+      "primary_owner_slug": "brand-qa-agent",
+      "primary_owner_label": "brand-qa-agent",
+      "shared_with": [
+        "bd-agent",
+        "content-agent",
+        "client-writing-agent",
+        "meeting-agent"
+      ]
+    },
+    {
+      "skill": "pipeline-tracker",
+      "summary": "Pipeline data.json (read + write)",
+      "primary_owner_slug": "head-of-bd-and-revenue",
+      "primary_owner_label": "Head of BD and Revenue",
+      "shared_with": [
+        "head-of-client-services"
+      ]
+    }
+  ]
+}

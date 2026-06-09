@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Org Chart · LPM Consulting</title>
+  <link rel="icon" href="assets/Fav_Blue.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-screen-label="01 Org Chart">
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="LPM Consulting">
+      <img src="assets/Long_Blue.png" alt="LPM Consulting" height="22">
+    </a>
+    <nav class="topbar-meta">
+      <span class="eyebrow">Internal · Session 1 · 2026-05-23</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span id="meta-generated" class="topbar-time">Loading…</span>
+    </nav>
+  </header>
+
+  <main class="page">
+
+    <section class="hero">
+      <p class="eyebrow">Agent operations</p>
+      <h1 class="hero-title">LPM Consulting Org Chart</h1>
+      <p class="lead">Solid lines are reporting. Skills and Agents that cross teams have dotted line connections.</p>
+      <div class="hero-toolbar" role="toolbar" aria-label="Chart controls">
+        <button id="lens-toggle" type="button" class="lens-btn" aria-pressed="false">
+          <span class="lens-dot" aria-hidden="true"></span>
+          <span class="lens-label">Accountability lens</span>
+          <span class="lens-hint">off</span>
+        </button>
+        <button id="matrix-toggle" type="button" class="ghost-btn" aria-pressed="false">
+          <span>Show matrix view</span>
+        </button>
+        <div class="hero-tally" aria-live="polite">
+          <span><strong id="tally-agents">…</strong> agents</span>
+          <span><strong id="tally-skills">…</strong> skills</span>
+          <span><strong id="tally-shared">…</strong> shared</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart-wrap" id="chart-wrap" aria-label="Org chart">
+      <svg class="dotted-overlay" id="dotted-overlay" aria-hidden="true"></svg>
+      <div class="chart" id="chart">
+        <div class="loading">Loading chart…</div>
+      </div>
+    </section>
+
+    <section class="matrix-section" id="matrix-section" hidden aria-label="Accountability matrix">
+      <header class="matrix-head">
+        <p class="eyebrow">Lens · matrix view</p>
+        <h2 class="h2 matrix-h">Cross-team accountability, at a glance.</h2>
+        <p class="matrix-sub">Each row is a skill owned by one agent and used by others. Hover a row to highlight it on the chart above.</p>
+      </header>
+      <div id="matrix-grid" class="matrix-grid"><!-- populated --></div>
+    </section>
+
+    <section class="legend-strip">
+      <div class="legend-block">
+        <span class="eyebrow">Onboarding phase</span>
+        <div class="legend-row">
+          <span class="phase-chip phase-pre2wk">pre-2wk</span>
+          <span class="phase-chip phase-2wk">2wk</span>
+          <span class="phase-chip phase-30day">30day</span>
+          <span class="phase-chip phase-60day">60day</span>
+          <span class="phase-chip phase-90day">90day</span>
+          <span class="phase-chip phase-graduated">graduated</span>
+        </div>
+      </div>
+      <div class="legend-block">
+        <span class="eyebrow">Lines</span>
+        <div class="legend-row legend-lines">
+          <span class="legend-line legend-line--solid"><i></i> reporting</span>
+          <span class="legend-line legend-line--dotted"><i></i> accountability (lens)</span>
+        </div>
+      </div>
+      <div class="legend-block">
+        <span class="eyebrow">Card kinds</span>
+        <div class="legend-row legend-cards">
+          <span class="legend-swatch swatch-ceo"></span><span class="legend-text">CEO</span>
+          <span class="legend-swatch swatch-cos"></span><span class="legend-text">Chief of Staff</span>
+          <span class="legend-swatch swatch-exec"></span><span class="legend-text">Executive</span>
+          <span class="legend-swatch swatch-doer"></span><span class="legend-text">Specialist</span>
+          <span class="legend-swatch swatch-bench"></span><span class="legend-text">Human bench</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+          <img src="assets/Fav_Blue.svg" alt="" width="18" height="18">
+          <span class="eyebrow">LPM Consulting · internal</span>
+        </div>
+        <div class="footer-source">
+          source <code>LPM-AI-HQ/agents/*/ROLE.md</code> · regenerated nightly 5am ET
+        </div>
+        <div class="footer-links">
+          <a href="https://leyapm.com" target="_blank" rel="noopener">leyapm.com</a>
+          <a href="mailto:leya@leyapm.com">leya@leyapm.com</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Slide-over panel for agent detail -->
+  <aside id="panel" class="panel" aria-hidden="true">
+    <div class="panel-scrim" data-close-panel></div>
+    <div class="panel-body" role="dialog" aria-labelledby="panel-title">
+      <header class="panel-stickyhead">
+        <button class="panel-close" data-close-panel aria-label="Close panel">&times;</button>
+        <div id="panel-head-inner"></div>
+      </header>
+      <div id="panel-content"><!-- populated on click --></div>
+    </div>
+  </aside>
+
+  <!-- Lens hint that appears when lens is on but nothing selected -->
+  <div id="lens-hint" class="lens-hint-banner" hidden>
+    <span class="eyebrow">Lens active</span>
+    Click any <span class="hint-pill"><span class="shared-glyph">↗</span> shared skill</span> to trace its consumers.
+    <button id="lens-clear" type="button">Reset</button>
+  </div>
+
+  <script src="chart.js"></script>
+</body>
+</html>
