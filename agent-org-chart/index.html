@@ -9,6 +9,27 @@
 </head>
 <body data-screen-label="01 Org Chart">
 
+  <style>
+    .xtracker-nav {
+      display: flex; justify-content: center; gap: 24px;
+      padding: 16px 24px; background: #fff;
+      border-bottom: 2px solid #C5CBFF;
+    }
+    .xtracker-nav a {
+      font-family: 'Work Sans', system-ui, sans-serif;
+      font-size: 13px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1px; text-decoration: none;
+      padding: 6px 20px; border-radius: 999px; color: #888;
+    }
+    .xtracker-nav a.active { background: #384BCF; color: #fff; }
+  </style>
+  <nav class="xtracker-nav">
+    <a href="https://leya-maker.github.io/playground/agent-org-chart/" class="active">Org Chart</a>
+    <a href="https://leya-maker.github.io/lpm-pipeline-tracker/index.html">Pipeline</a>
+    <a href="https://leya-maker.github.io/lpm-pipeline-tracker/pnl.html">P&amp;L Dashboard</a>
+    <a href="https://leya-maker.github.io/playground/time-tracker/">Time</a>
+  </nav>
+
   <header class="topbar">
     <a class="brand" href="#" aria-label="LPM Consulting">
       <img src="assets/Long_Blue.png" alt="LPM Consulting" height="22">
