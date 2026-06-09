@@ -41,6 +41,18 @@
           "summary": "4:30pm end-of-day check-in"
         },
         {
+          "name": "pre-meeting-brief",
+          "summary": "One-page pre-meeting prep"
+        },
+        {
+          "name": "rose-lookahead",
+          "summary": "Proactive lookahead + anticipation"
+        },
+        {
+          "name": "task-steward",
+          "summary": "Notion task hygiene loop"
+        },
+        {
           "name": "email-learning",
           "summary": "Rose-draft → Leya-edit diff loop"
         },
@@ -90,7 +102,20 @@
         "slug": "cfo",
         "name": "CFO Agent",
         "short": "CFO",
-        "skills": [],
+        "skills": [
+          {
+            "name": "cfo-monthly-summary",
+            "summary": "Monthly P&L narrative + variance flags"
+          },
+          {
+            "name": "cfo-proactive-flags",
+            "summary": "Threshold-based financial alerts"
+          },
+          {
+            "name": "cfo-ap-check",
+            "summary": "Subcontractor AP + payment timing"
+          }
+        ],
         "direct_reports": [
           {
             "slug": "bookkeeper-agent",
@@ -243,7 +268,12 @@
         "slug": "head-of-talent",
         "name": "Head of Talent",
         "short": "Talent",
-        "skills": [],
+        "skills": [
+          {
+            "name": "talent-proactive-flags",
+            "summary": "Bench health + pipeline staffing alerts"
+          }
+        ],
         "direct_reports": [
           {
             "slug": "human-bench",
@@ -252,19 +282,23 @@
             "members": [
               {
                 "name": "Kathleen",
-                "engagements": "NABU, Apex, CCC, CreativeMornings (ending soon)"
+                "engagements": "CCC, Apex, ALDF prospect research"
               },
               {
                 "name": "Kelly (via KBC)",
                 "engagements": "ALDF"
               },
               {
-                "name": "Aryana",
-                "engagements": "TBD at 2wk check-in"
+                "name": "Toni Koch",
+                "engagements": "Park City Presents Phase 2"
               },
               {
                 "name": "Lauren Phipps",
-                "engagements": "onboarding pending"
+                "engagements": "ALDF major gifts"
+              },
+              {
+                "name": "Aryana",
+                "engagements": "TBD"
               },
               {
                 "name": "Lauren Stewart",
