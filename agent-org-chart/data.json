@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T08:53:07+00:00",
+  "generated_at": "2026-06-12T14:53:08+00:00",
   "session_locked": "Session 1 (2026-05-23)",
   "spine": {
     "ceo": {
@@ -402,7 +402,10 @@
       },
       "latest_review": null,
       "build_plan_excerpt": null,
-      "source_path": "LPM-AI-HQ/agents/rose/ROLE.md"
+      "source_path": "LPM-AI-HQ/agents/rose/ROLE.md",
+      "status_read": "needs attention",
+      "status_note": "Managing 4 report(s).",
+      "status_week": "2026-06-12"
     },
     "business-strategist-agent": {
       "slug": "business-strategist-agent",
@@ -501,7 +504,10 @@
         "proposals": "1. Add a Friday 9 AM ET launchd job to run my self-feedback routine (per Role Card). Job should write output to the Friday digest payload, following the same pattern as morning-brief and evening-checkin. Rose surfaces the output in Section 8 of the digest.\n\n2. Update my phase field from \"2wk\" to \"30-day\" in my Role Card frontmatter. Both the 2wk (2026-05-18) and 30-day (2026-06-03) milestones have passed as \"pending.\" The 30-day phase is the correct current state and should be reflected so the 60-day milestone (2026-07-03) is properly anchored.\n\n3. Initialize the four memory files my Role Card requires: `memory/agents/business-strategist/decision-history.md`, `pricing-models.md`, `decision-frameworks.md`, and `capacity-history.md`. These are write targets called out in my Role Card and they do not exist. Without them I cannot log decisions or refine frameworks across weeks."
       },
       "build_plan_excerpt": null,
-      "source_path": "LPM-AI-HQ/agents/business-strategist-agent/ROLE.md"
+      "source_path": "LPM-AI-HQ/agents/business-strategist-agent/ROLE.md",
+      "status_read": "needs attention",
+      "status_note": "No outputs logged since hire on 2026-05-04; self-feedback routine has never run and required memory files do not exist.",
+      "status_week": "2026-06-12"
     },
     "calendar-agent": {
       "slug": "calendar-agent",
@@ -604,7 +610,10 @@
         "proposals": "- Add a launchd job (`com.lpm.calendar-self-feedback`) that runs the self-feedback routine every Friday at 9 AM ET, writes results to `memory/agents/calendar/feedback-queue.md`, and surfaces proposed changes in the Friday digest for Leya to approve. This is prescribed in my Role Card and has never had a trigger.\n- Grant me standing authorization to run the self-feedback routine without invocation, scoped to: reading both calendars, writing to `memory/agents/calendar/`, and writing one line to the Friday digest queue. No other autonomous scope added."
       },
       "build_plan_excerpt": null,
-      "source_path": "LPM-AI-HQ/agents/calendar-agent/ROLE.md"
+      "source_path": "LPM-AI-HQ/agents/calendar-agent/ROLE.md",
+      "status_read": "on track",
+      "status_note": "Shipped the summer reset, weekend/double-book guardrails, and NYU freebusy integration cleanly; reply loop on 5 drafts still open.",
+      "status_week": "2026-06-12"
     },
     "meeting-agent": {
       "slug": "meeting-agent",
@@ -703,7 +712,10 @@
         "proposals": "- **Scheduled job: Friday 9 AM self-feedback run.** Per my Role Card, the self-feedback routine is a defined Friday morning step. It currently has no launchd job. Propose adding `com.lpm.meeting-self-feedback.plist` that fires at 9 AM ET every Friday, pulls `draft-attribution.jsonl`, categorizes diffs (clean / light edit / rewrite), and appends a one-paragraph summary to Rose's Friday digest payload. Y/N?\n- **Scheduled job: post-meeting transcript intake sweep, every 2 hours on weekdays.** My Role Card flags \"missing transcript 2h+ after meeting end\" as a failure mode requiring an alert, but no job polls for this. Propose a lightweight launchd job that checks the Granola intake directory against that day's calendar events and alerts Rose if a meeting ended more than 2 hours ago with no corresponding transcript. Y/N?\n- **Memory update: Granola cross-check rule baked into pre-brief contribution logic.** The `feedback_brief_open_loop_verification` rule is now in system feedback memory, but it is not yet encoded in my pre-brief contribution step. Propose updating my operating instructions to make the Granola participant-name check a required gate before any \"call X\" item is passed to Rose's brief. Y/N?"
       },
       "build_plan_excerpt": null,
-      "source_path": "LPM-AI-HQ/agents/meeting-agent/ROLE.md"
+      "source_path": "LPM-AI-HQ/agents/meeting-agent/ROLE.md",
+      "status_read": "needs attention",
+      "status_note": "No autonomous transcript processing and the Pratt/Stephanie carry-over miss exposed the missing Granola cross-check; correction now absorbed.",
+      "status_week": "2026-06-12"
     },
     "cfo": {
       "slug": "cfo",
@@ -1893,7 +1905,10 @@
         "proposals": "- **Memory init:** Initialize `memory/agents/family/preferences.md`, `memory/agents/family/recurring-events.md`, and `memory/agents/family/school-calendar.md` with starter content this week. These are required by my Role Card and are currently absent.\n- **Overdue milestone review:** Run the 30-day onboarding milestone check now (target was 2026-06-03). Confirm whether scope confusion has surfaced and whether delivery record to date supports any tier movement.\n- **Self-feedback completeness gate:** Add a recurring Friday to-do that requires all 5 self-feedback items to produce logged output before the digest runs. Delivery health alone is not a complete self-review.\n- **NYC DOE 2026-2027 school calendar:** Confirm whether `memory/reference_nyc_school_calendar_2026_2027.md` exists and is current. If not, create it before September so the school closure conflict-detection function has a source to read."
       },
       "build_plan_excerpt": null,
-      "source_path": "LPM-AI-HQ/agents/family-agent/ROLE.md"
+      "source_path": "LPM-AI-HQ/agents/family-agent/ROLE.md",
+      "status_read": "on track",
+      "status_note": "6/6 briefings delivered with no failures, but only 1 of 5 self-feedback items produced output and required memory files are absent.",
+      "status_week": "2026-06-12"
     },
     "style-agent": {
       "slug": "style-agent",
