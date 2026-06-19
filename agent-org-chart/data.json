@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T07:16:34+00:00",
+  "generated_at": "2026-06-19T13:16:47+00:00",
   "session_locked": "Session 1 (2026-05-23)",
   "spine": {
     "ceo": {
@@ -405,7 +405,7 @@
       "source_path": "LPM-AI-HQ/agents/rose/ROLE.md",
       "status_read": "needs attention",
       "status_note": "Managing 4 report(s).",
-      "status_week": "2026-06-12"
+      "status_week": "2026-06-19"
     },
     "business-strategist-agent": {
       "slug": "business-strategist-agent",
@@ -506,8 +506,8 @@
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/business-strategist-agent/ROLE.md",
       "status_read": "needs attention",
-      "status_note": "No outputs logged since hire on 2026-05-04; self-feedback routine has never run and required memory files do not exist.",
-      "status_week": "2026-06-12"
+      "status_note": "Second consecutive week with zero output and the 60-day milestone is 15 days away.",
+      "status_week": "2026-06-19"
     },
     "calendar-agent": {
       "slug": "calendar-agent",
@@ -611,9 +611,9 @@
       },
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/calendar-agent/ROLE.md",
-      "status_read": "on track",
-      "status_note": "Shipped the summer reset, weekend/double-book guardrails, and NYU freebusy integration cleanly; reply loop on 5 drafts still open.",
-      "status_week": "2026-06-12"
+      "status_read": "quiet",
+      "status_note": "On-demand only and not invoked this week, but Europe trip prep is now 30 days out and unaddressed.",
+      "status_week": "2026-06-19"
     },
     "meeting-agent": {
       "slug": "meeting-agent",
@@ -714,8 +714,8 @@
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/meeting-agent/ROLE.md",
       "status_read": "needs attention",
-      "status_note": "No autonomous transcript processing and the Pratt/Stephanie carry-over miss exposed the missing Granola cross-check; correction now absorbed.",
-      "status_week": "2026-06-12"
+      "status_note": "One draft produced (PCP), heavily rewritten by Leya for stale state and over-recap; corrections codified.",
+      "status_week": "2026-06-19"
     },
     "cfo": {
       "slug": "cfo",
@@ -1907,8 +1907,8 @@
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/family-agent/ROLE.md",
       "status_read": "on track",
-      "status_note": "6/6 briefings delivered with no failures, but only 1 of 5 self-feedback items produced output and required memory files are absent.",
-      "status_week": "2026-06-12"
+      "status_note": "6 of 6 briefings delivered, but items 2 through 5 of the routine and Europe trip prep are still untouched.",
+      "status_week": "2026-06-19"
     },
     "style-agent": {
       "slug": "style-agent",
