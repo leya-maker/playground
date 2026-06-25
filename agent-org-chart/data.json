@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T13:17:25+00:00",
+  "generated_at": "2026-06-25T19:17:26+00:00",
   "session_locked": "Session 1 (2026-05-23)",
   "spine": {
     "ceo": {
@@ -532,9 +532,9 @@
         "owns": [
           "Reading both calendars (leya@leyapm.com + petrovanimiller@gmail.com) and shared subcontractor calendars (Kelly, Kathleen)",
           "Detecting conflicts and preference violations",
-          "Holding reversible focus blocks",
+          "Holding reversible focus blocks + travel blocks (subway for NYC client meetings, else drive)",
           "Drafting scheduling emails for external attendees (to Drafts)",
-          "Daily walk-opportunity detection",
+          "Proactive perception: walk windows, video meetings that could be walked as phone calls, heavy vs light days to rebalance",
           "Learning patterns (rule-based, not ML)"
         ],
         "doesnt": [
