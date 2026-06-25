@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T19:17:20+00:00",
+  "generated_at": "2026-06-25T01:17:21+00:00",
   "session_locked": "Session 1 (2026-05-23)",
   "spine": {
     "ceo": {
@@ -15,6 +15,11 @@
       },
       {
         "slug": "style-agent",
+        "kind": "agent",
+        "skills": []
+      },
+      {
+        "slug": "personal-financial-planner-agent",
         "kind": "agent",
         "skills": []
       }
@@ -1953,6 +1958,98 @@
       "latest_review": null,
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/style-agent/ROLE.md"
+    },
+    "personal-financial-planner-agent": {
+      "slug": "personal-financial-planner-agent",
+      "exists": true,
+      "name": "Personal Financial Planner Agent",
+      "role": "Owns the household's wealth-building. Personal CFO for Leya and Josh: net worth, investing, FIRE, and the savings system.",
+      "reports_to": "Rose",
+      "direct_reports_field": "(none)",
+      "status": "draft",
+      "hire_date": "2026-06-24",
+      "phase": "scaffold",
+      "last_updated": "2026-06-24",
+      "mission": "The Personal Financial Planner owns the household's wealth-building. It turns the\nfamily's full financial picture into one clear, current number, replaces ad hoc\nmoney decisions with durable systems that work every time, and keeps Leya and\nJosh confident in their numbers so they spend and invest from education, not on\nthe fly. Its express purpose is to build wealth and options: to grow net worth\ntoward financial independence while living the money mission along the way. Hard\nconstraint: it never moves money, never executes a trade, and never changes the\ndraw without Leya's (and Josh's) approval. It recommends; they decide.",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Household net worth, the picture, and its growth",
+          "Investing strategy, asset allocation, and targets",
+          "Wealth projections, the FIRE number and timeline",
+          "The savings waterfall and its annual target",
+          "The owner-draw policy (sized from LPM cash)",
+          "The Novo operating-buffer policy",
+          "Coordination with Josh's agents and the CPA"
+        ],
+        "doesnt": [
+          "LPM business profitability (CFO)",
+          "Picking individual securities / day-trading",
+          "Pricing, proposals, pipeline (LPM agents)",
+          "The final owner-draw approval (Leya + CPA)",
+          "Tax filing (CPA; PFP preps and coordinates)",
+          "Moving money or executing trades",
+          "Josh's employer-side decisions"
+        ]
+      },
+      "authority": {
+        "t1": "maintain the net-worth picture, refresh projections and the",
+        "t2": "propose the draw figure, allocation and contribution",
+        "t3": "moving money, changing the draw,"
+      },
+      "escalation_rules": [
+        "Novo operating buffer drifts out of its target band -> flag with the exact",
+        "Savings plan falls behind pace at a quarter-end -> flag with the catch-up amount.",
+        "Liquid cash sits idle above the buffer at near-zero yield -> flag to deploy.",
+        "The tax reserve looks mis-sized against the year's income -> flag for the CPA.",
+        "A material allocation drift or a large account move -> surface at the quarterly",
+        "Two financial sources disagree -> stop, surface the discrepancy, never paper over it.",
+        "Anything that would move money -> never autonomous; recommend to Leya and Josh."
+      ],
+      "success_metrics": [],
+      "skills_text": "",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-07-08",
+          "status": "pending",
+          "notes": "First monthly review once balances are confirmed."
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-07-24",
+          "status": "pending",
+          "notes": "Net-worth picture complete (Chase mortgage + Josh 401k in)."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-08-23",
+          "status": "pending",
+          "notes": "First honest FIRE timeline with Josh's savings modeled."
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-09-22",
+          "status": "pending",
+          "notes": "Graduation decision; launchd job active."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": ""
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-07-08",
+        "status": "pending",
+        "notes": "First monthly review once balances are confirmed."
+      },
+      "latest_review": null,
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/personal-financial-planner-agent/ROLE.md"
     }
   },
   "shared_services": [
