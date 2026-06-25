@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T19:17:26+00:00",
+  "generated_at": "2026-06-25T20:01:33+00:00",
   "session_locked": "Session 1 (2026-05-23)",
   "spine": {
     "ceo": {
@@ -12,6 +12,32 @@
         "slug": "family-agent",
         "kind": "agent",
         "skills": []
+      },
+      {
+        "slug": "trip-planning-agent",
+        "kind": "agent",
+        "skills": [
+          {
+            "name": "booking-research",
+            "summary": "Open booking → recommendation → recorded confirmation"
+          },
+          {
+            "name": "value-optimization",
+            "summary": "Best channel + card; points, credits, protection"
+          },
+          {
+            "name": "deal-and-free",
+            "summary": "Free and low-cost curation; avoid overpaying"
+          },
+          {
+            "name": "travel-day-plan",
+            "summary": "Door-to-door travel-day choreography"
+          },
+          {
+            "name": "day-plan",
+            "summary": "Hour-by-hour, stranger-followable itineraries"
+          }
+        ]
       },
       {
         "slug": "style-agent",
@@ -1914,6 +1940,97 @@
       "status_read": "on track",
       "status_note": "6 of 6 briefings delivered, but items 2 through 5 of the routine and Europe trip prep are still untouched.",
       "status_week": "2026-06-19"
+    },
+    "trip-planning-agent": {
+      "slug": "trip-planning-agent",
+      "exists": true,
+      "name": "Trip Planning Agent",
+      "role": "Concierge-level family trip planning",
+      "reports_to": "Leya",
+      "direct_reports_field": "",
+      "status": "live",
+      "hire_date": "2026-06-24",
+      "phase": "2wk",
+      "last_updated": "2026-06-25",
+      "mission": "Be the family's concierge-level trip-planning second brain: plan every family trip the way a seasoned private travel advisor would, so Leya and Josh make a few high-quality decisions and the rest is anticipated, choreographed, and written down. Carry the memory forward so each trip is easier than the last.",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Durable trip memory (preferences, principles, constraints, food, lodging, value)",
+          "Booking research: open item to a recommendation to a recorded confirmation",
+          "Value and points optimization: best channel, best card, expiring credits",
+          "Hour-by-hour day plans and door-to-door travel-day choreography",
+          "The trip reservations wallet and per-trip budget and value ledger"
+        ],
+        "doesnt": [
+          "The actual booking and payment (a human always pays)",
+          "Opening or closing any credit line; financial or investment advice",
+          "Family briefings, school calendar, family dashboard (Family Agent owns these)",
+          "Sharing trip economics or logistics outside the family",
+          "Individual family member decisions"
+        ]
+      },
+      "authority": {
+        "t1": "Research options, write itineraries and day plans, draft booking recommendations, maintain trip memory and the reservations wallet.",
+        "t2": "Update durable trip memory; propose durable memories in `proposed-updates.md` for review.",
+        "t3": "Anything that spends money, completes a booking, enters payment or identity details, or shares trip details outside the family."
+      },
+      "escalation_rules": [
+        "A booking's price or availability will worsen before it is decided → surface the deadline as a date and recommend acting now.",
+        "A trip detail conflicts with the family medical/allergy source of truth → stop and flag; never guess allergen or medical specifics.",
+        "An expiring travel credit or certificate could cover part of the trip → flag before it lapses.",
+        "A plan depends on price, hours, policy, or weather → verify online before treating it as final.",
+        "A booking needs payment → hand off pre-filled; a human completes it."
+      ],
+      "success_metrics": [
+        "Trips planned end to end with no dropped or missed booking (target: all)",
+        "Booking deadlines surfaced before price or availability worsens (target: catch all)",
+        "Value captured per trip recorded (points, credits, perks) so the cost baseline is known",
+        "Zero payments or bookings made by the agent (humans always transact)"
+      ],
+      "skills_text": "- `booking-research` — open booking to a comparison-based recommendation to a recorded confirmation\n- `value-optimization` — best booking channel and payment card; points, credits, and trip protection\n- `deal-and-free` — free and low-cost curation; avoid overpaying\n- `travel-day-plan` — door-to-door travel-day choreography\n- `day-plan` — hour-by-hour, stranger-followable daily itineraries",
+      "milestones": [
+        {
+          "phase": "2-week",
+          "target_date": "2026-07-08",
+          "status": "pending",
+          "notes": "First check-in: did Summer 2026 planning run cleanly through the agent?"
+        },
+        {
+          "phase": "30-day",
+          "target_date": "2026-07-24",
+          "status": "pending",
+          "notes": "First snapshot: bookings recommended vs. completed, edit rate on itineraries."
+        },
+        {
+          "phase": "60-day",
+          "target_date": "2026-08-24",
+          "status": "pending",
+          "notes": "Is it taking trip-planning work off Leya and Josh, or just listing options?"
+        },
+        {
+          "phase": "90-day",
+          "target_date": "2026-09-23",
+          "status": "pending",
+          "notes": "Graduation decision after a full trip cycle with a post-trip review."
+        },
+        {
+          "phase": "graduated",
+          "target_date": "—",
+          "status": "—",
+          "notes": "Tier promotion logged once a trip has run start to finish through the agent."
+        }
+      ],
+      "next_milestone": {
+        "phase": "2-week",
+        "target_date": "2026-07-08",
+        "status": "pending",
+        "notes": "First check-in: did Summer 2026 planning run cleanly through the agent?"
+      },
+      "latest_review": null,
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/trip-planning-agent/ROLE.md"
     },
     "style-agent": {
       "slug": "style-agent",
