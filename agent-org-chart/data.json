@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T07:17:29+00:00",
+  "generated_at": "2026-06-26T13:17:31+00:00",
   "session_locked": "Session 1 (2026-05-23)",
   "spine": {
     "ceo": {
@@ -434,9 +434,9 @@
       "latest_review": null,
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/rose/ROLE.md",
-      "status_read": "needs attention",
+      "status_read": "on track",
       "status_note": "Managing 4 report(s).",
-      "status_week": "2026-06-19"
+      "status_week": "2026-06-26"
     },
     "business-strategist-agent": {
       "slug": "business-strategist-agent",
@@ -536,9 +536,9 @@
       },
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/business-strategist-agent/ROLE.md",
-      "status_read": "needs attention",
-      "status_note": "Second consecutive week with zero output and the 60-day milestone is 15 days away.",
-      "status_week": "2026-06-19"
+      "status_read": "quiet",
+      "status_note": "Could not triage this week (no result).",
+      "status_week": "2026-06-26"
     },
     "calendar-agent": {
       "slug": "calendar-agent",
@@ -643,8 +643,8 @@
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/calendar-agent/ROLE.md",
       "status_read": "quiet",
-      "status_note": "On-demand only and not invoked this week, but Europe trip prep is now 30 days out and unaddressed.",
-      "status_week": "2026-06-19"
+      "status_note": "Could not triage this week (no result).",
+      "status_week": "2026-06-26"
     },
     "meeting-agent": {
       "slug": "meeting-agent",
@@ -744,9 +744,9 @@
       },
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/meeting-agent/ROLE.md",
-      "status_read": "needs attention",
-      "status_note": "One draft produced (PCP), heavily rewritten by Leya for stale state and over-recap; corrections codified.",
-      "status_week": "2026-06-19"
+      "status_read": "quiet",
+      "status_note": "Could not triage this week (no result).",
+      "status_week": "2026-06-26"
     },
     "cfo": {
       "slug": "cfo",
@@ -1937,9 +1937,9 @@
       },
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/family-agent/ROLE.md",
-      "status_read": "on track",
-      "status_note": "6 of 6 briefings delivered, but items 2 through 5 of the routine and Europe trip prep are still untouched.",
-      "status_week": "2026-06-19"
+      "status_read": "quiet",
+      "status_note": "Could not triage this week (no result).",
+      "status_week": "2026-06-26"
     },
     "trip-planning-agent": {
       "slug": "trip-planning-agent",
