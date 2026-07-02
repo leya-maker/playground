@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T11:45:48+00:00",
+  "generated_at": "2026-07-02T15:09:24+00:00",
   "session_locked": "Session 1 (2026-05-23)",
   "spine": {
     "ceo": {
@@ -123,6 +123,16 @@
               "shared_with": [
                 "brand-qa-agent"
               ]
+            }
+          ]
+        },
+        {
+          "slug": "toby",
+          "kind": "agent",
+          "skills": [
+            {
+              "name": "toby",
+              "summary": "Daily fleet-health scan; findings routed to Rose"
             }
           ]
         }
@@ -434,9 +444,9 @@
       "latest_review": null,
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/rose/ROLE.md",
-      "status_read": "on track",
+      "status_read": "needs attention",
       "status_note": "Managing 4 report(s).",
-      "status_week": "2026-06-26"
+      "status_week": "2026-07-03"
     },
     "business-strategist-agent": {
       "slug": "business-strategist-agent",
@@ -537,8 +547,8 @@
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/business-strategist-agent/ROLE.md",
       "status_read": "quiet",
-      "status_note": "Could not triage this week (no result).",
-      "status_week": "2026-06-26"
+      "status_note": "Second consecutive week of zero output; T3 advisory by design but nothing to evaluate at the 60-day mark (July 3).",
+      "status_week": "2026-07-03"
     },
     "calendar-agent": {
       "slug": "calendar-agent",
@@ -642,9 +652,9 @@
       },
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/calendar-agent/ROLE.md",
-      "status_read": "quiet",
-      "status_note": "Could not triage this week (no result).",
-      "status_week": "2026-06-26"
+      "status_read": "needs attention",
+      "status_note": "Two approvals from 2026-06-21 did not translate into execution, and the pre-departure Europe audit deadline (2026-06-25) was missed.",
+      "status_week": "2026-07-03"
     },
     "meeting-agent": {
       "slug": "meeting-agent",
@@ -745,8 +755,60 @@
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/meeting-agent/ROLE.md",
       "status_read": "quiet",
-      "status_note": "Could not triage this week (no result).",
-      "status_week": "2026-06-26"
+      "status_note": "Self-feedback ran honestly but no drafts were produced and three prior approvals remain unconfirmed as live.",
+      "status_week": "2026-07-03"
+    },
+    "toby": {
+      "slug": "toby",
+      "exists": true,
+      "name": "Toby",
+      "role": "Fleet observer (Rose's deputy)",
+      "reports_to": "Rose",
+      "direct_reports_field": "",
+      "status": "active (daily)",
+      "hire_date": "2026-07-02",
+      "phase": "v1",
+      "last_updated": "2026-07-02",
+      "mission": "Watch the whole LPM agent fleet so it keeps improving on its own. Toby does no external work. Once a day he reviews every job against what actually happened, judges the fleet's health, and hands findings to Rose so problems get caught and fixed before they compound. Modeled on Allie K. Miller's \"Toby\": the internal deputy who reviews the system against decisions, actions, and outcomes.",
+      "owned_number": "",
+      "first_project": "",
+      "scope": {
+        "owns": [
+          "Daily deterministic scan of every job's logs (crashes, timeouts, real auth failures, guard trips, memory drift)",
+          "Delivery health: the send-email retry queue depth and permanent failures",
+          "Tracking how often Leya edits Rose's drafts (a learning signal)",
+          "Routing findings: Rose handles her purview, only must-be-Leya items escalate",
+          "Rendering the weekly fleet-health view into the Friday digest (Band 4)"
+        ],
+        "doesnt": [
+          "Any client-facing or external work",
+          "Fixing the problems himself (Rose triages and acts)",
+          "Judging the quality of deliverables (v2)",
+          "Strategy or business decisions",
+          "Sending any email of his own"
+        ]
+      },
+      "authority": {
+        "t1": "Read every job's logs and state, classify findings, write the daily ledger and weekly summary, route to Rose.",
+        "t2": "Push time-sensitive Leya items onto the morning brief's surfacing queue.",
+        "t3": "Change any job's behavior, apply fixes, send email, or touch client-facing work."
+      },
+      "escalation_rules": [
+        "**Security guard trip or a real auth/token failure** → tag for Leya (Rose cannot resolve her credentials).",
+        "**Mail actively not delivering** (queue not draining, permanent failures) → tag for Leya, time-sensitive → next morning brief.",
+        "**Everything else** (crashes, timeouts, drift, a past delivery error) → Rose triages first, escalates only if stuck."
+      ],
+      "success_metrics": [
+        "Real fleet problems surfaced the day they happen (not weeks later).",
+        "Leya's list stays short: only what genuinely needs her reaches her.",
+        "Fewer silent failures over time as Rose acts on recurring findings."
+      ],
+      "skills_text": "Deterministic fleet-health scan (v1). Roadmap v2: an LLM pass over the findings for quality and strategy review with concrete proposed fixes Rose can auto-apply, and serving as the review layer for the exec team's future overnight proactive pass.",
+      "milestones": [],
+      "next_milestone": null,
+      "latest_review": null,
+      "build_plan_excerpt": null,
+      "source_path": "LPM-AI-HQ/agents/toby/ROLE.md"
     },
     "cfo": {
       "slug": "cfo",
@@ -1937,9 +1999,9 @@
       },
       "build_plan_excerpt": null,
       "source_path": "LPM-AI-HQ/agents/family-agent/ROLE.md",
-      "status_read": "quiet",
-      "status_note": "Could not triage this week (no result).",
-      "status_week": "2026-06-26"
+      "status_read": "needs attention",
+      "status_note": "Briefings 6/6 clean, but structural gaps (memory, conflict surfacing, Europe prep) are unchanged for a second week with July 18 departure 16 days out.",
+      "status_week": "2026-07-03"
     },
     "trip-planning-agent": {
       "slug": "trip-planning-agent",
